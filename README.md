@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/rory81/growing_funds.svg?branch=master)](https://travis-ci.org/rory81/growing_funds)
 
-<img src=".\static\img\main_logo.jpg" alt="logo" height="10%" width="10%">
+<img src=".\static\img\main_logo.jpg" alt="logo" height="25%" width="25%">
 
 # Growing Funds 
 ###### Disclaimer: *this app is made for educational use only.*
