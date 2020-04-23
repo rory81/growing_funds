@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rory81/growing_funds.svg?branch=master)](https://travis-ci.org/rory81/growing_funds)
+
 <img src=".\static\img\main_logo.jpg">
 
 # Growing Funds 
