@@ -119,3 +119,6 @@ The underlining steps are needed to clone this GitHub repository to another loca
 and the Heroku site for a more detailed explanation of some terminology used by Heroku.
 
 - logo picture: https://www.freepik.com/free-vector/piggy-bank-happy-piggy-bank-background_1137678.htm
+- stackoverflow (https://stackoverflow.com/questions/31130706/dropdown-in-django-model)
+- http://gregblogs.com/the-little-things-tlt-django-creating-a-drop-down-list-with-django/
+- https://codepen.io/mahish/pen/RajmQw

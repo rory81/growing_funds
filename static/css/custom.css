@@ -1,0 +1,52 @@
+/*GENERAL*/
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+/*HEADER*/
+.logo_title{
+    font-variant: small-caps;
+    color:#669900;
+    letter-spacing: 1px;
+    font-size: 45px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*MAIN NAVIGATION*/
+.nav-wrapper{
+    background-color:#FF9900;
+}
+.nav-wrapper, nav ul a{
+    font-size: 22px;
+}
+
+/*CATEGORY NAVIGATION*/
+.cat-bar{
+    width:100%;
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+.cat-bar .cat-bar-item{
+    padding:16px 16px;
+    float: left;
+    color: #666666;
+    font-size: 22px;
+}
+hr.bar-end{
+    border-top: 2px solid#669900;
+    margin-top: 0px;
+}
+
+
+
+
+

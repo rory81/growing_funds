@@ -1,0 +1,68 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static 'img/growing_coins.png' %}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<title>Growing Funds</title>
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="row no-gutters">
+		<div class="col-3 picture-logo">
+		<!--The picture as logo with redirect to home-->
+				<img src="{% static 'img/main_logo_small.jpg' %}" alt="logo growing funds">
+		</div>
+		<div class= "col-9 logo_title">Growing Funds</div>
+	</div>
+</div>
+
+<!--Main Navigationbar-->
+<nav>
+	<div class="nav-wrapper sticky-top">
+		<a href="" class="right mr-5">Login</a>
+		<a href="" class="right mr-5">Search</a>
+		<ul class="left ml-3">
+			<li><a href="">Start Project</a></li>
+		</ul>
+	</div>
+</nav>
+<!--End Main Navigationbar-->
+<!--Category bar-->
+<div class="cat-bar sticky-top">
+	<div class="cat-bar-item">Arts</div>
+	<div class="cat-bar-item">Charity</div>
+	<div class="cat-bar-item">Film</div>
+	<div class="cat-bar-item">Food</div>
+	<div class="cat-bar-item">Games</div>
+	<div class="cat-bar-item">Music</div>
+	<div class="cat-bar-item">Publishing</div>
+	<div class="cat-bar-item">Technology</div>
+	<div class="cat-bar-item">Miscellaneous</div>
+</div>
+<hr class="bar-end"></hr>
+<!--End Category bar-->
+
+{% block content %}
+{% endblock %}
+<!--script links-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+		integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
+	</script>
+</body>
+
+</html>

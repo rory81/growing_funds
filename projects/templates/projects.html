@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% block content %}
+    {% for project in projects %}
+        <div class="row">
+            <div class="col-12">
+                <h3>{{ project.title }}</h3>
+                <p> {{ project.description|truncatewords:30 }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
