@@ -30,11 +30,34 @@ After the work on the branch is deemed good enough to be deployed it will be mer
 ## How to create a django project
 To use Django it needs to be installed first, so *pip3 install django==1.11.29* was used to install Django. To create a Django project where the necessary files are immediately created enter *django-admin startproject <name_project> .*
 The '.' in the end is needed so the project is created in the root directory.
-This will automatically create the manage.py file, but isn't necesarily an executable yet. So enter *chmod +x manage.py* in the terminal to flag this file as an executable.
+This will automatically create the manage.py file, but isn't necesarily an executable yet. So enter *chmod +x manage.py* in the terminal to flag this file as an executable. 
 
 To initialize the database enter */manage.py migrate* in the terminal.
 To see if the Django project is setup correctly run the project by using *python3 runserver manage.py* or *./manage.py runserver*. Depending on the IDE you may get an error that there is an invalid HTTP_HOST in ALLOWED_HOSTS. When this occurs go to the folder with your project name (in this case growing_funds) and open the *settings.py* file. Search in this file for the phrase "ALLOWED_HOSTS".
 Enter the address given in the error message in the given brackets, like ALLOWED_HOSTS = ['127.0.0.1'] for instance. When the project is deployed to heroku the heroku address has to be added to this ALLOWED_HOSTS array.
+
+### How to create an app within the main project
+Within one project multiple apps can exists, each with their own urls, models, forms, etc. By adding the urls to the urls.py file in the main project, those apps become integrated in the project.
+
+There are multiple apps in this project:
+- **projects: ** contains everything regarding the content of a crowdfunding page
+- **auth: ** contains everything regarding the authorisation to the page
+- **payment: ** contains everything needed to back a project financially
+
+To add an app to the project enter *./manage.py startapp <Name app>* to the terminal. A directory with the app name will be created in the main directory.
+
+## Django admin backend
+To access the django portal in the browser, simply add */admin* after the main url (like: <your url.com>/admin).
+The portal requests a username and password. This username and password can be created in the terminal by entering *./manage.py createsuperuser*
+
+To be able to see/add/change data from the models in this backend view you need to register the model in the admin.py file.
+So in this case to make the fields/data from the app Projects visible in the backend, I need to add the underlining code to the admin.py file (from the Projects folder):
+
+*from django.contrib import admin*
+*from .models import Project*
+
+*admin.site.register(Project)*
+
 
 
 ## Deployment on Heroku

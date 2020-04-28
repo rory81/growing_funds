@@ -18,27 +18,25 @@
 <body>
 <div class="container-fluid">
 	<div class="row no-gutters">
-		<div class="col-3 picture-logo">
+		<div class="col-3 col-lg-1 picture-logo">
 		<!--The picture as logo with redirect to home-->
 				<img src="{% static 'img/main_logo_small.jpg' %}" alt="logo growing funds">
 		</div>
-		<div class= "col-9 logo_title">Growing Funds</div>
+		<div class= "col-9 col-lg-11 logo_title">Growing Funds</div>
 	</div>
 </div>
 
 <!--Main Navigationbar-->
 <nav>
-	<div class="nav-wrapper sticky-top">
+	<div class="nav-wrapper">
 		<a href="" class="right mr-5">Login</a>
 		<a href="" class="right mr-5">Search</a>
-		<ul class="left ml-3">
-			<li><a href="">Start Project</a></li>
-		</ul>
+		<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
 	</div>
 </nav>
 <!--End Main Navigationbar-->
 <!--Category bar-->
-<div class="cat-bar sticky-top">
+<div class="cat-bar">
 	<div class="cat-bar-item">Arts</div>
 	<div class="cat-bar-item">Charity</div>
 	<div class="cat-bar-item">Film</div>
@@ -47,7 +45,6 @@
 	<div class="cat-bar-item">Music</div>
 	<div class="cat-bar-item">Publishing</div>
 	<div class="cat-bar-item">Technology</div>
-	<div class="cat-bar-item">Miscellaneous</div>
 </div>
 <hr class="bar-end"></hr>
 <!--End Category bar-->

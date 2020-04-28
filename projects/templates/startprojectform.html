@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block content %}
+<div class="container-fluid">
+	<div class="row no-gutters">
+		<div class="col-12 title text-center">
+            <!--Heading Form-->
+            <h1>Start Project</h1>	
+		</div>
+	</div>
+    	<div class="row no-gutters">
+		    <div class="col-9 mx-auto">
+                <form method="POST" enctype="multipart/form-data" class="form-vertical">
+                    {% csrf_token %}
+                    {{ form| as_bootstrap }}
+                    <button type="submit" class="btn right">Publish</button>
+                </form> 	
+            </div>
+	    </div>
+    
+</div>
+  
+{% endblock %}

@@ -4,7 +4,6 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
   }
 
 /*HEADER*/
@@ -19,12 +18,22 @@ body {
     align-items: center;
 }
 
+.title h1{
+    color: #666666;
+    font-variant: small-caps;
+    margin: 20px 0px 50px 0px;
+}
+
 /*MAIN NAVIGATION*/
 .nav-wrapper{
     background-color:#FF9900;
 }
-.nav-wrapper, nav ul a{
+.nav-wrapper{
     font-size: 22px;
+}
+
+a:hover{
+    color: #666666!important;
 }
 
 /*CATEGORY NAVIGATION*/
@@ -46,7 +55,45 @@ hr.bar-end{
     margin-top: 0px;
 }
 
+/*FORMS*/
+label{
+    color: #666666;
+    font-size: 1.5rem;
+}
+
+.btn{
+    border: 2px solid #FF9900!important;
+    color: #666666!important;
+    font-size: 1.2rem!important;
+}
+
+.btn:hover{
+    color: #ffffff!important;
+    background-color: #FF9900;
+}
 
 
+#id_image.form-control{
+    border: none;
+    padding-left: 0px;
+}
 
+.form-control:focus{
+    border-color: #669900!important;
+    border-width: 2px;
+    box-shadow: none!important;
+}
+
+input.form-control{
+    font-size: 18px!important;
+}
+
+input:focus{
+    border-bottom: 2px solid #669900!important;
+}
+
+
+.form-group{
+    margin-bottom: 30px!important;
+}
 

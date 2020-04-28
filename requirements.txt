@@ -1,10 +1,13 @@
 Click==7.0
 Django==1.11.29
+django-forms-bootstrap==3.1.0
+django-money==1.1
 dnspython==1.16.0
 itsdangerous==1.1.0
 Jinja2==2.11.1
 MarkupSafe==1.1.1
 Pillow==7.1.1
+py-moneyed==0.8.0
 pymongo==3.10.1
 pytz==2019.3
 Werkzeug==1.0.0
