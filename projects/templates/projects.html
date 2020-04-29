@@ -3,8 +3,14 @@
     {% for project in projects %}
         <div class="row">
             <div class="col-12">
+                <div style="background-image:url({{ MEDI_URL }}{{ project.image }})"></div>
                 <h3>{{ project.title }}</h3>
+                <p><i>{{project.category}}</i></p>
+                <p><strong><i>{{project.goal}}</i></strong></p>
                 <p> {{ project.description|truncatewords:30 }}</p>
+                <p> {{ project.backers_story|truncatewords:30 }}</p>
+                <p>{{project.end_date}}</p>
+                <p>{{project.raised}}/{{project.goal}}</p>
             </div>
         </div>
     {% endfor %}
