@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 CATEGORIES = (
     ('ARTS','Arts'),
@@ -22,11 +23,12 @@ class Project(models.Model):
     category = models.CharField(max_length=9, choices=CATEGORIES)
     description = models.TextField(max_length=5000)
     backers_story = models.TextField(max_length=5000)
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateField(default=datetime.now)
     views = models.IntegerField(default=0)
-    goal = models.DecimalField(max_digits=9, decimal_places=2, default=0)
-    end_date = models.DateField(default=timezone.now)
-    raised = models.DecimalField(max_digits=9, decimal_places=2, default=0)
+    goal = models.IntegerField(default=0)
+    end_date = models.DateField(default=datetime.now)
+    num_days = models.IntegerField(default=0)
+    raised = models.IntegerField(default=0)
     percentage = models.DecimalField(max_digits=9, decimal_places=1, default=0)
 
     def __unicode__(self):

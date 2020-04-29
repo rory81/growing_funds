@@ -98,3 +98,16 @@ input:focus{
 }
 
 /*PROJECT DETAILS*/
+.project_image{
+
+    width: 100%;
+    height: 100%;
+}
+
+.fa-coins{
+    color:#FF9900!important;
+}
+
+.subtext{
+    color: #666666;
+}

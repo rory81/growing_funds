@@ -1,3 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="row no-gutters">
+    <div class="col-6  mx-auto mt-5">
+    {% if project.image %}
+        <img class="project_image" src="{{ MEDIA_URL }}{{ project.image }}">
+    {% endif %}
+    </div>
+</div>
+<div class="row no-gutters">
+    <div class="col-12  text-center mt-5">
+        <h3>{{ project.title }}</h3>
+        <p><i>{{project.category}}</i></p>
+    </div>              
+</div>
+<div class="row no-gutters">
+    <div class="col-4  text-center">
+        <p><strong><i class="fas fa-dollar-sign"></i> {{ project.raised }} <i class="fas fa-coins"></i></strong></p>
+        <p class="subtext">end goal: <i class="fas fa-dollar-sign"></i> {{project.goal}}</p>
+    </div>
+        <div class="col-4  text-center">
+        <p><strong>XXX</strong></p>
+        <p class="subtext">backers</p>
+    </div>
+        <div class="col-4  text-center">
+        <p><strong>{{ project.num_days }} </strong></p>
+        <p class="subtext">days left</p>
+    </div>        
+</div>
+
 {% endblock %}

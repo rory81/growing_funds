@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+import datetime
 from .models import Project
 from .forms import StartProjectForm
 
@@ -19,6 +20,7 @@ def project_detail(request, pk):
     """
     project = get_object_or_404(Project, pk=pk)
     project.views += 1
+    project.num_days = (abs(project.created_date - project.end_date)).days
     project.save()
     return render(request, 'projectdetail.html', {'project': project})
 
