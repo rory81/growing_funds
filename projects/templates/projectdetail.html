@@ -21,11 +21,34 @@
         <div class="col-4  text-center">
         <p><strong>XXX</strong></p>
         <p class="subtext">backers</p>
+         <button type="submit" class="btn mt-5">Back this Project</button>
     </div>
         <div class="col-4  text-center">
         <p><strong>{{ project.num_days }} </strong></p>
         <p class="subtext">days left</p>
     </div>        
 </div>
+<div class="row no-gutters">
+    <div class="col-11 detail_info">
+        <h2>Project Description</h2>
+        <hr class="orange"></hr>
+        <p>{{ project.description }}</p>
+        
+        <h2 class="mt-5">What's in it for the Backers?</h2>
+        <hr class="orange"></hr>
+        <p>{{ project.backers_story }}</p>
 
+    </div>              
+</div>
+<footer class="footer mt-5">
+    <div class="row no-gutters offset-3 footer_row">
+        <div class="col-6">
+            <p class="footer_detail"><i class="fas fa-question-circle"></i>   Questions?</p>
+        </div>
+        <div class="col-6">
+            <p class="footer_detail"><i class="fas fa-exclamation-circle"></i>   Report Misuse</p>
+        </div>            
+    </div>
+    <hr class="orange col-6"></hr>  
+</footer>
 {% endblock %}
