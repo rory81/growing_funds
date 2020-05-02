@@ -1,17 +1,46 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% block content %}
-    {% for project in projects %}
-        <div class="row">
-            <div class="col-12">
-                <img src="{{MEDIA_URL}}{{ project.image }}">
-                <h3>{{ project.title }}</h3>
-                <p><i>{{project.category}}</i></p>
-                <p><strong><i>{{project.goal}}</i></strong></p>
-                <p> {{ project.description|truncatewords:30 }}</p>
-                <p> {{ project.backers_story|truncatewords:30 }}</p>
-                <p>{{project.end_date}}</p>
-                <p>{{project.raised}}/{{project.goal}}</p>
+{% for project in projects|dictsortreversed:"percentage" %}
+<div class="row no-gutters">
+    <div class="col-4  mx-auto mt-5">
+        <div class="progress progress-section">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+                {{ project.percentage }} %
             </div>
         </div>
-    {% endfor %}
+        <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}</p>
+    </div>
+    <div class="col-6 mt-5 mr-3">
+        <h3 class="maintext">{{ project.title}}</h3>
+        <p class="subtext">{{ project.category }}</p>
+        <p>{{ project.description |truncatewords:30 }}</p>
+        <p class="subtext">{{ project.num_days }} days left</p>
+    </div>
+</div>
+{% endfor %}
+{% for project in projects|dictsortreversed:"created_date" %}
+<div class="row no-gutters new_projects mt-5 mb-5">
+    <div class="col"
+        <div class="row no-gutters">
+            <div class="offset-4 col-3 text-center new_projects_title mt-5 mb-5">
+                <h2>New Projects</h2>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="offset-1 col-6 mt-4">
+                <h3 class="maintext">{{ project.title}}</h3>
+                <p class="subtext">{{ project.category }}</p>
+                <p>{{ project.description |truncatewords:60}}</p>
+                <p class="subtext">{{ project.num_days }} days left</p>
+            </div>
+                <div class="offset-1 col-4 image-box mt-5 mb-2">
+                    <img class="new_project_image" src="{{MEDIA_URL}}{{ project.image }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor%}
+
+
 {% endblock %}

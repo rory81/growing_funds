@@ -1,11 +1,17 @@
 /*GENERAL*/
 body {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding-bottom: 75.3px;
+    position: relative;
   }
-
+  main {
+    width: 100vw;
+    margin: 0 auto;
+    padding: 30px 0px;
+  }
+  
 /*HEADER*/
 .logo_title{
     font-variant: small-caps;
@@ -108,9 +114,27 @@ input:focus{
     color:#FF9900!important;
 }
 
-.subtext{
+.detail_title{
+    font-size: 30px;
+    font-weight: bold;
+}
+.subtext, .progressbar-text{
+    font-size: 18px;
+}
+
+.maintext {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.detail_info{
+    margin: 60px 10px 0px 40px;
+}
+
+h2{
     color: #666666;
 }
+
 hr.orange{
     border-top: 2px solid #FF9900;
     margin-top: 0px;
@@ -121,9 +145,6 @@ hr.orange{
     margin-top: 0px;
 }
 
-.detail_info{
-    margin: 60px 10px 0px 40px;
-}
 
 .footer_detail{
     margin-bottom: 0px;
@@ -132,4 +153,49 @@ hr.orange{
 
 .footer_row{
     margin-bottom: 0;
+}
+
+.footer {
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+  }
+
+/*HOME - PROJECTS PAGE*/
+.progress{
+    height: 2rem!important;
+    border: 2px solid #669900!important;
+    background-color: #ffffff!important;
+}
+.progress-bar{
+    background-color: #669900!important;
+    font-size: 20px;
+}
+
+.progressbar-text, .subtext{
+    color: #666666;
+    font-style: italic;
+}
+
+.progress-section{
+    top: 50%;
+}
+
+.new_projects{
+    background-color: rgba(66, 99, 00, 0.20);
+}
+
+.new_projects_title{
+    border: 2px solid #FF9900;
+    font-variant: small-caps;
+}
+
+.image_box{
+    width: 50px;
+}
+
+.new_project_image{
+    width: 80%;
+    height: 80%;
 }

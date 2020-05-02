@@ -4,12 +4,17 @@ import datetime
 from .models import Project
 from .forms import StartProjectForm
 
+
 def get_projects(request):
     """
     Create a view that will return a list op Projects that were created prior to 'now'
     and render them to the 'projects.html' template
+    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     """
     projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
+    for project in projects:
+        project.percentage= round(((project.raised/project.goal)*100),1)
+
     return render(request, 'projects.html', {'projects':projects})
 
 

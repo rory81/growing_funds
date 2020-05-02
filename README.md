@@ -145,3 +145,4 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - stackoverflow (https://stackoverflow.com/questions/31130706/dropdown-in-django-model)
 - http://gregblogs.com/the-little-things-tlt-django-creating-a-drop-down-list-with-django/
 - https://codepen.io/mahish/pen/RajmQw
+- https://www.youtube.com/watch?v=US_3XvufMLU: to set footer on the bottom of the page

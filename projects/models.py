@@ -3,14 +3,14 @@ from django.utils import timezone
 from datetime import datetime
 
 CATEGORIES = (
-    ('ARTS','Arts'),
-    ('CHAR','Charity'),
-    ('FILM','Film'),
-    ('FOOD','Food'),
-    ('GAME','Games'),
-    ('MUSE', 'Music'),
-    ('PUBL', 'Publishing'),
-    ('TECH','Technology'),
+    ('Arts','Arts'),
+    ('Charity','Charity'),
+    ('Film','Film'),
+    ('Food','Food'),
+    ('Games','Games'),
+    ('Music', 'Music'),
+    ('Publishing', 'Publishing'),
+    ('Technology','Technology'),
 )
 
 
@@ -30,6 +30,7 @@ class Project(models.Model):
     num_days = models.IntegerField(default=0)
     raised = models.IntegerField(default=0)
     percentage = models.DecimalField(max_digits=9, decimal_places=1, default=0)
+
 
     def __unicode__(self):
         return self.title
