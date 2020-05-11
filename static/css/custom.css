@@ -122,6 +122,12 @@ input:focus{
     font-size: 18px;
 }
 
+.expired{
+    font-size: 20px;
+    font-style: italic bold;
+    color: #FF9900;
+}
+
 .maintext {
     font-weight: bold;
     font-size: 20px;
@@ -184,6 +190,7 @@ hr.orange{
 
 .new_projects{
     background-color: rgba(66, 99, 00, 0.20);
+    margin-bottom: 0;
 }
 
 .new_projects_title{
@@ -191,8 +198,13 @@ hr.orange{
     font-variant: small-caps;
 }
 
+.new_projects_title h2{
+    font-size: 32px;
+}
+
 .image_box{
     width: 50px;
+    height: 50px;
 }
 
 .new_project_image{

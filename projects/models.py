@@ -18,9 +18,9 @@ class Project(models.Model):
     """
     Content Project
     """
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="img", blank=False, null=False, default="{% static 'img/main_logo_small.jpg' %}")
-    category = models.CharField(max_length=9, choices=CATEGORIES)
+    title = models.CharField(max_length=90)
+    image = models.ImageField(upload_to="img", blank=False, null=False)
+    category = models.CharField(max_length=10, choices=CATEGORIES)
     description = models.TextField(max_length=5000)
     backers_story = models.TextField(max_length=5000)
     created_date = models.DateField(default=datetime.now)

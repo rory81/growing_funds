@@ -1,46 +1,70 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for project in projects|dictsortreversed:"percentage" %}
+<div class="col">
+    <div class="row no-gutters justify-content-center align-items-center ">
+        <div class="col-3 text-center new_projects_title mt-3 mb-2">
+            <h2>Highest Earners</h2>
+        </div>
+    </div>
+</div>
+{% for project in projects|dictsortreversed:"percentage"|slice:"0:5" %}
+{% if project.num_days > 0 %}
 <div class="row no-gutters">
     <div class="col-4  mx-auto mt-5">
-        <div class="progress progress-section">
-            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
-                {{ project.percentage }} %
+        <div>
+            <div class="progress progress-section">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+                    {{ project.percentage }} %
+                </div>
             </div>
-        </div>
         <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}</p>
+        </div>
+        
     </div>
-    <div class="col-6 mt-5 mr-3">
+    <div class="col-6 mt-5 mr-5">
         <h3 class="maintext">{{ project.title}}</h3>
         <p class="subtext">{{ project.category }}</p>
-        <p>{{ project.description |truncatewords:30 }}</p>
+        <p class="d-none d-sm-none d-lg-block">{{ project.description |truncatewords:30 }}</p>
         <p class="subtext">{{ project.num_days }} days left</p>
     </div>
 </div>
+{% endif %}
 {% endfor %}
-{% for project in projects|dictsortreversed:"created_date" %}
-<div class="row no-gutters new_projects mt-5 mb-5">
-    <div class="col"
-        <div class="row no-gutters">
-            <div class="offset-4 col-3 text-center new_projects_title mt-5 mb-5">
+<div class="row no-gutters mt-5 mb-0">
+    <div class="col">
+        <div class="row no-gutters justify-content-center align-items-center new_projects">
+            <div class="col-3 text-center new_projects_title mt-5 mb-5">
                 <h2>New Projects</h2>
             </div>
         </div>
-        <div class="row no-gutters">
-            <div class="offset-1 col-6 mt-4">
+    {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
+    {% if project.num_days > 0 %}
+        <div class="row no-gutters new_projects">
+            <div class="offset-1 col-6 mt-5">
                 <h3 class="maintext">{{ project.title}}</h3>
                 <p class="subtext">{{ project.category }}</p>
                 <p>{{ project.description |truncatewords:60}}</p>
-                <p class="subtext">{{ project.num_days }} days left</p>
+                <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
             </div>
-                <div class="offset-1 col-4 image-box mt-5 mb-2">
-                    <img class="new_project_image" src="{{MEDIA_URL}}{{ project.image }}">
+                <div class="offset-1 col-4 image-box mb-5 ">
+                    <img class="new_project_image mt-5" src="{{MEDIA_URL}}{{ project.image }}">
                 </div>
             </div>
         </div>
     </div>
 </div>
+{% endif %}
 {% endfor%}
-
+<footer class="footer mt-5">
+    <div class="row no-gutters offset-3 footer_row">
+        <div class="col-6">
+            <p class="footer_detail"><i class="fas fa-question-circle"></i>   Questions?</p>
+        </div>
+        <div class="col-6">
+            <p class="footer_detail"><i class="fas fa-exclamation-circle"></i>   Report Misuse</p>
+        </div>            
+    </div>
+    <hr class="orange col-6"></hr>  
+</footer>
 
 {% endblock %}

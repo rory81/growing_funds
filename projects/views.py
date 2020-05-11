@@ -1,19 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-import datetime
+from datetime import datetime
 from .models import Project
 from .forms import StartProjectForm
-
+from django import template
 
 def get_projects(request):
     """
     Create a view that will return a list op Projects that were created prior to 'now'
     and render them to the 'projects.html' template
-    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
+    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:5]
     """
     projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     for project in projects:
         project.percentage= round(((project.raised/project.goal)*100),1)
+        project.num_days = (project.end_date - datetime.now().date()).days
 
     return render(request, 'projects.html', {'projects':projects})
 
@@ -25,9 +26,11 @@ def project_detail(request, pk):
     """
     project = get_object_or_404(Project, pk=pk)
     project.views += 1
-    project.num_days = (abs(project.created_date - project.end_date)).days
+    project.num_days = (abs(datetime.now().date() - project.end_date)).days
     project.save()
     return render(request, 'projectdetail.html', {'project': project})
+
+
 
 def create_or_edit_project(request, pk=None):
     """
