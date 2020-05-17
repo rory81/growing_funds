@@ -9,7 +9,7 @@
     </div>
 </div>
 -->
-{% for project in projects|dictsortreversed:"percentage"|slice:"0:5" %}
+{% for project in projects|dictsortreversed:"percentage"|slice:"0:5"%}
 {% if project.num_days > 0 %}
 <div class="row no-gutters">
     <div class="col-4  mx-auto mt-5">

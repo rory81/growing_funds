@@ -22,15 +22,14 @@ def funding(request):
         if fund_form.is_valid() and payment_form.is_valid():
             fund = fund_form.save(commit=False)
             fund.date = datetime.now()
+            fund.project=Project.title
+            fund.raised += fund.amount
             fund.save()
             
-            for id in Project:
-                project = get_object_or_404(Project.title, pk=id)
-                raised = fund.amount
             
             try: 
                 customer = stripe.Charge.create(
-                    amount = int(raised *100),
+                    amount = int(request.amount *100),
                     currency = "USD",
                     description = request.user.email,
                     card = payment_form.cleaned_data['stripe_id'], 
@@ -50,5 +49,5 @@ def funding(request):
     else:
         payment_form =MakePaymentForm()
         fund_form=FundForm()
-    return render(request, "payment.html",{'fund_form':fund_form, 'payment_form': payment_form, 'publishable':settings.STRIPE_PUBLISHABLE})
+    return render(request, "payment.html",{'project':Project.title,'fund_form':fund_form, 'payment_form': payment_form, 'publishable':settings.STRIPE_PUBLISHABLE})
 

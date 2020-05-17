@@ -1,5 +1,7 @@
 from django import forms
 from .models import Project
+from payments.models import Fund
+from datetime import datetime
 
 class StartProjectForm(forms.ModelForm):
     class Meta:
@@ -14,3 +16,5 @@ class StartProjectForm(forms.ModelForm):
             "goal":"Goal (USD)",
             "end_date":"Project End Date",
         }
+
+

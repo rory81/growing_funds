@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='projects/')),
     url(r'^projects/', include('projects.urls')),
-    url(r'^payment/', include('payments.urls')),
+    url(r'^payment', include('payments.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]

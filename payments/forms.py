@@ -17,5 +17,5 @@ class MakePaymentForm(forms.Form):
 class FundForm(forms.ModelForm):
     class Meta:
         model = Fund
-        fields = ('full_name', 'phone_number','country', 'amount')
+        fields = ('project','full_name', 'phone_number','country', 'amount')
 

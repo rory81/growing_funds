@@ -46,3 +46,4 @@ def create_or_edit_project(request, pk=None):
     else:
         form = StartProjectForm(instance = project)
     return render(request, 'startprojectform.html', {'form': form})
+
