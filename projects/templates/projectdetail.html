@@ -19,10 +19,12 @@
         <p class="subtext">end goal: ${{project.goal}}</p>
     </div>
         <div class="col-4  text-center">
-        <p class="maintext">XXX</p>
-        <p class="subtext">backers</p>
+        <p class="maintext">{{ project.views }}</p>
+        <p class="subtext">views</p>
         {% if project.num_days > 0 %}
-            <button type="submit" class="btn mt-5">Back this Project</button>
+            <a href="">
+                <button type="submit" class="btn mt-5">Back this Project</button>
+            </a>
         {% endif%}
     </div>
         <div class="col-4  text-center">

@@ -29,7 +29,6 @@ class Project(models.Model):
     end_date = models.DateField(default=datetime.now)
     num_days = models.IntegerField(default=0)
     raised = models.IntegerField(default=0)
-    percentage = models.DecimalField(max_digits=9, decimal_places=1, default=0)
 
 
     def __unicode__(self):

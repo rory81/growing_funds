@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap_tags %}
 {% block content %}
 <div class="container-fluid">
@@ -9,12 +10,22 @@
 		</div>
 	</div>
     	<div class="row no-gutters">
-		    <div class="col-9 mx-auto">
-                <form method="POST" enctype="multipart/form-data" class="form-vertical">
+		    <div class="col mx-auto main_div">
+                <div class="col-2 main_coin_image">
+                    <img class="coin_image" src="{% static 'img/growing_coins.png' %}">
+                </div>
+                <div class="col-9 mx-auto  div_form">
+                    <form role="form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form| as_bootstrap }}
-                    <button type="submit" class="btn right">Publish</button>
-                </form> 	
+                    
+                        {{ form| as_bootstrap }}
+                    
+                        <div> 
+                            <button type="submit" class="btn right">Publish</button>
+                        </div>
+                    </form> 
+                </div>
+	
             </div>
 	    </div>
     

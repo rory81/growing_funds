@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_tags %}
+
+{% block head_js%}
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="">
+    //<![CDATA[
+    Stripe.publishableKey = '{{ publishable }}';
+    //]]
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row no-gutters">
+		<div class="col-12 title text-center">
+            <!--Heading Form-->
+            <h1>Support Project:</h1>
+            <h1>Title Project {{Fund.project}}</h1>	
+		</div>
+	</div>
+    <div class="row no-gutters">
+	    <div class="col mx-auto main_div">
+                <div class="col-2 main_coin_image">
+                    <img class="coin_image" src="{% static 'img/growing_coins.png' %}">
+                </div>
+                <div class="col-9 mx-auto  div_form">
+                    <form role="form" idmethod="POST" action="{% url 'funding' %}" enctype="multipart/form-data" id="payment_form">
+                
+                {% csrf_token %}
+                <div>
+                    <h2 class="mt-2">{{fund_form.project}}</h2>
+                    <h2 class="mt-2">Personal Information</h2>
+                    <hr class="orange"></hr>
+                    {{ fund_form| as_bootstrap }}
+                </div>
+                
+                <div>
+                    <h2 class="mt-5">Payment Details</h2>
+                    <hr class="orange"></hr>
+                    {{ payment_form| as_bootstrap }}
+                </div>
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn">Back this project now!</button>
+                </div>
+
+            </form> 	
+                </div>
+	
+        </div>
+	</div>
+    
+</div>
+
+{% endblock %}

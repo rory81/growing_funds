@@ -168,6 +168,26 @@ hr.orange{
     position: absolute;
   }
 
+  .coin_image{
+      height: 300px;
+      width: 150px;
+      float: left;
+  }
+
+  .div_form{
+    padding-left: 80px!important;
+  }
+  .main_div{
+      position: relative!important;
+  }
+
+  .main_coin_image{
+    padding: 20px;
+    bottom: 0;
+    position: absolute!important;
+  }
+
+
 /*HOME - PROJECTS PAGE*/
 .progress{
     height: 2rem!important;

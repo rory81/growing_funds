@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'projects',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-USE_THOUSAND_SEPARATOR = True
+# USE_THOUSAND_SEPARATOR = True
 
 
 # Static files (CSS, JavaScript, Images)
