@@ -22,7 +22,7 @@
         <p class="maintext">{{ project.views }}</p>
         <p class="subtext">views</p>
         {% if project.num_days > 0 %}
-            <a href="">
+            <a href="{% url 'funding_project' project.id %}">
                 <button type="submit" class="btn mt-5">Back this Project</button>
             </a>
         {% endif%}

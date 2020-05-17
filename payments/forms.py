@@ -1,5 +1,6 @@
 from django import forms
 from .models import Fund
+from projects.models import Project
 from datetime import datetime
 """
 Added required=False so that the plain text with creditcard details are not transmitted through the browser for privacy and security reasons
@@ -17,5 +18,5 @@ class MakePaymentForm(forms.Form):
 class FundForm(forms.ModelForm):
     class Meta:
         model = Fund
-        fields = ('project','full_name', 'phone_number','country', 'amount')
+        fields = ('full_name', 'phone_number','country', 'amount')
 

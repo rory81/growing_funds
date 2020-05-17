@@ -14,7 +14,8 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 remove quotes when the login and auth app has been realized
 """
-def funding(request):
+def funding(request,pk=None):
+    project = get_object_or_404(Project, pk=pk) if pk else None
     if request.method=="POST":
         fund_form = FundForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -22,7 +23,7 @@ def funding(request):
         if fund_form.is_valid() and payment_form.is_valid():
             fund = fund_form.save(commit=False)
             fund.date = datetime.now()
-            fund.project=Project.title
+            fund.project = Project.title
             fund.raised += fund.amount
             fund.save()
             
@@ -49,5 +50,5 @@ def funding(request):
     else:
         payment_form =MakePaymentForm()
         fund_form=FundForm()
-    return render(request, "payment.html",{'project':Project.title,'fund_form':fund_form, 'payment_form': payment_form, 'publishable':settings.STRIPE_PUBLISHABLE})
+    return render(request, "payment.html",{'project_title':project.title,'fund_form':fund_form, 'payment_form': payment_form, 'publishable':settings.STRIPE_PUBLISHABLE})
 

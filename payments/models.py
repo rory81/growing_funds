@@ -8,7 +8,7 @@ class Fund(models.Model):
     amount = models.IntegerField(default=0, null=False)
     date = models.DateField()
     raised = models.IntegerField(default=0, null=False)
-    project = models.ForeignKey(Project, null=False, default=1, on_delete=models.CASCADE)
+    project = models.OneToOneField(Project, default=1, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.full_name
