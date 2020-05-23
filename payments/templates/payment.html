@@ -32,9 +32,11 @@
                 <div class="col-9 mx-auto  div_form">
                     <form role="form" method="POST" enctype="multipart/form-data" id="payment_form" action="{% url 'funding_project' project.id %}">
                 {% csrf_token %}
+                <!--
                 <div id="credit-card-errors" style="display: none;">
-                <div id="alert-message block-message error" id="stripe-error-message"></div>
+                    <div id="alert-message block-message error" id="stripe-error-message"></div>
                 </div>
+                -->
                 <div>
                     <h2 class="mt-2">{{fund_form.project}}</h2>
                     <h2 class="mt-2">Personal Information</h2>

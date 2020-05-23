@@ -26,27 +26,7 @@ def funding(request,pk=None):
             fund.project = Project.objects.get(pk=pk)
             fund.date = datetime.now()
             fund.save()
-            
-            
-            try: 
-                customer = stripe.Charge.create(
-                    amount = int(fund.donation *100),
-                    currency = "USD",
-                    # description = request.user.email,
-                    card = payment_form.cleaned_data['stripe_id'], 
-                )
-            except stripe.error.CardError:
-                messages.error(request, "Your card was declined!")
-            
-            if customer.paid:
-                messages.error(request, "You have successfully paid")
-                return redirect(reverse('projects'))
-            
-            else:
-                messages.error(request, "Unable to take payment")
-        else:
-            print(payment_form.errors)
-            messages.error(request, "We were unable to take a payment with that card!")
+ 
     else:
         payment_form =MakePaymentForm()
         fund_form=FundForm()
