@@ -1,7 +1,7 @@
 from django import forms
 from .models import Fund
-from projects.models import Project
 from datetime import datetime
+
 """
 Added required=False so that the plain text with creditcard details are not transmitted through the browser for privacy and security reasons
 """
@@ -13,10 +13,10 @@ class MakePaymentForm(forms.Form):
     cvv = forms.CharField(label='Security Code (CVV)', required=False)
     expiry_month = forms.ChoiceField(label='Month', choices=MONTH_CHOICES, required=False)
     expiry_year = forms.ChoiceField(label='Year', choices=YEAR_CHOICES, required=False)
-    stripe_id = forms.CharField(widget=forms.HiddenInput)
+    stripe_id = forms.CharField(widget=forms.HiddenInput, required=False)
 
 class FundForm(forms.ModelForm):
     class Meta:
         model = Fund
-        fields = ('full_name', 'phone_number','country', 'amount')
+        fields = ('full_name', 'phone_number','country', 'donation')
 

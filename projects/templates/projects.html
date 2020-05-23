@@ -24,7 +24,9 @@
         
     </div>
     <div class="col-6 mt-5 mr-5">
-        <h3 class="maintext">{{ project.title}}</h3>
+        <a href="{% url 'project_detail' project.id %}" target="_blank">
+            <h3 class="maintext">{{ project.title}}</h3>
+        </a>
         <p class="subtext">{{ project.category }}</p>
         <p class="d-none d-sm-none d-lg-block">{{ project.description |truncatewords:30 }}</p>
         <p class="subtext">{{ project.num_days }} days left</p>

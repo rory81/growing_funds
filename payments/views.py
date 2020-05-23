@@ -22,17 +22,17 @@ def funding(request,pk=None):
 
         if fund_form.is_valid() and payment_form.is_valid():
             fund = fund_form.save(commit=False)
+            fund.raised += fund.donation
+            fund.project = Project.objects.get(pk=pk)
             fund.date = datetime.now()
-            fund.project = Project.title
-            fund.raised += fund.amount
             fund.save()
             
             
             try: 
                 customer = stripe.Charge.create(
-                    amount = int(request.amount *100),
+                    amount = int(fund.donation *100),
                     currency = "USD",
-                    description = request.user.email,
+                    # description = request.user.email,
                     card = payment_form.cleaned_data['stripe_id'], 
                 )
             except stripe.error.CardError:
@@ -50,5 +50,5 @@ def funding(request,pk=None):
     else:
         payment_form =MakePaymentForm()
         fund_form=FundForm()
-    return render(request, "payment.html",{'project_title':project.title,'fund_form':fund_form, 'payment_form': payment_form, 'publishable':settings.STRIPE_PUBLISHABLE})
+    return render(request, "payment.html",{'project':project,'fund_form':fund_form, 'payment_form': payment_form, 'publishable':settings.STRIPE_PUBLISHABLE})
 

@@ -75,7 +75,7 @@ label{
 
 .btn:hover{
     color: #ffffff!important;
-    background-color: #FF9900;
+    background-color: #FF9900!important;
 }
 
 
@@ -131,6 +131,7 @@ input:focus{
 .maintext {
     font-weight: bold;
     font-size: 20px;
+    color: #666666;
 }
 
 .detail_info{
