@@ -239,3 +239,19 @@ hr.orange{
     color: #669900!important;
     font-size: 20px;
 }
+
+/*PAYMENT SUCCESS*/
+.green_block{
+    background-color: #669900;
+    color: #ffffff;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 50px 20px;
+}
+/*
+.green_block img{
+    margin-right: -110px;
+    margin-top: -160px;
+}*/
