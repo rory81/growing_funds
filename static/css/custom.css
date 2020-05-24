@@ -73,7 +73,7 @@ label{
     font-size: 1.2rem!important;
 }
 
-.btn:hover{
+.btn:hover, .btn:focus-within{
     color: #ffffff!important;
     background-color: #FF9900!important;
 }
