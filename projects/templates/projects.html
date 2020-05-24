@@ -27,7 +27,9 @@
         <a href="{% url 'project_detail' project.id %}" target="_blank">
             <h3 class="maintext">{{ project.title}}</h3>
         </a>
-        <p class="subtext">{{ project.category }}</p>
+        <a href="{% url 'per_category' project.category %}" target="_blank">
+            <p class="subtext">{{ project.category }}</p>
+        </a>
         <p class="d-none d-sm-none d-lg-block">{{ project.description |truncatewords:30 }}</p>
         <p class="subtext">{{ project.num_days }} days left</p>
     </div>

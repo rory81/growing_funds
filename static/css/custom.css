@@ -250,8 +250,25 @@ hr.orange{
     font-weight: 500;
     padding: 50px 20px;
 }
-/*
+
 .green_block img{
-    margin-right: -110px;
+    margin-left: -130px;
     margin-top: -160px;
-}*/
+}
+
+.pay-success{
+    margin-top: 200px;
+}
+
+/*PROJECT CATEGORIES*/
+
+.project_category_image{
+    width: 400px;
+    height: auto;
+}
+
+
+.category.progress-section{
+    width: 200px;
+    margin-left: 100px;
+}

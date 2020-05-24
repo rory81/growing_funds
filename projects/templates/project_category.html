@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row no-gutters">
+		<div class="col-12 title text-center">
+            <!--Heading Form-->
+            <h1>Category: {{projects.category}}</h1>	
+		</div>
+	
+        <div class="col-11 detail_info">
+            <h2>Taking off in this category</h2>
+            <hr class="orange"></hr>
+            {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
+                {% if project.num_days > 0 %}
+                <div class="col-12">
+                    <div class="col-6 mx-auto text-center image-box mt-5">
+                        {% if project.image %}
+                            <img class="project_category_image mb-3" src="{{ MEDIA_URL }}{{ project.image }}">
+                        {% endif %}
+
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <h3 class="maintext">{{ project.title}}</h3>
+                        </a>
+
+                        <div>
+                            <div class="category progress progress-section">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+                                    {{ project.percentage }} %
+                                </div>
+                            </div>
+                            <p class="progressbar-text">{{ project.num_days }} left</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="col-11 detail_info">
+            <h2>Most Viewed in this category</h2>
+            <hr class="orange"></hr>
+            {% for project in projects|dictsortreversed:"views"|slice:"0:1"%}
+                {% if project.num_days > 0 %}
+                <div class="col-12">
+                    <div class="col-6 mx-auto text-center image-box mt-5">
+                        {% if project.image %}
+                            <img class="project_category_image mb-3" src="{{ MEDIA_URL }}{{ project.image }}">
+                        {% endif %}
+
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <h3 class="maintext">{{ project.title}}</h3>
+                        </a>
+
+                        <div>
+                            <div class="category progress progress-section">
+                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+                                    {{ project.percentage }} %
+                                </div>
+                            </div>
+                            <p class="progressbar-text">{{ project.num_days }} left</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+        
+
+<footer class="footer mt-5">
+    <div class="row no-gutters offset-3 footer_row">
+        <div class="col-6">
+            <p class="footer_detail"><i class="fas fa-question-circle"></i>   Questions?</p>
+        </div>
+        <div class="col-6">
+            <p class="footer_detail"><i class="fas fa-exclamation-circle"></i>   Report Misuse</p>
+        </div>            
+    </div>
+    <hr class="orange col-6"></hr>  
+</footer>
+{% endblock %}

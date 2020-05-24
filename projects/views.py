@@ -18,6 +18,20 @@ def get_projects(request):
 
     return render(request, 'projects.html', {'projects':projects})
 
+def get_project_category(request, project_category):
+    """
+    Create a view that will return a list op Projects that were created prior to 'now'
+    and render them to the 'projects.html' template
+    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')[:5]
+    """
+    projects = Project.objects.filter(category=project_category).order_by('-created_date')
+    projects.category = project_category
+    for project in projects:
+        project.percentage= round(((project.raised/project.goal)*100),1)
+        project.num_days = (project.end_date - datetime.now().date()).days
+
+    return render(request, 'project_category.html', {'projects':projects})
+
 
 def project_detail(request, pk):
     """
