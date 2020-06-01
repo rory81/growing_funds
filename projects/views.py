@@ -4,6 +4,7 @@ from datetime import datetime
 from .models import Project
 from .forms import StartProjectForm
 from django import template
+from django.core.paginator import Paginator
 
 def get_projects(request):
     """
@@ -18,6 +19,8 @@ def get_projects(request):
 
     return render(request, 'projects.html', {'projects':projects})
 
+    
+
 def get_project_category(request, project_category):
     """
     Create a view that will return a list op Projects that were created prior to 'now'
@@ -26,6 +29,7 @@ def get_project_category(request, project_category):
     """
     projects = Project.objects.filter(category=project_category).order_by('-created_date')
     projects.category = project_category
+    paginator = Paginator(projects, 1)
     for project in projects:
         project.percentage= round(((project.raised/project.goal)*100),1)
         project.num_days = (project.end_date - datetime.now().date()).days

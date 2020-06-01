@@ -263,12 +263,17 @@ hr.orange{
 /*PROJECT CATEGORIES*/
 
 .project_category_image{
-    width: 400px;
-    height: auto;
+    width: 80%;
+    height: 80%;
 }
 
 
 .category.progress-section{
     width: 200px;
     margin-left: 100px;
+}
+
+.order{
+    font-style: italic;
+    font-size: 20px;
 }
