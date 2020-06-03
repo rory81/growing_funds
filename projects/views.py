@@ -5,6 +5,7 @@ from .models import Project
 from .forms import StartProjectForm
 from django import template
 from django.core.paginator import Paginator
+from projects.functions import get_percentage_raised
 
 def get_projects(request):
     """
@@ -14,9 +15,7 @@ def get_projects(request):
     """
     projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     for project in projects:
-        project.percentage= round(((project.raised/project.goal)*100),1)
-        project.num_days = (project.end_date - datetime.now().date()).days
-
+        project.percentage= get_percentage_raised()
     return render(request, 'projects.html', {'projects':projects})
 
     
