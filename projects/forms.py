@@ -1,6 +1,5 @@
 from django import forms
 from .models import Project
-from payments.models import Fund
 from datetime import datetime
 
 class StartProjectForm(forms.ModelForm):

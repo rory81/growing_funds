@@ -19,12 +19,10 @@ from django.views.generic import RedirectView
 from django.views.static import serve
 from .settings import MEDIA_ROOT
 from projects import urls as urls_projects
-from payments import urls as urls_payments
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='projects/')),
     url(r'^projects/', include('projects.urls')),
-    url(r'^payment/', include('payments.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]
