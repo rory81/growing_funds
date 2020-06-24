@@ -3,15 +3,18 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{% static 'img/growing_coins.png' %}">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	
+	{% block meta %}
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% endblock %}
+	{% block corecss %}
+		<link rel="icon" href="{% static 'img/growing_coins.png' %}">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	{% endblock %}
 	{% block head_js %}
 	{% endblock head_js %}
 
@@ -28,16 +31,55 @@
 			<img src="{% static 'img/main_logo_small.jpg' %}" alt="logo growing funds">
 			</a>
 		</div>
-		<div class= "col-9 col-lg-11 logo_title">Growing Funds</div>
+		<a href="{% url 'get_projects' %}" class= "col-9 col-lg-11 logo_title">Growing Funds</a>
 	</div>
 </div>
 
 <!--Main Navigationbar-->
 <nav>
 	<div class="nav-wrapper">
-		<a href="" class="right mr-5">Login</a>
-		<a href="" class="right mr-5">Search</a>
-		<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
+		{% comment %} DROPDOWN {% endcomment %}
+		<!-- SEARCH BOX -->
+        <div class="right mr-5">
+          <form method="GET" action="" >
+            <div class="input-group w-100">
+              <input
+                class="form-control border-search"
+                type="text"
+                name="q"
+                placeholder="Search Project"
+              />
+              <div class="input-group-append">
+                <button
+                  class="form-control"
+                  type="submit"
+                >
+                  <span class="icon">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+    	</div>
+		<div>
+			<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
+		</div>
+		<div class="dropdown left ml-5">
+			<a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >My account</a>
+			<div class="dropdown-menu border-0" aria-labelledby="user-options">
+			    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="" class="dropdown-item">Product Management</a>
+                    {% endif %}
+                    <a href="" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                {% endif %}
+			</div>
+		</div>
 	</div>
 </nav>
 <!--End Main Navigationbar-->
@@ -59,16 +101,21 @@
 {% block content %}
 {% endblock %}
 </main>
-<!--script links-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-		integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
-	</script>
-	<script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
+	{% block corejs %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+        ></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+			integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
+		</script>
+		<script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
+	{% endblock %}
 </body>
 
 </html>

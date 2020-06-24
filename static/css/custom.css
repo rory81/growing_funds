@@ -13,16 +13,18 @@ body {
   }
   
 /*HEADER*/
-.logo_title{
+.logo_title, .logo_title::after, .logo_title:hover{
     font-variant: small-caps;
-    color:#669900;
+    color:#669900!important;
     letter-spacing: 1px;
     font-size: 45px;
     font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
+
 
 .title h1{
     color: #666666;
@@ -41,6 +43,17 @@ body {
 a:hover{
     color: #666666!important;
 }
+
+button.form-control{
+    background-color: #FF9900;
+    border: none;
+}
+
+.form-control.border-search{
+    border-bottom: 1px solid #ffffff!important;
+}
+
+
 
 /*CATEGORY NAVIGATION*/
 .cat-bar{
