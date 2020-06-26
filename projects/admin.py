@@ -1,4 +1,24 @@
 from django.contrib import admin
-from .models import Project
+from .models import Project, Category
 
-admin.site.register(Project)
+
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'image',
+        'category',
+        'created_date',
+        'views',
+        'goal',
+        'end_date',
+        'num_days',
+        'raised',
+    )
+
+    ordering = ('-created_date',)
+
+
+
+admin.site.register(Project, ProjectAdmin)
+admin.site.register(Category)
+

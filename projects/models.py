@@ -2,17 +2,16 @@ from django.db import models
 from django.utils import timezone
 from datetime import datetime
 
-CATEGORIES = (
-    ('Arts','Arts'),
-    ('Charity','Charity'),
-    ('Film','Film'),
-    ('Food','Food'),
-    ('Games','Games'),
-    ('Music', 'Music'),
-    ('Publishing', 'Publishing'),
-    ('Technology','Technology'),
-)
+class Category(models.Model):
+    """
+    Content Project
+    """
+    class Meta: 
+        verbose_name_plural="Categories"
+    category = models.CharField(max_length=10 )
 
+    def __str__(self):
+        return self.category
 
 class Project(models.Model):
     """
@@ -20,7 +19,7 @@ class Project(models.Model):
     """
     title = models.CharField(max_length=90)
     image = models.ImageField(upload_to="img", blank=False, null=False)
-    category = models.CharField(max_length=10, choices=CATEGORIES)
+    category = models.ForeignKey('Category', blank=True, null=True, on_delete=models.SET_NULL)
     description = models.TextField(max_length=5000)
     backers_story = models.TextField(max_length=5000)
     created_date = models.DateField(default=datetime.now)

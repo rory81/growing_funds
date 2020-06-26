@@ -62,11 +62,9 @@
             </div>
           </form>
     	</div>
-		<div>
-			<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
-		</div>
+		{% comment %} DROPDOWN {% endcomment %}
 		<div class="dropdown left ml-5">
-			<a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >My account</a>
+			<a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >My Account</a>
 			<div class="dropdown-menu border-0" aria-labelledby="user-options">
 			    {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
@@ -80,6 +78,11 @@
                 {% endif %}
 			</div>
 		</div>
+		{% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+			<div>
+				<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
+			</div>
+		{% comment %} {% endif%} {% endcomment %}
 	</div>
 </nav>
 <!--End Main Navigationbar-->
@@ -110,9 +113,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
-			integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous">
 		</script>
 		<script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
 	{% endblock %}
