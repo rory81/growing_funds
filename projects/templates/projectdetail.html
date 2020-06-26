@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 <div class="row no-gutters">
-    <div class="col-6  mx-auto mt-5">
+    <div class="col-6  mx-auto text-center mt-5">
     {% if project.image %}
-        <img class="project_image" src="{{ MEDIA_URL }}{{ project.image }}">
+        <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image }}">
     {% else %}
-        <img class="project_image" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
     {% endif %}
     </div>
 </div>

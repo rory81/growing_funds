@@ -52,7 +52,7 @@
         {% if project.num_days > 0 %}
         <div class="row no-gutters new_projects">
             {% comment %} one col to show the details for the new projects {% endcomment %}
-            <div class="offset-1 col-6 mt-5">
+            <div class="offset-1 col-6">
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
                     <h3 class="maintext">{{ project.title}}</h3>
                 </a>
@@ -61,14 +61,14 @@
                 <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
             </div>
             {% comment %} one col to show the pictures for the new projects {% endcomment %}
-            <div class="offset-1 col-4 mb-5">
+            <div class="col-4 ml-5 mb-5">
                 {% if project.image %}
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="new_project_image" src="{{MEDIA_URL}}{{ project.image }}">
+                    <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}">
                     </a>
                 {% else %}
                     <a href="{% url 'project_detail' project.id %}" target="_blank">
-                        <img class="new_project_image" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
                     </a>
                 {% endif %}
             </div>
