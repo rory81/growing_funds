@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <!--
 <div class="col">
@@ -36,16 +37,21 @@
 </div>
 {% endif %}
 {% endfor %}
+{% comment %} row to make content for the new projects {% endcomment %}
 <div class="row no-gutters mt-5 mb-0">
+    {% comment %} one column to make content for the new projects {% endcomment %}
     <div class="col">
+        {% comment %} one row to make the section title for the new projects {% endcomment %}
         <div class="row no-gutters justify-content-center align-items-center new_projects">
             <div class="col-3 text-center new_projects_title mt-5 mb-5">
                 <h2>New Projects</h2>
             </div>
         </div>
-    {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
-    {% if project.num_days > 0 %}
+        {% comment %} one row to make the content for the new projects {% endcomment %}
+        {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
+        {% if project.num_days > 0 %}
         <div class="row no-gutters new_projects">
+            {% comment %} one col to show the details for the new projects {% endcomment %}
             <div class="offset-1 col-6 mt-5">
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
                     <h3 class="maintext">{{ project.title}}</h3>
@@ -54,17 +60,28 @@
                 <p>{{ project.description |truncatewords:60}}</p>
                 <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
             </div>
-                <div class="offset-1 col-4 image-box mb-5 ">
+            {% comment %} one col to show the pictures for the new projects {% endcomment %}
+            <div class="offset-1 col-4 mb-5">
+                {% if project.image %}
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="new_project_image mt-5" src="{{MEDIA_URL}}{{ project.image }}">
-                </a>
-                </div>
+                    <img class="new_project_image" src="{{MEDIA_URL}}{{ project.image }}">
+                    </a>
+                {% else %}
+                    <a href="{% url 'project_detail' project.id %}" target="_blank">
+                        <img class="new_project_image" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                    </a>
+                {% endif %}
             </div>
+
+
+                           
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
-{% endif %}
-{% endfor%}
+
+
 <footer class="footer mt-5">
     <div class="row no-gutters offset-3 footer_row">
         <div class="col-6">

@@ -18,7 +18,7 @@ class Project(models.Model):
     Content Project
     """
     title = models.CharField(max_length=90)
-    image = models.ImageField(upload_to="img", blank=False, null=False)
+    image = models.ImageField(upload_to="img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=True, null=True, on_delete=models.SET_NULL)
     description = models.TextField(max_length=5000)
     backers_story = models.TextField(max_length=5000)
