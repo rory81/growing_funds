@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="row no-gutters">
 		<div class="col-12 title text-center">
@@ -14,9 +15,14 @@
                 <div class="col-12">
                     <div class="col-6 mx-auto text-center image-box mt-5">
                         {% if project.image %}
-                            <img class="project_category_image mb-3" src="{{ MEDIA_URL }}{{ project.image }}">
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="project_category_image mb-3" src="{{MEDIA_URL}}{{ project.image }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="project_category_image mb-3" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        </a>
                         {% endif %}
-
                         <a href="{% url 'project_detail' project.id %}" target="_blank">
                             <h3 class="maintext">{{ project.title}}</h3>
                         </a>
@@ -43,7 +49,13 @@
                 <div class="col-12">
                     <div class="col-6 mx-auto text-center image-box mt-5">
                         {% if project.image %}
-                            <img class="project_category_image mb-3" src="{{ MEDIA_URL }}{{ project.image }}">
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="project_category_image mb-3" src="{{MEDIA_URL}}{{ project.image }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="project_category_image mb-3" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        </a>
                         {% endif %}
 
                         <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -71,11 +83,16 @@
     {% for project in projects|dictsortreversed:"created_date" %}
         {% if project.num_days > 0 %}
             <div class="row no-gutters">
-
                     <div class="offset-1 col-4 image-box mb-5 ">
+                        {% if project.image %}
                         <a href="{% url 'project_detail' project.id %}" target="_blank">
                             <img class="new_project_image mt-5" src="{{MEDIA_URL}}{{ project.image }}">
                         </a>
+                        {% else %}
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="new_project_image mt-5" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        </a>
+                        {% endif %}
                     </div>
                     <div class="offset-1 col-6 mt-5">
                         <a href="{% url 'project_detail' project.id %}" target="_blank">

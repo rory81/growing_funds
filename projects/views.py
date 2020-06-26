@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
-from .models import Project
+from .models import Project, Category
 from .forms import StartProjectForm
 # from django import template
 # from django.core.paginator import Paginator
@@ -27,13 +27,15 @@ def get_project_category(request, project_category):
 
     """
     projects = Project.objects.filter(
-        category=project_category).order_by('-created_date')
+        category=Category.objects.get(category=project_category).id).order_by('-created_date')
     projects.category = project_category
     for project in projects:
         project.percentage = round(((project.raised/project.goal)*100), 1)
         project.num_days = (project.end_date - datetime.now().date()).days
 
     return render(request, 'project_category.html', {'projects': projects})
+
+    return render(request, 'project_category.html')
 
 
 def project_detail(request, pk):

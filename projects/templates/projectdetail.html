@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="row no-gutters">
     <div class="col-6  mx-auto mt-5">
     {% if project.image %}
         <img class="project_image" src="{{ MEDIA_URL }}{{ project.image }}">
+    {% else %}
+        <img class="project_image" src="{% static 'img/No-image-available.png' %}" alt="no image available">
     {% endif %}
     </div>
 </div>
 <div class="row no-gutters">
     <div class="col-12  text-center mt-5">
         <h3 class="detail_title">{{ project.title }}</h3>
-        <p class="subtext"><i>{{project.category}}</i></p>
+        <a href="{% url 'per_category' project.category %}" target="_blank">
+            <p class="subtext"><i>{{ project.category }}</i></p>
+        </a>
     </div>              
 </div>
 <div class="row no-gutters">
