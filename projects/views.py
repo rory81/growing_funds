@@ -51,11 +51,12 @@ def get_project_category(request, project_category):
     for project in projects:
         project.percentage = round(((project.raised/project.goal)*100), 1)
         project.num_days = (project.end_date - datetime.now().date()).days
+    
+    context = {
+        'projects': projects,
+    }
 
-    return render(request, 'project_category.html', {'projects': projects})
-
-    return render(request, 'project_category.html')
-
+    return render(request, 'project_category.html', context)
 
 def project_detail(request, pk):
     """
@@ -68,7 +69,11 @@ def project_detail(request, pk):
     project.views += 1
     project.num_days = (abs(datetime.now().date() - project.end_date)).days
     project.save()
-    return render(request, 'projectdetail.html', {'project': project})
+
+    context = {
+        'project': project,
+    }
+    return render(request, 'projectdetail.html', context)
 
 
 def create_or_edit_project(request, pk=None):
@@ -84,4 +89,8 @@ def create_or_edit_project(request, pk=None):
             return redirect(project_detail, project.pk)
     else:
         form = StartProjectForm(instance=project)
-    return render(request, 'startprojectform.html', {'form': form})
+    
+    context = {
+        'form': form,
+    }
+    return render(request, 'startprojectform.html', context)

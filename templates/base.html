@@ -88,14 +88,14 @@
 <!--End Main Navigationbar-->
 <!--Category bar-->
 <div class="cat-bar">
-	<div class="cat-bar-item">Arts</div>
-	<div class="cat-bar-item">Charity</div>
-	<div class="cat-bar-item">Film</div>
-	<div class="cat-bar-item">Food</div>
-	<div class="cat-bar-item">Games</div>
-	<div class="cat-bar-item">Music</div>
-	<div class="cat-bar-item">Publishing</div>
-	<div class="cat-bar-item">Technology</div>
+	<a href="{% url 'get_projects' %}category=Arts"><div class="cat-bar-item">Arts</div></a>
+	<a href="{% url 'get_projects' %}category=Charity"><div class="cat-bar-item">Charity</div></a>
+	<a href="{% url 'get_projects' %}category=Film"><div class="cat-bar-item">Film</div></a>
+	<a href="{% url 'get_projects' %}category=Food"><div class="cat-bar-item">Food</div></a>
+	<a href="{% url 'get_projects' %}category=Games"><div class="cat-bar-item">Games</div></a>
+	<a href="{% url 'get_projects' %}category=Music"><div class="cat-bar-item">Music</div></a>
+	<a href="{% url 'get_projects' %}category=Publishing"><div class="cat-bar-item">Publishing</div></a>
+	<a href="{% url 'get_projects' %}category=Technology"><div class="cat-bar-item">Technology</div></a>
 </div>
 <hr class="bar-end">
 <!--End Category bar-->
