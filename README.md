@@ -146,3 +146,4 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - http://gregblogs.com/the-little-things-tlt-django-creating-a-drop-down-list-with-django/
 - https://codepen.io/mahish/pen/RajmQw
 - https://www.youtube.com/watch?v=US_3XvufMLU: to set footer on the bottom of the page
+- picture for when no picture is made available: Alsero-Budget-spiekozijn lqkunststoffen.nl

@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
 from datetime import datetime
+from django.contrib import messages
+from django.db.models import Q
 from .models import Project, Category
 from .forms import StartProjectForm
 # from django import template
@@ -15,10 +17,27 @@ def get_projects(request):
     """
     projects = Project.objects.filter(
         created_date__lte=timezone.now()).order_by('-created_date')
+    query = None
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(get_projects)
+            
+            queries = Q(title__icontains=query) | Q(description__icontains=query)
+            projects = projects.filter(queries)
+
     for project in projects:
         project.percentage = round(((project.raised/project.goal)*100), 1)
         project.num_days = (project.end_date - datetime.now().date()).days
-    return render(request, 'projects.html', {'projects': projects})
+    
+    context = {
+        'projects': projects,
+        'search_term':query,
+    }
+
+    return render(request, 'projects.html', context)
 
 
 def get_project_category(request, project_category):
