@@ -9,6 +9,15 @@ from .forms import StartProjectForm
 # from django.core.paginator import Paginator
 
 
+def calculations(projects):
+    """
+    calculate the num_days and percentage_raised for every template
+    """
+    for p in projects:
+        p.percentage = round(((p.raised/p.goal)*100), 1)
+        p.num_days = (p.end_date - datetime.now().date()).days
+
+
 def get_projects(request):
     """
     Create a view that will return a list op Projects
@@ -27,11 +36,9 @@ def get_projects(request):
             
             queries = Q(title__icontains=query) | Q(description__icontains=query)
             projects = projects.filter(queries)
-
-    for project in projects:
-        project.percentage = round(((project.raised/project.goal)*100), 1)
-        project.num_days = (project.end_date - datetime.now().date()).days
     
+    calculations(projects)
+        
     context = {
         'projects': projects,
         'search_term':query,
@@ -48,9 +55,8 @@ def get_project_category(request, project_category):
     projects = Project.objects.filter(
         category=Category.objects.get(category=project_category).id).order_by('-created_date')
     projects.category = project_category
-    for project in projects:
-        project.percentage = round(((project.raised/project.goal)*100), 1)
-        project.num_days = (project.end_date - datetime.now().date()).days
+    
+    calculations(projects)
     
     context = {
         'projects': projects,

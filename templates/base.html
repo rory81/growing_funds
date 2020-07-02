@@ -88,7 +88,7 @@
 <!--End Main Navigationbar-->
 <!--Category bar-->
 <div class="cat-bar">
-	{% for c in categories%}
+	{% for c in categories|slice:"0:8"%} <!--making sure there only 8 categories when someone accidentally adds one -->
 		<a href="{% url 'get_projects' %}category={{ c.category }}"><div class="cat-bar-item">{{ c.category }}</div></a>
 	{% endfor %}
 </div>
