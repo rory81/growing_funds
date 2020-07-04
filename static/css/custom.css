@@ -283,3 +283,9 @@ hr.orange{
     font-style: italic;
     font-size: 20px;
 }
+
+.pagination_block{
+    background-color: transparent;
+    color: transparent;
+    border: none;
+}

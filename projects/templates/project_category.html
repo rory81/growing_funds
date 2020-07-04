@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap_pagination %}
+
 {% block content %}
 <div class="row no-gutters">
 		<div class="col-12 title text-center">
@@ -76,34 +78,46 @@
         {% endfor %}
     </div>
     
+    
     <div class="col-11 detail_info">
         <h2>Other projects in this category <span  class=" order right"> from Newest to Oldest</span></h2>
         <hr class="orange"></hr>
-        {% for project in projects|dictsortreversed:"created_date" %}
-            {% if project.num_days > 0 %}
-                <div class="row no-gutters">
-                        <div class="offset-1 col-4 mb-5 ">
-                            {% if project.image %}
-                            <a href="{% url 'project_detail' project.id %}" target="_blank">
-                                <img class="img-fluid mt-5" src="{{MEDIA_URL}}{{ project.image }}">
-                            </a>
-                            {% else %}
-                            <a href="{% url 'project_detail' project.id %}" target="_blank">
-                                <img class="img-fluid mt-5" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-                            </a>
-                            {% endif %}
-                        </div>
-                        <div class="offset-1 col-6 mt-5">
-                            <a href="{% url 'project_detail' project.id %}" target="_blank">
-                                <h3 class="maintext">{{ project.title}}</h3>
-                            </a>
-                            <p class="subtext">{{ project.category }}</p>
-                            <p>{{ project.description |truncatewords:60}}</p>
-                            <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
-                        </div>
-                </div>
-            {% endif %}
-        {% endfor%}
+        {% with  projectOffset=page_start|stringformat:"s" %}
+            {% with  projectFrom=projectOffset|add:":" %}
+                {% with  projectCount=slice_num|stringformat:"s" %}
+                    {% with  projectSlice=projectFrom|add:projectCount %}
+                            {% for project in projects|dictsortreversed:"created_date"|slice:projectSlice %}
+                                {% if project.num_days > 0 %}
+                                    <div class="row no-gutters">
+                                            <div class="offset-1 col-4 mb-5 ">
+                                                {% if project.image %}
+                                                <a href="{% url 'project_detail' project.id %}" target="_blank">
+                                                    <img class="img-fluid mt-5" src="{{MEDIA_URL}}{{ project.image }}">
+                                                </a>
+                                                {% else %}
+                                                <a href="{% url 'project_detail' project.id %}" target="_blank">
+                                                    <img class="img-fluid mt-5" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                                                </a>
+                                                {% endif %}
+                                            </div>
+                                            <div class="offset-1 col-6 mt-5">
+                                                <a href="{% url 'project_detail' project.id %}" target="_blank">
+                                                    <h3 class="maintext">{{ project.title}}</h3>
+                                                </a>
+                                                <p class="subtext">{{ project.category }}</p>
+                                                <p>{{ project.description |truncatewords:60}}</p>
+                                                <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
+                                            </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor%}
+                        {% endwith %}
+                    {% endwith %}
+            {% endwith %}
+        {% endwith %}
+         <div class="pagination_block">
+            {% bootstrap_paginate page_obj %}
+        </div>
     </div>
 </div>   
 

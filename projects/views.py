@@ -3,10 +3,10 @@ from django.utils import timezone
 from datetime import datetime
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import InvalidPage, Paginator
+from django.http import Http404
 from .models import Project, Category
 from .forms import StartProjectForm
-# from django import template
-# from django.core.paginator import Paginator
 
 
 def calculations(projects):
@@ -57,9 +57,30 @@ def get_project_category(request, project_category):
     projects.category = project_category
     
     calculations(projects)
+    offset = 2
+    paginator = Paginator(projects,offset)
+    
+    if request.GET.get('page') == None:
+        page_number = int(1)
+    else:
+        page_number = request.GET.get('page')
+    
+    slice_num = int(page_number)*offset
+    print("page_number: ",page_number)
+    page_obj = paginator.get_page(page_number)
+    print("page_obj: ",page_obj)
+    print("slice_num: ",slice_num)
+    print("offset: ",slice_num-offset)
+
     
     context = {
         'projects': projects,
+        'page_number': page_number,
+        'page_obj': page_obj,
+        'slice_num': slice_num,
+        'page_start': slice_num-offset,
+
+
     }
 
     return render(request, 'project_category.html', context)
@@ -88,6 +109,7 @@ def create_or_edit_project(request, pk=None):
     depending if the Project_id is null or not
     """
     project = get_object_or_404(Project, pk=pk) if pk else None
+
     if request.method == "POST":
         form = StartProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
