@@ -238,9 +238,10 @@ hr.orange{
 
 
 .img-fluid{
-    max-width: 100%;
-    height: auto;
-    margin-top: 30px;
+    /* max-width: 100%; */
+    width: 333.66px;
+    height: 187.68px!important;
+    /* margin-top: 30px; */
 }
 
 /*FOOTER*/
