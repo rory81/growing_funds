@@ -5,6 +5,7 @@ from datetime import datetime
 class StartProjectForm(forms.ModelForm):
     class Meta:
         model = Project
+        conditions = forms.BooleanField(widget=forms.CheckboxInput(attrs={'checked' : ''}), required=True)
         fields = ('title', 'image', 'category','description', 'backers_story', 'goal', 'end_date', 'conditions')
         labels = {
             "title":"Project Title",
@@ -16,5 +17,6 @@ class StartProjectForm(forms.ModelForm):
             "end_date":"Project End Date",
             "conditions": "I agree to the Terms and Conditions (see link in footer)"
         }
+        
 
 

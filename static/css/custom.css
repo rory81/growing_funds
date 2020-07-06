@@ -116,6 +116,11 @@ input:focus{
     margin-bottom: 30px!important;
 }
 
+#id_conditions, .checkbox{
+    visibility: visible;
+    line-height: 50px!important;
+}
+
 /*PROJECT DETAILS*/
 /* .project_image{
 
@@ -155,7 +160,7 @@ h2{
     color: #666666;
 }
 
-hr.orange{
+.orange_line{
     border-top: 2px solid #FF9900;
     margin-top: 0px;
 }
