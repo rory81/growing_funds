@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'crispy_forms',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -64,6 +65,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'growing_funds.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -81,6 +84,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'projects.contexts.categories',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

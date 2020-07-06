@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load bootstrap_tags %}
 {% block content %}
 <div class="container-fluid">
 	<div class="row no-gutters">
@@ -18,7 +17,7 @@
                     <form role="form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     
-                        {{ form|as_bootstrap }}
+                        {{ form|crispy }}
                     
                         <div> 
                             <button type="submit" class="btn right">Publish</button>

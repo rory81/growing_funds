@@ -116,10 +116,10 @@ input:focus{
     margin-bottom: 30px!important;
 }
 
-#id_conditions, .checkbox{
-    visibility: visible;
-    line-height: 50px!important;
+.error-msg{
+    color: #ff0000;
 }
+
 
 /*PROJECT DETAILS*/
 /* .project_image{

@@ -18,6 +18,7 @@ class Project(models.Model):
     """
     Content Project
     """
+    
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     title = models.CharField(max_length=90, blank=True, null=True)
     image = models.ImageField(upload_to="img", blank=True, null=True)
@@ -30,7 +31,7 @@ class Project(models.Model):
     end_date = models.DateField(default=datetime.now, blank=True, null=True)
     num_days = models.IntegerField(default=0)
     raised = models.IntegerField(default=0)
-    conditions = models.BooleanField(default= False, blank=False, null=False)
+    conditions = models.BooleanField(default=False, choices=[(True,'Yes'), (False,'No')],null=True, blank=False)
 
 
     def __str__(self):
