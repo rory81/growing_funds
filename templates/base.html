@@ -10,7 +10,6 @@
 	{% block corecss %}
 		<link rel="icon" href="{% static 'img/growing_coins.png' %}">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -36,54 +35,29 @@
 </div>
 
 <!--Main Navigationbar-->
-<nav>
-	<div class="nav-wrapper">
-		{% comment %} DROPDOWN {% endcomment %}
-		<!-- SEARCH BOX -->
-        <div class="right mr-5">
-          <form method="GET" action="{% url 'get_projects' %}" >
-            <div class="input-group w-100">
-              <input
-                class="form-control border-search"
-                type="text"
-                name="q"
-                placeholder="Search Project"
-              />
-              <div class="input-group-append">
-                <button
-                  class="form-control"
-                  type="submit"
-                >
-                  <span class="icon">
-                    <i class="fas fa-search"></i>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
-    	</div>
-		{% comment %} DROPDOWN {% endcomment %}
-		<div class="dropdown left ml-5">
-			<a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >My Account</a>
-			<div class="dropdown-menu border-0" aria-labelledby="user-options">
-			    {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                        <a href="{% url 'admin:index' %}" class="dropdown-item">Product Management</a>
-                    {% endif %}
-                    <a href="" class="dropdown-item">My Projects</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                {% else %}
-                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                {% endif %}
-			</div>
+<nav class="navbar">
+	<div class="justify-content-start">
+  		<a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >My Account</a>
+		<div class="dropdown-menu border-0" aria-labelledby="user-options">
+			{% if request.user.is_authenticated %}
+				{% if request.user.is_superuser %}
+					<a href="{% url 'admin:index' %}" class="dropdown-item">Product Management</a>
+				{% endif %}
+				<a href="" class="dropdown-item">My Projects</a>
+				<a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+			{% else %}
+				<a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+					<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+			{% endif %}
 		</div>
 		{% comment %} {% if request.user.is_authenticated %} {% endcomment %}
-			<div>
-				<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
-			</div>
+		<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
 		{% comment %} {% endif%} {% endcomment %}
 	</div>
+	<form class="form-inline justify-content-end">
+		<input class="form-control mr-sm-2 search-box" type="search" name="q" placeholder="Search Project" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+	</form>
 </nav>
 <!--End Main Navigationbar-->
 <!--Category bar-->
@@ -105,7 +79,6 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"
         ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 		</script>

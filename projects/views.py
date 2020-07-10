@@ -13,9 +13,12 @@ def calculations(projects):
     """
     calculate the num_days and percentage_raised for every template
     """
+    
     for p in projects:
         p.percentage = round(((p.raised/p.goal)*100), 1)
         p.num_days = (p.end_date - datetime.now().date()).days
+    return projects
+
 
 
 def get_projects(request):
@@ -38,6 +41,8 @@ def get_projects(request):
             projects = projects.filter(queries)
     
     calculations(projects)
+
+    
         
     context = {
         'projects': projects,
