@@ -70,48 +70,51 @@
         {% endfor %}
     </div>
 </div>
-<div class="row no-gutters">     
-    <div class="col-11 detail_info">
-        <h2>Other projects in this category <span  class=" order right"> from Newest to Oldest</span></h2>
+<div class="container mt-5">
+    <div class="col-12 mt-5">
+        <h2>Other projects in this category</h2>
         <hr class="orange_line"></hr>
-        {% for project in projects|dictsortreversed:"created_date"%}
-            {% if project.num_days > 0 %}
-                <div class="row no-gutters">
-                    <div class="offset-1 col-4 mb-5 ">
-                        {% if project.image %}
-                        <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <img class="img-fluid mt-5" src="{{MEDIA_URL}}{{ project.image }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <img class="img-fluid mt-5" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="offset-1 col-6 mt-5">
-                        <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <h3 class="maintext">{{ project.title}}</h3>
-                        </a>
-                        <p class="subtext">{{ project.category }}</p>
-                        <p>{{ project.description |truncatewords:60}}</p>
-                        <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor%}
     </div>
+
+    <table id="myTable" class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Space</th>
+                <th>Project Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects|dictsortreversed:"created_date"%}
+            {% if project.num_days > 0 %}
+            <tr>
+                <td>
+                    {% if project.image %}
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        </a>
+                    {% endif %}
+                </td>
+                <td></td>
+                <td>
+                    <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <h3 class="maintext">{{ project.title}}</h3>
+                    </a>
+                    <p class="subtext">{{ project.category }}</p>
+                    <p>{{ project.description |truncatewords:20}}</p>
+                    <p class="subtext">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor%}
+        </tbody>
+    </table>
+
 </div>
 
 
-<footer class="footer mt-5">
-    <div class="row no-gutters offset-3 footer_row">
-        <div class="col-6">
-            <p class="footer_detail"><i class="fas fa-question-circle"></i>   Questions?</p>
-        </div>
-        <div class="col-6">
-            <p class="footer_detail"><i class="fas fa-exclamation-circle"></i>   Report Misuse</p>
-        </div>            
-    </div>
-    <hr class="orange_line col-6"></hr>  
-</footer>
 {% endblock %}

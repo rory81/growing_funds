@@ -147,3 +147,4 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - https://codepen.io/mahish/pen/RajmQw
 - https://www.youtube.com/watch?v=US_3XvufMLU: to set footer on the bottom of the page
 - picture for when no picture is made available: Alsero-Budget-spiekozijn lqkunststoffen.nl
+- https://datatables.net/manual/installation for the datatable in the category page

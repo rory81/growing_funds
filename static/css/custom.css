@@ -284,13 +284,13 @@ h2{
     margin-left: 100px;
 }
 
-.order{
-    font-style: italic;
-    font-size: 20px;
-}
 
 .pagination_block{
     background-color: transparent;
     color: transparent;
     border: none;
+}
+
+th{
+    visibility: hidden;
 }
