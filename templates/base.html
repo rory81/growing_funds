@@ -89,7 +89,10 @@
 		<script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
 		<script>
 			$(document).ready(function() {
-				$('#myTable').dataTable();
+				$('#myTable').dataTable({
+					"pageLength":5,
+					"lengthMenu":[5,10,25,50]
+				});
 			} );
 		</script>
 

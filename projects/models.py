@@ -25,7 +25,7 @@ class Project(models.Model):
     category = models.ForeignKey('Category', blank=True, null=True, on_delete=models.SET_NULL)
     description = models.TextField(max_length=5000)
     backers_story = models.TextField(max_length=5000)
-    created_date = models.DateField(default=datetime.now)
+    created_date = models.DateField(default=datetime.now, editable=False)
     views = models.IntegerField(default=0)
     goal = models.IntegerField(default=0, blank=True, null=True)
     end_date = models.DateField(default=datetime.now, blank=True, null=True)
