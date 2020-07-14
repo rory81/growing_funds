@@ -118,6 +118,12 @@ input.form-control.search-box{
     box-shadow: none!important;
 }
 
+
+.textarea.form-control:focus{
+    border: 2px solid #669900!important;
+    box-shadow: none!important;
+}
+
 .textinput.form-control{
     border: none!important;
     border-bottom: 1px solid #666666!important;
