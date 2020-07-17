@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
 from .views import get_projects, project_detail, create_or_edit_project, get_project_category
+from .contexts import searchbar
 
 
 urlpatterns = [

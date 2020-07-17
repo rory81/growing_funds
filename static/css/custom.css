@@ -112,7 +112,7 @@ input.form-control.search-box{
     font-size: 18px;
 }
 
-.form-control:focus, .textinput.form-control:focus{
+.form-control:focus, .textinput.form-control:focus, .emailinput.form-control:focus{
     border: none!important;
     border-bottom: 2px solid #669900!important;
     box-shadow: none!important;
@@ -124,7 +124,7 @@ input.form-control.search-box{
     box-shadow: none!important;
 }
 
-.textinput.form-control{
+.textinput.form-control, .emailinput.form-control{
     border: none!important;
     border-bottom: 1px solid #666666!important;
     box-shadow: none!important;

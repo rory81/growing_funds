@@ -18,7 +18,7 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     project_number = models.ForeignKey(Project, null=False, blank=False, on_delete=models.CASCADE)
-    reward = models.CharField(max_length=100, null=False, blank=False)
+    reward = models.TextField(max_length=100, null=False, blank=False)
     amount_pledged = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):

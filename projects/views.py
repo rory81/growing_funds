@@ -3,7 +3,6 @@ from django.utils import timezone
 from datetime import datetime
 from django.contrib import messages
 from django.db.models import Q
-from django.core.paginator import InvalidPage, Paginator
 from django.http import Http404
 from .models import Project, Category
 from .forms import StartProjectForm
@@ -18,7 +17,6 @@ def calculations(projects):
         p.percentage = round(((p.raised/p.goal)*100), 1)
         p.num_days = (p.end_date - datetime.now().date()).days
     return projects
-
 
 
 def get_projects(request):
@@ -42,11 +40,9 @@ def get_projects(request):
     
     calculations(projects)
 
-    
-        
     context = {
         'projects': projects,
-        'search_term':query,
+        # 'search_term':query,
     }
 
     return render(request, 'projects.html', context)

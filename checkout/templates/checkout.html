@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+	<div class="row no-gutters">
+		<div class="col-12 title text-center">
+            <!--Heading Form-->
+            <h1>Pledge to: <span>{{ project.title }}<span></h1>	
+		</div>
+	</div>
+    	<div class="row no-gutters">
+		    <div class="col mx-auto main_div">
+                <div class="col-2 main_coin_image">
+                    <img class="coin_image" src="{% static 'img/growing_coins.png' %}">
+                </div>
+                <div class="col-9 mx-auto  div_form">
+                    <form role="form" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                        {{ order_form|crispy }}
+                    
+                        <div> 
+                            <button type="submit" class="btn float-right">Pledge Now</button>
+                        </div>
+                    </form> 
+                </div>
+	
+            </div>
+	    </div>
+    
+</div>
+  
+{% endblock %}
