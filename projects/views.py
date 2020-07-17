@@ -25,8 +25,7 @@ def get_projects(request):
     that were created prior to 'now'
     and render them to the 'projects.html' template
     """
-    projects = Project.objects.filter(
-        created_date__lte=timezone.now()).order_by('-created_date')
+    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     query = None
     if request.GET:
         if 'q' in request.GET:
@@ -36,13 +35,12 @@ def get_projects(request):
                 return redirect(get_projects)
             
             queries = Q(title__icontains=query) | Q(description__icontains=query)
-            projects = projects.filter(queries)
-    
+            projects = projects.filter(queries)    
     calculations(projects)
 
     context = {
         'projects': projects,
-        # 'search_term':query,
+        'search_term':query,
     }
 
     return render(request, 'projects.html', context)

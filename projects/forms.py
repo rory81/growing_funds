@@ -27,7 +27,7 @@ class StartProjectForm(forms.ModelForm):
     
     def clean_goal(self):
         goal = self.cleaned_data.get('goal')
-        if goal == 0:
+        if goal <= 0:
             raise forms.ValidationError('Please enter a goal amount higher than 0')
         return goal
     
