@@ -15,32 +15,23 @@ def checkout(request, pk=None):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
         total = int(order_form['amount_pledged'].value())
-        stripe_total = round(total * 100)
-        stripe.api_key =stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-                amount=stripe_total,
-                currency=settings.STRIPE_CURRENCY,
-            )
-    # if request.method == 'POST':
-    #     redirect()
-    #     order_form = OrderForm(request.POST)
-    #     if order_form.is_valid():
-    #         order = order_form.save(commit=False)
-    #         project.raised += order.amount_pledged
-    #         stripe_total = round(order.amount_pledged * 100)
-    #         order.save()
-    #         project.save()
-            
-    #         stripe.api_key =stripe_secret_key
-    #         stripe.PaymentIntent.create(
-    #             amount=stripe_total,
-    #             currency=settings.STRIPE_CURRENCY,
-    #         )
-    # else:
+        
+
+    else: 
+        order_form = OrderForm()
+        total=1
+
+    stripe_total = round(total * 100)
+    stripe.api_key =stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
     
-        if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+        Did you forget to set it in your environment?')
 
     context = {
         'order_form': order_form,
