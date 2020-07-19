@@ -14,7 +14,7 @@
                 <img class="coin_image" src="{% static 'img/growing_coins.png' %}">
             </div>
             <div class="col-9 mx-auto  div_form">
-                <p class="text-muted">Please fill out the form below to complete.</p>
+                <p class="text-muted text-center mb-5">Please fill out the form below to complete the transaction.</p>
                 <form action="{% url 'checkout' project.id %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -31,6 +31,11 @@
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small px-2 w-auto">Pledge details for project: {{project.title}}</legend>
+                        {{ order_form.reward | as_crispy_field }}
+                        {{ order_form.amount_pledged | as_crispy_field }}
+                    </fieldset>
                         <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
