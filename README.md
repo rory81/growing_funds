@@ -149,3 +149,4 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - picture for when no picture is made available: Alsero-Budget-spiekozijn lqkunststoffen.nl
 - https://datatables.net/manual/installation for the datatable in the category page
 - https://stackoverflow.com/questions/51758405/django-give-date-field-default-value-of-one-month-from-today
+- https://www.youtube.com/watch?v=oZwyA9lUwRk&t=1454s : Stripe for a donation page 
