@@ -4,6 +4,14 @@ from projects.models import Project
 from django.contrib.auth.models import User
 from django.conf import settings
 
+
+REWARDS = (
+    ('Option 1', 'Option 1'),
+    ('Option 2', 'Option 2'),
+    ('Option 3', 'Option 3'),
+    ('Nothing', 'Nothing'),
+)
+
 class Order(models.Model):
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE) 
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -18,7 +26,7 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     project_number = models.ForeignKey(Project, null=False, blank=False, on_delete=models.CASCADE)
-    reward = models.TextField(max_length=100, null=False, blank=False)
+    reward = models.CharField(max_length=9, choices=REWARDS, default="Nothing")
     amount_pledged = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=1)
 
     def _generate_order_number(self):
