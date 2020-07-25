@@ -5,7 +5,7 @@
 	<div class="row no-gutters">
 		<div class="col-12 title text-center">
             <!--Heading Form-->
-            <h1>Pledge to: <span>{{ project.title }}<span></h1>	
+            <h1>Pledge to: {{ project.title }} </h1>
 		</div>
 	</div>
     <div class="row no-gutters">
@@ -61,12 +61,6 @@
                         <button id="submit-button" class="btn btn-black rounded-0">
                             Pledge Now
                         </button>
-                        <p class="small text-danger my-0">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
-                        </p>
                     </div>
                 </form>
             </div>

@@ -25,7 +25,7 @@ class Project(models.Model):
     """
 
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
-    title = models.CharField(max_length=90, blank=True, null=True)
+    title = models.CharField(max_length=90, blank=False, null=False)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=False, null=True, on_delete=models.SET_NULL)
     description = models.TextField(max_length=5000)

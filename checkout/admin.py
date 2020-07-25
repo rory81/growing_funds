@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Order
 
 class OrderAdmin(admin.ModelAdmin):
-    readonly_fields = ('user','order_number', 'date','project_number','reward','amount_pledged' )
+    readonly_fields = ('user','order_number', 'date','project','reward','amount_pledged' )
     fields = (
             'user',
             'order_number', 
@@ -16,7 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
             'street_address2', 
             'county',
             'date',
-            'project_number',
+            'project',
             'reward',
             'amount_pledged' 
         )
@@ -24,7 +24,7 @@ class OrderAdmin(admin.ModelAdmin):
             'user',
             'order_number', 
             'date',
-            'project_number',
+            'project',
             'reward',
             'amount_pledged' 
         )

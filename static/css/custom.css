@@ -71,13 +71,8 @@ hr.bar-end{
 }
 
 /*FORMS*/
-label{
-    color: #666666;
-    font-size: 1rem;
-    font-weight: 400;
-}
 
-.fieldset-label{
+.fieldset-label, label{
     color: #669900;
     font-weight: 600;
 }
@@ -314,6 +309,9 @@ h2{
 
 .pay-success{
     margin-top: 200px;
+}
+.project_success{
+    color:#FF9900
 }
 
 /*PROJECT CATEGORIES*/
