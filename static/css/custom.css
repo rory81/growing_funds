@@ -334,3 +334,7 @@ h2{
 th{
     visibility: hidden;
 }
+
+#myTable_wrapper{
+    margin: auto
+}
