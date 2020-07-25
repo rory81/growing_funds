@@ -74,11 +74,10 @@
         <h2 class="text-center">Other projects in this category</h2>
         <hr class="orange_line"></hr>
 
-    <table id="myTable" class="table" style="width:100%">
+    <table id="myTable" class="table fixed" style="width:100%">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Space</th>
+                <th class=>Image</th>
                 <th>Project Details</th>
             </tr>
         </thead>
@@ -97,7 +96,6 @@
                         </a>
                     {% endif %}
                 </td>
-                <td></td>
                 <td>
                     <a href="{% url 'project_detail' project.id %}" target="_blank">
                             <h3 class="maintext">{{ project.title}}</h3>
