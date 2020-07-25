@@ -54,11 +54,14 @@ def charge(request, pk=None):
     else:
         order_form = OrderForm()
 
-    return redirect(reverse('success', args=(total, pk)))
+    return redirect(reverse('success', args=(total, pk, order.order_number)))
 
 
-def success(request, pk, total):
+def success(request, total, pk, order_number):
     amount = total
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    print(order.order_number)
     project = get_object_or_404(Project, pk=pk)
     project.raised += amount
     project.save(update_fields=["raised"])
@@ -66,5 +69,6 @@ def success(request, pk, total):
     context = {
         'project': project,
         'amount': amount,
+        'order': order,
     }
     return render(request, 'payment_success.html', context)

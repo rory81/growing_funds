@@ -5,15 +5,18 @@
 	<div class="row no-gutters">
 		<div class="col-12 title text-center">
             <!--Heading-->
-            <h1>Payment Successful !</h1>	
+            <h1>Payment Successful !</h1>
+            <p>Your order number is {{ order.order_number }}</p>
+            <p class="text-muted">A confirmation email will be sent to {{ order.email }}</p>	
+
 		</div>
 	</div>
     <div class="row no-gutters">
-        <div class="col mx-auto mt-5">
+        <div class="col mx-auto">
             <div class="col-7 col-xl-6 green_block mx-auto text-center">
                 Thank You So Much<br>For Funding Project<br><span class="project_success">{{ project.title}}</span> <br>for $ {{ amount }} !
             </div>
-            <p class="text-muted text-center mb-5">Would you like to support more projects? Click <a href="{% url 'get_projects' %}">here</a> to get back to the Home page to see the top-5 projects!</p>
+            <p class="text-muted text-center mt-5 mb-5">Would you like to support more projects? Click <a href="{% url 'get_projects' %}">here</a> to get back to the Home page to see the top-5 projects!</p>
             <div class="col-3 col-xl-2 mx-auto mt-5">
                 <img class="coin_image" src="{% static 'img/growing_coins.png' %}">
             </div>
