@@ -34,7 +34,8 @@ class Order(models.Model):
         Generate a random, unique order number using uuid
         """
         return uuid.uuid4().hex.upper()
-    
+
+
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the ordernumber

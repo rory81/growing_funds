@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import OrderForm
 from projects.models import Project
 from .models import Order
+import json
 
 
 import stripe
@@ -27,7 +28,8 @@ def checkout(request, pk=None):
 
 def charge(request, pk=None):
     project = get_object_or_404(Project, pk=pk) if pk else None
-    if request.method == 'POST': 
+
+    if request.method == 'POST':
         order_form = OrderForm(request.POST)
         # PAYMENT
         total = int(request.POST['amount_pledged'])
@@ -35,17 +37,28 @@ def charge(request, pk=None):
         customer = stripe.Customer.create(
             source=request.POST['stripeToken']
         )
-
-        charge = stripe.Charge.create(
-            customer=customer,
+        intent = stripe.PaymentIntent.create(
             amount=total*100,
-            currency=settings.STRIPE_CURRENCY
+            currency="usd",
+            payment_method_types=["card"],
+            customer=customer,
         )
+
+        stripe.PaymentIntent.confirm(
+            intent.id,
+            payment_method="pm_card_visa",
+        )
+
+        # charge = stripe.Charge.create(
+        #     customer=customer,
+        #     amount=total*100,
+        #     currency=settings.STRIPE_CURRENCY
+        # )
         if order_form.is_valid:
+            print(intent.status)
             order = order_form.save()
-            order.project= Project.objects.get(pk=pk)
+            order.project = Project.objects.get(pk=pk)
             order.save(update_fields=["project"])
-            print(order.email)
             request.session['save_info'] = 'save-info' in request.POST
         else:
             messages.error(request, 'There was an error with your form. \
@@ -54,21 +67,20 @@ def charge(request, pk=None):
     else:
         order_form = OrderForm()
 
-    return redirect(reverse('success', args=(total, pk, order.order_number)))
-
-
-def success(request, total, pk, order_number):
-    amount = total
-    save_info = request.session.get('save_info')
-    order = get_object_or_404(Order, order_number=order_number)
-    print(order.order_number)
-    project = get_object_or_404(Project, pk=pk)
-    project.raised += amount
-    project.save(update_fields=["raised"])
-
     context = {
         'project': project,
-        'amount': amount,
-        'order': order,
+        'client_secret': intent.client_secret,
     }
-    return render(request, 'payment_success.html', context)
+    return redirect(reverse('success', args=[total]))
+
+
+# def success(request, total, pk, order_number):
+#     amount = total
+#     save_info = request.session.get('save_info')
+#     order = get_object_or_404(Order, order_number=order_number)
+#     print(order.order_number)
+#     project = get_object_or_404(Project, pk=pk)
+#     project.raised += amount
+#     project.save(update_fields=["raised"])
+
+    # return render(request, 'payment_success.html', context)
