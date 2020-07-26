@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'bootstrap_pagination',
     'projects',
     'checkout',
+    'profiles',
 ]
 
 MIDDLEWARE = [

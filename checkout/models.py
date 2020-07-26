@@ -4,6 +4,7 @@ from projects.models import Project
 from django.contrib.auth.models import User
 from django.conf import settings
 from django_countries.fields import CountryField
+from profiles.models import UserProfile
 
 REWARDS = (
     ('Option 1', 'Option 1'),
@@ -13,7 +14,7 @@ REWARDS = (
 )
 
 class Order(models.Model):
-    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE) 
+    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
