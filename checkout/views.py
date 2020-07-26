@@ -44,43 +44,45 @@ def charge(request, pk=None):
             customer=customer,
         )
 
-        stripe.PaymentIntent.confirm(
+
+        confirm = stripe.PaymentIntent.confirm(
             intent.id,
             payment_method="pm_card_visa",
+
         )
 
-        # charge = stripe.Charge.create(
-        #     customer=customer,
-        #     amount=total*100,
-        #     currency=settings.STRIPE_CURRENCY
-        # )
-        if order_form.is_valid:
+        print('confirm.status', confirm.status)
+
+        if order_form.is_valid and confirm.status == 'succeeded':
             print(intent.status)
             order = order_form.save()
             order.project = Project.objects.get(pk=pk)
             order.save(update_fields=["project"])
             request.session['save_info'] = 'save-info' in request.POST
         else:
-            messages.error(request, 'There was an error with your form. \
+            messages.error(request, 'There was an error with your form or creditcard. \
             Please double check your information.')
 
     else:
         order_form = OrderForm()
 
+
+    return redirect(reverse('success', args=(total, pk, order.order_number)))
+
+
+def success(request, total, pk, order_number):
+    amount = total
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    print(order.order_number)
+
+    project = get_object_or_404(Project, pk=pk)
+    project.raised += amount
+    project.save(update_fields=["raised"])
+
     context = {
         'project': project,
-        'client_secret': intent.client_secret,
+        'amount': amount,
+        'order': order,
     }
-    return redirect(reverse('success', args=[total]))
-
-
-# def success(request, total, pk, order_number):
-#     amount = total
-#     save_info = request.session.get('save_info')
-#     order = get_object_or_404(Order, order_number=order_number)
-#     print(order.order_number)
-#     project = get_object_or_404(Project, pk=pk)
-#     project.raised += amount
-#     project.save(update_fields=["raised"])
-
-    # return render(request, 'payment_success.html', context)
+    return render(request, 'payment_success.html', context)
