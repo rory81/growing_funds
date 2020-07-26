@@ -77,6 +77,16 @@ hr.bar-end{
     font-weight: 600;
 }
 
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
 .btn{
     border: 2px solid #FF9900!important;
     color: #666666!important;

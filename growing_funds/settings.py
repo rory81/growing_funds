@@ -176,3 +176,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY','')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY','')
 STRIPE_CURRENCY = 'usd'
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET','')
+# "whsec_BobXY9IoLsuvyBtKyBCDWx6u30W8Gq5v"

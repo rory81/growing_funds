@@ -44,11 +44,9 @@ def charge(request, pk=None):
             customer=customer,
         )
 
-
         confirm = stripe.PaymentIntent.confirm(
             intent.id,
             payment_method="pm_card_visa",
-
         )
 
         print('confirm.status', confirm.status)
