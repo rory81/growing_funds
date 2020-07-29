@@ -74,12 +74,11 @@
 </header>
 <!--Messages-->
 {% if messages %}
-<div class="justify-content-center">
-    <ul class="messages">
-        {% for message in messages %}
-        <li class="text-danger"> {{ message }} </li>
-        {% endfor %}
-    </ul>
+<ul class="messages">
+    {% for message in messages %}
+    <li class="text-danger"> {{ message }} </li>
+    {% endfor %}
+</ul>
 {% endif %}
 <main>
 {% block content %}
@@ -97,19 +96,13 @@
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 		</script>
 		<script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
-		<script>
-			$(document).ready(function() {
-				$('#myTable').dataTable({
-					"pageLength":5,
-					"lengthMenu":[5,10,25,50]
-				});
-			} );
-		</script>
+        <script type="text/javascript" src="{% static 'js/datatables.js' %}"></script>
 		<script src="https://js.stripe.com/v3/"></script>
 
 	{% endblock %}
 	{% block postloadjs%}
 	{% endblock %}
+
 </body>
 
 </html>

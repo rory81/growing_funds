@@ -24,7 +24,7 @@ class Project(models.Model):
     """
     Content Project
     """
-    user = models.ForeignKey(UserProfile, on_delete=models.SET("deleted_user"), null=True, blank=True, related_name='projects')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET("deleted_user"), null=True, blank=True, related_name='projects')
     title = models.CharField(max_length=90, blank=False, null=False)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=False, null=True, on_delete=models.SET_NULL)

@@ -2,6 +2,7 @@ from django.db import models
 import uuid  # to create order_number
 from projects.models import Project
 from django.conf import settings
+from datetime import datetime
 from django_countries.fields import CountryField
 from profiles.models import UserProfile
 
@@ -13,7 +14,7 @@ REWARDS = (
 )
 
 class Order(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -24,7 +25,7 @@ class Order(models.Model):
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(default=datetime.now)
     project = models.ForeignKey(Project, null=True, blank=False, on_delete=models.CASCADE)
     reward = models.CharField(max_length=9, choices=REWARDS, default="Nothing")
     amount_pledged = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=1)

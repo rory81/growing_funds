@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
+from projects.models import Project
+from checkout.models import Order
 from .forms import UserProfileForm
 from django.contrib import messages
 
