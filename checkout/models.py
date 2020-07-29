@@ -1,7 +1,6 @@
 from django.db import models
 import uuid  # to create order_number
 from projects.models import Project
-from django.contrib.auth.models import User
 from django.conf import settings
 from django_countries.fields import CountryField
 from profiles.models import UserProfile

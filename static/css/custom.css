@@ -70,6 +70,12 @@ hr.bar-end{
     margin-top: 0px;
 }
 
+/*MESSAGES*/
+.table{
+    display: table;
+    margin: 0 auto;
+}
+
 /*FORMS*/
 
 .fieldset-label, label{
@@ -170,6 +176,7 @@ input.form-control.search-box{
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
   }
+
 
 /*PROJECT DETAILS*/
 

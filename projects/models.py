@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime, timedelta
 from django.contrib.auth.models import User
+from profiles.models import UserProfile
 
 
 def one_month_from_today():
@@ -23,15 +24,14 @@ class Project(models.Model):
     """
     Content Project
     """
-
-    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.SET("deleted_user"), null=True, blank=True, related_name='projects')
     title = models.CharField(max_length=90, blank=False, null=False)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=False, null=True, on_delete=models.SET_NULL)
     description = models.TextField(max_length=5000)
-    backers_story_option1 = models.TextField(max_length=5000, null=False, blank=False , default= "if you back this project you will ")
-    backers_story_option2 = models.TextField(max_length=5000, null=False, blank=False , default= "if you back this project you will ")
-    backers_story_option3 = models.TextField(max_length=5000, null=False, blank=False , default= "if you back this project you will ")
+    backers_story_option1 = models.TextField(max_length=5000, null=False, blank=False)
+    backers_story_option2 = models.TextField(max_length=5000, null=False, blank=False)
+    backers_story_option3 = models.TextField(max_length=5000, null=False, blank=False)
     created_date = models.DateField(default=datetime.now, editable=False)
     views = models.IntegerField(default=0)
     goal = models.IntegerField(default=0)

@@ -53,9 +53,9 @@
 					<a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
 			{% endif %}
 		</div>
-		{% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+		{% if request.user.is_authenticated %}
 		<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
-		{% comment %} {% endif%} {% endcomment %}
+		{% endif%}
 	</div>
 	<form class="form-inline justify-content-end" action="{% url 'get_projects' %}">
 		<input class="form-control mr-sm-2 search-box" type="search" name="q" placeholder="Search Project" aria-label="Search">
@@ -72,6 +72,15 @@
 <hr class="bar-end">
 <!--End Category bar-->
 </header>
+<!--Messages-->
+{% if messages %}
+<div class="justify-content-center">
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="text-danger"> {{ message }} </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <main>
 {% block content %}
 {% endblock %}
