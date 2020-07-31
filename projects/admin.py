@@ -3,7 +3,7 @@ from .models import Project, Category
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    readonly_fields = ('created_date', 'user')
+    readonly_fields = ('created_date', 'user_profile')
     list_display = (
         'title',
         'image',

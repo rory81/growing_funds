@@ -115,10 +115,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 # ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # for testing and logout purposes
 LOGIN_REDIRECT_URL = '/'
-
-
 WSGI_APPLICATION = 'growing_funds.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
