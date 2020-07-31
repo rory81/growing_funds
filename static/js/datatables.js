@@ -13,9 +13,21 @@ $(document).ready(function() {
     });
 } );
 
+$('#myHistoryTable').dataTable( {
+  "columnDefs": [
+    { "width": "30%", "targets": 0 }
+  ]
+} );
+
 $(document).ready(function() {
     $('#myProjectsTable').dataTable({
         "pageLength":5,
         "lengthMenu":[5,10,25,50]
     });
+} );
+
+$('#myProjectsTable').dataTable( {
+  "columnDefs": [
+    { "width": "20%", "targets": 1 }
+  ]
 } );

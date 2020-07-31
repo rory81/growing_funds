@@ -16,9 +16,8 @@
                 {{ form|crispy }}
                 <button class="btn float-right mb-5">Update Information</button> 
             </form>
-            <hr class="orange_line mt-5 mb-5">
+            <hr class="orange_line delivery_seperator mt-5 mb-5">
 		</div>
-
         <div class="col-12 col-lg-6 ml-2">
             <div class="card">
                 <h5 class="text-center mb-5">Order History</h5>
@@ -44,7 +43,7 @@
                         {% endfor%}
                     </tbody>
                 </table>
-                <hr class="orange_line mt-5 mb-5">
+                <hr class="orange_line mt-5 mb-5 d-none d-sm-block">
             </div>
             
             <div class="card">
@@ -54,11 +53,10 @@
                         <tr>
                             <th>Title</th>
                             <th>Created</th>
-                            <th>Goal</th>
-                            <th>% Raised</th>
+                            <th>Raised</th>
                             <th>Days left</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th><i class="fas fa-pencil-alt"></i></th>
+                            <th><i class="far fa-trash-alt"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,13 +64,10 @@
                         <tr>
                             <td title="{{ project.title }}"><a href="{% url 'project_detail' project.id %}" target="_blank">{{ project.title|truncatewords:5 }}</a></td>
                             <td> {{ project.created_date }}</td>
-                            <td title="{{ project.goal }}">                             
-                                    $ {{ project.goal }}
-                            </td>
                             <td> {{ project.percentage }}%</td>
                             <td> {{ project.num_days }}</td>
-                            <td> <a href="{% url 'edit_project' project.id %}" target="_blank"><button class="btn-outline-success">Edit</button></a></td>
-                            <td> <a href="{% url 'delete_project' project.id %}"><button class="btn-outline-danger">Delete</button></a></td>
+                            <td> <a href="{% url 'edit_project' project.id %}" target="_blank"><button class="btn-outline-success edit"><i class="fas fa-pencil-alt"></i></button></a></td>
+                            <td> <a href="{% url 'delete_project' project.id %}"><button class="btn-outline-danger delete"><i class="far fa-trash-alt"></i></button></a></td>
                         </tr>
                         {% endfor%}
                     </tbody>

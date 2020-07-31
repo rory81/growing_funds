@@ -94,12 +94,12 @@ select option[value=""] {
     font-size: 1.2rem!important;
 }
 
-.btn-outline-success{
+.btn-outline-success.edit{
     border: 2px solid #669900!important;
     color: #669900!important
 } 
 
-.btn-outline-success, .btn-outline-danger{
+.btn-outline-success.edit, .btn-outline-danger.delete{
     font-size: 1.2rem!important;
     background-color: #ffffff;
 } 
@@ -355,6 +355,10 @@ h2{
     visibility: hidden;
 }
 
+/* .invisible{
+    color: white;
+} */
+
 .card{
     border: none!important;
 }
@@ -369,10 +373,17 @@ h2{
 #myTable.table.fixed td:nth-of-type(2) {width:90%;}/*Setting the width of column 2.*/
 
 #myHistoryTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/
-#myHistoryTable.fixed td {overflow:hidden;}/*Hide text outside the cell.*/
-#myHistoryTable.fixed td:nth-of-type(1) {width:80;}/*Setting the width of column 1.*/
-#myHistoryTable.fixed td:nth-of-type(2) {width:10%;}/*Setting the width of column 2.*/
-#myHistoryTable.fixed td:nth-of-type(3) {width:5%;}/*Setting the width of column 3.*/
-#myHistoryTable.fixed td:nth-of-type(4) {width:5%;}/*Setting the width of column 4.*/
+
+#myProjectsTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/
 
 
+/*MEDIA QUERIES*/
+@media(min-width:1024px) {
+  .delivery_seperator {
+    display:none;
+  }
+
+  /* #myProjectsTable.table.dataTable thead th{
+    font-size: 16px!important;
+} */
+}
