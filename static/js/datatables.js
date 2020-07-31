@@ -9,25 +9,16 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#myHistoryTable').dataTable({
         "pageLength":5,
-        "lengthMenu":[5,10,25,50]
-    });
+        "lengthMenu":[5,10,25,50],
+        "columnDefs": [{ "width": "30%", "targets": 0 }]
+    } );
 } );
 
-$('#myHistoryTable').dataTable( {
-  "columnDefs": [
-    { "width": "30%", "targets": 0 }
-  ]
-} );
 
 $(document).ready(function() {
     $('#myProjectsTable').dataTable({
         "pageLength":5,
-        "lengthMenu":[5,10,25,50]
-    });
-} );
-
-$('#myProjectsTable').dataTable( {
-  "columnDefs": [
-    { "width": "20%", "targets": 1 }
-  ]
+        "lengthMenu":[5,10,25,50],
+        "columnDefs": [{ "width": "20%", "targets": 0 }]
+    } );
 } );
