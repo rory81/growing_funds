@@ -94,6 +94,22 @@ select option[value=""] {
     font-size: 1.2rem!important;
 }
 
+.btn-outline-success{
+    border: 2px solid #669900!important;
+    color: #669900!important
+} 
+
+.btn-outline-success, .btn-outline-danger{
+    font-size: 1.2rem!important;
+    background-color: #ffffff;
+} 
+
+.btn-outline-success:hover, .btn-outline-success:focus-within{
+    color: #ffffff!important;
+    background-color: #669900!important;
+}
+
+
 .btn:hover, .btn:focus-within{
     color: #ffffff!important;
     background-color: #FF9900!important;

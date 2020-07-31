@@ -55,22 +55,24 @@
                             <th>Title</th>
                             <th>Created</th>
                             <th>Goal</th>
-                            <th>Raised</th>
-                            <th>%</th>
+                            <th>% Raised</th>
                             <th>Days left</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for project in projects|dictsortreversed:"created_date"%}
                         <tr>
-                            <td title="{{ project.title }}">{{ project.title|truncatewords:5 }}</td>
+                            <td title="{{ project.title }}"><a href="{% url 'project_detail' project.id %}" target="_blank">{{ project.title|truncatewords:5 }}</a></td>
                             <td> {{ project.created_date }}</td>
                             <td title="{{ project.goal }}">                             
                                     $ {{ project.goal }}
                             </td>
-                            <td> $ {{ project.raised }}</td>
                             <td> {{ project.percentage }}%</td>
                             <td> {{ project.num_days }}</td>
+                            <td> <a href="{% url 'edit_project' project.id %}" target="_blank"><button class="btn-outline-success">Edit</button></a></td>
+                            <td> <a href="{% url 'delete_project' project.id %}"><button class="btn-outline-danger">Delete</button></a></td>
                         </tr>
                         {% endfor%}
                     </tbody>

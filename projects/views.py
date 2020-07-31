@@ -105,3 +105,12 @@ def create_or_edit_project(request, pk=None):
         'form': form,
     }
     return render(request, 'startprojectform.html', context)
+
+
+def delete_project(request, pk):
+    """
+    Create a view that allows to delete a project,
+    """
+    project = get_object_or_404(Project, pk=pk)
+    project.delete()
+    return redirect('profile')

@@ -26,7 +26,7 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(default=datetime.now)
-    project = models.ForeignKey(Project, null=True, blank=False, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, null=True, blank=False, on_delete=models.SET_NULL)
     reward = models.CharField(max_length=9, choices=REWARDS, default="Nothing")
     amount_pledged = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=1)
 
