@@ -334,19 +334,17 @@ h2{
     margin-left: 100px;
 }
 
-
-.pagination_block{
-    background-color: transparent;
-    color: transparent;
-    border: none;
-}
-
-th{
+/*DATA TABLES*/
+#myTable.th{
     visibility: hidden;
 }
 
+.card{
+    border: none!important;
+}
+
 #myTable_wrapper, #myHistoryTable_wrapper{
-    margin: auto
+    margin: auto;
 }
 
 #myTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/

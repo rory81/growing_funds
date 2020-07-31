@@ -3,45 +3,80 @@
 {% block content %}
 <div class="container-fluid">
 	<div class="row no-gutters">
-		<div class="col-12 title text-center">
+		<div class="col-12 title text-center mb-5">
             <!--Heading-->
             <h1>My Profile </h1>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-12 col-lg-5 ml-2">
-            <p class="text-muted">Default Delivery Information</p>
+		<div class="col-12 col-lg-5 card ml-2">
+            <h5>Default Delivery Information</h5>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn float-right">Update Information</button> 
+                <button class="btn float-right mb-5">Update Information</button> 
             </form>
+            <hr class="orange_line mt-5 mb-5">
 		</div>
 
-        <div class="col-12 col-lg-6 ml-5">
-            <p class="text-muted">Order History</p>
-            <table id="myHistoryTable" class="table fixed" style="width:100%">
-                <thead>
-                    <tr>
-                        <th >Order Number</th>
-                        <th>Date</th>
-                        <th>Project</th>
-                        <th>Amount Pledged</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders|dictsortreversed:"date"%}
-                    <tr>
-                        <td title="{{ order.order_number }}">{{ order.order_number }}</td>
-                        <td> {{ order.date|date:"d-m-Y" }}</td>
-                        <td title="{{ order.project }}">                             
-                                {{ order.project|truncatewords:5}}
-                        </td>
-                        <td> {{ order.amount_pledged }}</td>
-                    </tr>
-                    {% endfor%}
-                </tbody>
-            </table>
+        <div class="col-12 col-lg-6 ml-2">
+            <div class="card">
+                <h5 class="text-center mb-5">Order History</h5>
+                <table id="myHistoryTable" class="table fixed mb-5" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th >Order Nr</th>
+                            <th>Date</th>
+                            <th>Project</th>
+                            <th>$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders|dictsortreversed:"date"%}
+                        <tr>
+                            <td title="{{ order.order_number }}">{{ order.order_number }}</td>
+                            <td> {{ order.date|date:"d-m-Y" }}</td>
+                            <td title="{{ order.project }}">                             
+                                    {{ order.project|truncatewords:5}}
+                            </td>
+                            <td> {{ order.amount_pledged }}</td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                </table>
+                <hr class="orange_line mt-5 mb-5">
+            </div>
+            
+            <div class="card">
+                <h5 class="text-center mb-5">Your Projects</h5>
+                <table id="myProjectsTable" class="table fixed" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Created</th>
+                            <th>Goal</th>
+                            <th>Raised</th>
+                            <th>%</th>
+                            <th>Days left</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for project in projects|dictsortreversed:"created_date"%}
+                        <tr>
+                            <td title="{{ project.title }}">{{ project.title|truncatewords:5 }}</td>
+                            <td> {{ project.created_date }}</td>
+                            <td title="{{ project.goal }}">                             
+                                    $ {{ project.goal }}
+                            </td>
+                            <td> $ {{ project.raised }}</td>
+                            <td> {{ project.percentage }}%</td>
+                            <td> {{ project.num_days }}</td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+
 
 		</div>
 	</div>

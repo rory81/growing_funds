@@ -12,3 +12,10 @@ $(document).ready(function() {
         "lengthMenu":[5,10,25,50]
     });
 } );
+
+$(document).ready(function() {
+    $('#myProjectsTable').dataTable({
+        "pageLength":5,
+        "lengthMenu":[5,10,25,50]
+    });
+} );

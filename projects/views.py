@@ -94,7 +94,8 @@ def create_or_edit_project(request, pk=None):
         form = StartProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             project = form.save(commit=False)
-            project.user_profile = UserProfile.objects.get(user=request.user)
+            profile = UserProfile.objects.get(user=request.user)
+            project.user_profile = profile
             project = form.save()
             return redirect(project_detail, project.pk)
     else:
