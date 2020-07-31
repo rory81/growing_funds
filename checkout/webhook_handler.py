@@ -26,3 +26,4 @@ class StripWH_Handler:
             content=f'Webhook received: {event["type"]}',
             status=200
         )
+ 
