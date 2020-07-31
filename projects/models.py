@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime, timedelta
 from django.contrib.auth.models import User
-from profiles.models import UserProfile
 
 
 def one_month_from_today():
@@ -24,7 +23,8 @@ class Project(models.Model):
     """
     Content Project
     """
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET("deleted_user"), null=True, blank=True, related_name='projects')
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=90, blank=False, null=False)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=False, null=True, on_delete=models.SET_NULL)
@@ -43,4 +43,3 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-

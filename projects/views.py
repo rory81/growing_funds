@@ -1,17 +1,18 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
 from datetime import datetime
 from django.contrib import messages
 from django.db.models import Q
+from django.http import Http404
 from .models import Project, Category
 from .forms import StartProjectForm
-from profiles.models import UserProfile
 
 
 def calculations(projects):
     """
     calculate the num_days and percentage_raised for every template
     """
+    
     for p in projects:
         p.percentage = round(((p.raised/p.goal)*100), 1)
         p.num_days = (p.end_date - datetime.now().date()).days
@@ -32,14 +33,14 @@ def get_projects(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(get_projects)
-
+            
             queries = Q(title__icontains=query) | Q(description__icontains=query)
-            projects = projects.filter(queries)
+            projects = projects.filter(queries)    
     calculations(projects)
 
     context = {
         'projects': projects,
-        'search_term': query,
+        'search_term':query,
     }
 
     return render(request, 'projects.html', context)
@@ -53,16 +54,15 @@ def get_project_category(request, project_category):
     projects = Project.objects.filter(
         category=Category.objects.get(category=project_category).id).order_by('-created_date')
     projects.category = project_category
-
+    
     calculations(projects)
-
+        
     context = {
         'projects': projects,
 
     }
 
     return render(request, 'project_category.html', context)
-
 
 def project_detail(request, pk):
     """
@@ -92,11 +92,14 @@ def create_or_edit_project(request, pk=None):
     if request.method == "POST":
         form = StartProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
+            project = form.save(commit=False)
+            project.user = request.user
+            print('user:', project.user)
             project = form.save()
             return redirect(project_detail, project.pk)
     else:
         form = StartProjectForm(instance=project)
-
+    
     context = {
         'form': form,
     }
