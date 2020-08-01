@@ -32,7 +32,7 @@ class Project(models.Model):
     backers_story_option1 = models.TextField(max_length=5000, null=False, blank=False)
     backers_story_option2 = models.TextField(max_length=5000, null=False, blank=False)
     backers_story_option3 = models.TextField(max_length=5000, null=False, blank=False)
-    created_date = models.DateField(default=datetime.now, editable=False)
+    created_date = models.DateField(default=datetime.now, editable=False) # datetime instead of timezone else trouble with calculation of num_days
     views = models.IntegerField(default=0)
     goal = models.IntegerField(default=0)
     end_date = models.DateField(default=one_month_from_today)
