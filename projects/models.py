@@ -13,7 +13,7 @@ class Category(models.Model):
     """
     class Meta:
         verbose_name_plural = "Categories"
-    category = models.CharField(max_length=10)
+    category = models.CharField(max_length=11)
 
     def __str__(self):
         return self.category
