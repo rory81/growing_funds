@@ -6,6 +6,6 @@ from .webhooks import webhook
 urlpatterns = [
     path('<int:pk>', checkout, name='checkout'),
     path('<int:pk>/charge', charge, name='charge'),
-    path('success/<int:total>/<int:pk>/<str:order_number>', success, name='success'),
+    path('success/<str:total>/<int:pk>/<str:order_number>', success, name='success'),
     path('wh/', webhook, name='webhook'),
 ]

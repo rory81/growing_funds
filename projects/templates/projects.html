@@ -2,96 +2,99 @@
 {% load static %}
 {% block content %}
 
-<!-- <div class="col">
-    <div class="row no-gutters justify-content-center align-items-center ">
-        <div class="col-3 text-center new_projects_title mt-3 mb-2">
-            <h2>Highest Earners</h2>
+{%if projects.count == 0 %}
+    <h1 class="text-center logo_title">No projects found with that search criteria</h1>
+{% else %}
+    <div class="col">
+        <div class="row no-gutters justify-content-center align-items-center ">
+            <div class="col-3 text-center new_projects_title mt-3 mb-2">
+                <h2>Highest Earners</h2>
+            </div>
         </div>
     </div>
-</div> -->
 
-{% for project in projects|dictsortreversed:"percentage"|slice:"0:5"%}
-{% if project.num_days > 0 %}
-<div class="row no-gutters">
-    <div class="col-4  mx-auto mt-5">
-        <div>
-            <div class="progress progress-section">
-                <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
-                    {{ project.percentage }} %
+    {% for project in projects|dictsortreversed:"percentage"|slice:"0:5"%}
+    {% if project.num_days > 0 %}
+    <div class="row no-gutters">
+        <div class="col-4  mx-auto mt-5">
+            <div>
+                <div class="progress progress-section">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+                        {{ project.percentage }} %
+                    </div>
+                </div>
+            <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}</p>
+            </div>
+            
+        </div>
+        <div class="col-6 mt-5 mr-5">
+            <a href="{% url 'project_detail' project.id %}" target="_blank">
+                <h3 class="maintext">{{ project.title}}</h3>
+            </a>
+            <a href="{% url 'per_category' project.category %}" target="_blank">
+                <p class="subtext">{{ project.category }}</p>
+            </a>
+            <p class="d-none d-sm-none d-lg-block">{{ project.description |truncatewords:30 }}</p>
+            <p class="subtext">{{ project.num_days }} days left</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+            
+    {% comment %} row to make content for the new projects {% endcomment %}
+    <div class="row no-gutters mt-5 mb-0">
+        {% comment %} one column to make content for the new projects {% endcomment %}
+        <div class="col">
+            {% comment %} one row to make the section title for the new projects {% endcomment %}
+            <div class="row no-gutters justify-content-center align-items-center new_projects">
+                <div class="col-3 text-center new_projects_title mt-3 mb-5">
+                    <h2>New Projects</h2>
                 </div>
             </div>
-        <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}</p>
-        </div>
-        
-    </div>
-    <div class="col-6 mt-5 mr-5">
-        <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <h3 class="maintext">{{ project.title}}</h3>
-        </a>
-        <a href="{% url 'per_category' project.category %}" target="_blank">
-            <p class="subtext">{{ project.category }}</p>
-        </a>
-        <p class="d-none d-sm-none d-lg-block">{{ project.description |truncatewords:30 }}</p>
-        <p class="subtext">{{ project.num_days }} days left</p>
-    </div>
-</div>
-{% endif %}
-{% endfor %}
-        
-{% comment %} row to make content for the new projects {% endcomment %}
-<div class="row no-gutters mt-5 mb-0">
-    {% comment %} one column to make content for the new projects {% endcomment %}
-    <div class="col">
-        {% comment %} one row to make the section title for the new projects {% endcomment %}
-        <div class="row no-gutters justify-content-center align-items-center new_projects">
-            <div class="col-3 text-center new_projects_title mt-3 mb-5">
-                <h2>New Projects</h2>
-            </div>
-        </div>
-        {% comment %} one row to make the content for the new projects {% endcomment %}
-        {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
-        {% if project.num_days > 0 %}
-        <div class="row no-gutters new_projects">
-            {% comment %} one col to show the details for the new projects {% endcomment %}
-            <div class="offset-1 col-6">
-                <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <h3 class="maintext">{{ project.title}}</h3>
-                </a>
-                <a href="{% url 'per_category' project.category %}" target="_blank">
-                    <p class="subtext">{{ project.category }}</p>
-                </a>
-                <p>{{ project.description |truncatewords:30}}</p>
-                <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
-            </div>
-            {% comment %} one col to show the pictures for the new projects {% endcomment %}
-            <div class="col-4 ml-5 mb-5">
-                {% if project.image %}
-                <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}">
-                    </a>
-                {% else %}
+            {% comment %} one row to make the content for the new projects {% endcomment %}
+            {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
+            {% if project.num_days > 0 %}
+            <div class="row no-gutters new_projects">
+                {% comment %} one col to show the details for the new projects {% endcomment %}
+                <div class="offset-1 col-6">
                     <a href="{% url 'project_detail' project.id %}" target="_blank">
-                        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        <h3 class="maintext">{{ project.title}}</h3>
                     </a>
-                {% endif %}
-            </div>                
+                    <a href="{% url 'per_category' project.category %}" target="_blank">
+                        <p class="subtext">{{ project.category }}</p>
+                    </a>
+                    <p>{{ project.description |truncatewords:30}}</p>
+                    <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
+                </div>
+                {% comment %} one col to show the pictures for the new projects {% endcomment %}
+                <div class="col-4 ml-5 mb-5">
+                    {% if project.image %}
+                    <a href="{% url 'project_detail' project.id %}" target="_blank">
+                        <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'project_detail' project.id %}" target="_blank">
+                            <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                        </a>
+                    {% endif %}
+                </div>                
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
-</div>
 
-
-<footer class="footer mt-5">
-    <div class="row no-gutters offset-3 footer_row">
-        <div class="col-6">
-            <p class="footer_detail"><i class="fas fa-question-circle"></i>   Questions?</p>
+    <footer class="footer mt-5">
+        <div class="row no-gutters offset-3 footer_row">
+            <div class="col-6">
+                <p class="footer_detail"><i class="fas fa-question-circle"></i>   Questions?</p>
+            </div>
+            <div class="col-6">
+                <p class="footer_detail"><i class="fas fa-exclamation-circle"></i>   Report Misuse</p>
+            </div>            
         </div>
-        <div class="col-6">
-            <p class="footer_detail"><i class="fas fa-exclamation-circle"></i>   Report Misuse</p>
-        </div>            
-    </div>
-    <hr class="orange col-6"></hr>  
-</footer>
+        <hr class="orange col-6"></hr>  
+    </footer>
 
+{% endif %}
 {% endblock %}

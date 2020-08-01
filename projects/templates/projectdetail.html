@@ -22,6 +22,10 @@
     <div class="col-4  text-center">
         <p class="maintext">${{ project.raised }} <i class="fas fa-coins"></i></p>
         <p class="subtext">end goal: ${{project.goal}}</p>
+        {% if project.raised >= project.goal %}
+            <p class="subtext finish_line">This project has reached its goal!</i></p>
+        {% endif%}
+        
     </div>
         <div class="col-4  text-center">
         <p class="maintext">{{ project.views }}</p>

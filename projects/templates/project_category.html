@@ -77,7 +77,7 @@
     <table id="myTable" class="table fixed" style="width:100%">
         <thead>
             <tr>
-                <th class=>Image</th>
+                <th>Image</th>
                 <th>Project Details</th>
             </tr>
         </thead>
@@ -102,7 +102,7 @@
                     </a>
                     <p class="subtext">{{ project.category }}</p>
                     <p>{{ project.description |truncatewords:20}}</p>
-                    <p class="subtext">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  raised: ${{ project.raised }} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }}</p>
+                    <p class="subtext">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  raised: ${{ project.raised }} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
                 </td>
             </tr>
             {% endif %}

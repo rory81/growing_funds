@@ -2,7 +2,7 @@ from django.db import models
 import uuid  # to create order_number
 from projects.models import Project
 from django.conf import settings
-from datetime import datetime
+from django.utils import timezone
 from django_countries.fields import CountryField
 from profiles.models import UserProfile
 
@@ -19,13 +19,13 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = CountryField(blank_label='Country*', null=False, blank=False)
+    country = CountryField(blank_label='Country*', null=False, blank=False, max_length=50)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-    date = models.DateTimeField(default=datetime.now)
+    date = models.DateTimeField(default=timezone.now)
     project = models.ForeignKey(Project, null=True, blank=False, on_delete=models.SET_NULL)
     reward = models.CharField(max_length=9, choices=REWARDS, default="Nothing")
     amount_pledged = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=1)

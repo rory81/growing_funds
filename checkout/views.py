@@ -51,13 +51,15 @@ def charge(request, pk=None):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
         # PAYMENT
-        total = int(request.POST['amount_pledged'])
+        total = str(float(request.POST['amount_pledged']))
+        stripe_total = float(request.POST['amount_pledged'])*100
         # print('Data:', request.POST)
+        print("stripe_total", stripe_total)
         customer = stripe.Customer.create(
             source=request.POST['stripeToken']
         )
         intent = stripe.PaymentIntent.create(
-            amount=total*100,
+            amount=int(stripe_total),
             currency="usd",
             payment_method_types=["card"],
             customer=customer,
@@ -73,7 +75,6 @@ def charge(request, pk=None):
             order.project = Project.objects.get(pk=pk)
             order.save(update_fields=["project"])
             request.session['save_info'] = 'save-info' in request.POST
-            print('save-info',request.session['save_info'])
         else:
             messages.error(request, 'There was an error with your form or creditcard. \
             Please double check your information.')
@@ -86,7 +87,7 @@ def charge(request, pk=None):
 
 
 def success(request, total, pk, order_number):
-    amount = total
+    amount = float(total)
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 

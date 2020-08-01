@@ -203,6 +203,11 @@ input.form-control.search-box{
     font-size: 18px;
 }
 
+p.subtext.finish_line{
+    color: #669900
+}
+
+
 .expired{
     font-size: 20px;
     font-style: italic bold;
@@ -351,13 +356,10 @@ h2{
 }
 
 /*DATA TABLES*/
-#myTable.th{
-    visibility: hidden;
+#myTable.table.fixed th {
+  visibility: hidden;
 }
 
-/* .invisible{
-    color: white;
-} */
 
 .card{
     border: none!important;
