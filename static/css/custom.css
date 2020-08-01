@@ -352,12 +352,9 @@ h2{
 
 /*DATA TABLES*/
 #myTable.th{
-    visibility: hidden;
+    visibility: hidden!important;
 }
 
-/* .invisible{
-    color: white;
-} */
 
 .card{
     border: none!important;

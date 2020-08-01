@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
 from datetime import datetime
 from django.contrib import messages
@@ -32,10 +32,11 @@ def get_projects(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(get_projects)
+                return redirect(reverse('get_projects'))
 
             queries = Q(title__icontains=query) | Q(description__icontains=query)
             projects = projects.filter(queries)
+
     calculations(projects)
 
     context = {
