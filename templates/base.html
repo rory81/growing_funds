@@ -55,6 +55,8 @@
 		</div>
 		{% if request.user.is_authenticated %}
 		<a href="{% url 'start_project' %}" class="left ml-5">Start Project</a>
+        {% else %}
+        <a href="{% url 'account_login' %}" class="left ml-5">Start Project</a>
 		{% endif%}
 	</div>
 	<form class="form-inline justify-content-end" action="{% url 'get_projects' %}">

@@ -6,6 +6,7 @@ from django.db.models import Q
 from .models import Project, Category
 from .forms import StartProjectForm
 from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 
 def calculations(projects):
@@ -79,8 +80,11 @@ def project_detail(request, pk):
     project.num_days = (abs(datetime.now().date() - project.end_date)).days
     project.save()
 
+    project_user = get_object_or_404(User, username=project.user_profile)
+
     context = {
         'project': project,
+        'project_user': project_user
     }
     return render(request, 'projectdetail.html', context)
 

@@ -195,6 +195,7 @@ input.form-control.search-box{
     color:#FF9900!important;
 }
 
+
 .detail_title{
     font-size: 30px;
     font-weight: bold;
@@ -203,7 +204,7 @@ input.form-control.search-box{
     font-size: 18px;
 }
 
-p.subtext.finish_line{
+p.subtext.finish_line, .fa-envelope{
     color: #669900
 }
 
@@ -239,9 +240,9 @@ h2{
 }
 
 
-.footer_detail{
+.footer_detail a{
     margin-bottom: 0px;
-    color: #666666;
+    color: #666666!important;
 }
 
 .footer_row{
