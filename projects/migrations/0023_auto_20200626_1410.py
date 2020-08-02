@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='project',
             name='category',
-            field=models.CharField(choices=[('Arts', 'Arts'), ('Charity', 'Charity'), ('Film', 'Film'), ('Food', 'Food'), ('Games', 'Games'), ('Music', 'Music'), ('Publishing', 'Publishing'), ('Technology', 'Technology')], default='No Category Selected', max_length=10),
+            field=models.CharField(choices=[('Arts', 'Arts'), ('Charity', 'Charity'), ('Film', 'Film'), ('Food', 'Food'), ('Games', 'Games'), ('Music', 'Music'), ('Publishing', 'Publishing'), ('Technology', 'Technology')], default='No Category Selected', max_length=100),
         ),
         migrations.DeleteModel(
             name='Category',
