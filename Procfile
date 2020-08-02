@@ -1,1 +1,1 @@
-web: gunicorn collectstatic growing_funds.wsgi:application
+web: python manage.py collectstatic --no-input; growing_funds.wsgi:application --log-file - --log-level debug
