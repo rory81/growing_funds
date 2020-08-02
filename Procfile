@@ -1,1 +1,1 @@
-web: gunicorn growing_funds.wsgi:application
+web: gunicorn collectstatic growing_funds.wsgi:application
