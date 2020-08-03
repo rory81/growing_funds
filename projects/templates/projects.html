@@ -34,7 +34,7 @@
             <a href="{% url 'per_category' project.category %}" target="_blank">
                 <p class="subtext">{{ project.category }}</p>
             </a>
-            <p >{{ project.description |truncatewords:30 }}</p>
+            <p >{{ project.description |truncatewords:20 }}</p>
             <p class="subtext">{{ project.num_days }} days left</p>
         </div>
     </div>
@@ -63,7 +63,7 @@
                     <a href="{% url 'per_category' project.category %}" target="_blank">
                         <p class="subtext">{{ project.category }}</p>
                     </a>
-                    <p >{{ project.description |truncatewords:30}}</p>
+                    <p >{{ project.description |truncatewords:20}}</p>
                     <p class="results">goal: ${{project.goal}}&nbsp&nbsp&nbsp&nbsp raised: ${{ project.raised }}&nbsp&nbsp&nbsp&nbsp ends in: {{ project.num_days }} days</p>
                 </div>
                 {% comment %} one col to show the pictures for the new projects {% endcomment %}
