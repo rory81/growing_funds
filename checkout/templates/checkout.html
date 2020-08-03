@@ -32,7 +32,7 @@
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label medium px-2 w-auto">Pledge details for project: {{project.title}}</legend>
+                        <legend class="fieldset-label medium w-auto">Pledge details for project: {{project.title}}</legend>
                         {{ order_form.reward | as_crispy_field }}
                         {{ order_form.amount_pledged | as_crispy_field }}
                     </fieldset>

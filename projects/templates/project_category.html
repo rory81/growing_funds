@@ -11,7 +11,7 @@
 </div>
 <div class="row no-gutters">
     <div class="col-11 col-lg-6 detail_info mx-auto text-center mt-5">
-        <h2>Taking off in this category</h2>
+        <h2>Highest Earner in {{projects.category}}</h2>
         <hr class="col-11 col-lg-9 col-xl-6 orange_line">
         {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
             {% if project.num_days > 0 %}
@@ -40,7 +40,7 @@
         {% endfor %}
     </div>
     <div class="col-11 col-lg-6 detail_info mx-auto text-center mt-5">
-        <h2>Most Viewed in this category</h2>
+        <h2>Most Viewed in {{projects.category}}</h2>
         <hr class="col-11 col-lg-9 col-xl-6 orange_line">
         {% for project in projects|dictsortreversed:"views"|slice:"0:1"%}
             {% if project.num_days > 0 %}
@@ -71,7 +71,7 @@
     </div>
 
     <div class="offset-sm-0 col-sm-11 offset-xl-3 col-xl-9 mx-auto mt-5">
-        <h2 class="text-center">All projects in this category</h2>
+        <h2 class="text-center">All projects in {{projects.category}}</h2>
         <hr class="orange_line"></hr>
 
     <table id="myTable" class="table fixed" style="width:100%">

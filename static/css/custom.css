@@ -5,11 +5,13 @@ body {
     margin: 0;
     padding-bottom: 75.3px;
     position: relative;
+
   }
   main {
     width: 100vw;
     margin: 0 auto;
     padding: 30px 0px;
+
   }
   
 /*HEADER*/
@@ -73,7 +75,7 @@ hr.bar-end{
 
 /*FORMS*/
 
-.fieldset-label, label{
+label{
     color: #669900;
     font-weight: 600;
 }
@@ -381,12 +383,14 @@ h2{
 
 
 /*MEDIA QUERIES*/
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px!important;
+  }
+}
 @media(min-width:1024px) {
   .delivery_seperator {
     display:none;
   }
 
-  /* #myProjectsTable.table.dataTable thead th{
-    font-size: 16px!important;
-} */
 }
