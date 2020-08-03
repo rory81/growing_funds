@@ -29,27 +29,28 @@ body {
 
 
 .title h1{
-    color: #666666;
+    color: #000000!important;
     font-variant: small-caps;
     margin: 20px 0px 50px 0px;
 }
 
 /*MAIN NAVIGATION*/
-.navbar{
-    background-color:#FF9900;
+.navbar, .dropdown-menu{
+    background-color:#FF9900!important;
 } 
 a.dropdown-item:hover{
-    color: #ffffff!important;
-    background-color: #FF9900;
+    color: #000000!important;
+    background-color: #FFFFFF;
 }
 
+
 .navbar a{
-    font-size: 22px;
+    font-size: 28px;
     color: #ffffff!important;
 } 
 
 a:hover, a.dropdown-item{
-    color: #666666!important;
+    color: #FFFFFF!important;
 }
 
 
@@ -64,8 +65,8 @@ a:hover, a.dropdown-item{
 .cat-bar .cat-bar-item{
     padding:16px 16px;
     float: left;
-    color: #666666;
-    font-size: 22px;
+    color: #000000!important;
+    font-size: 28px;
 }
 hr.bar-end{
     border-top: 2px solid#669900;
@@ -78,22 +79,25 @@ hr.bar-end{
 label{
     color: #669900;
     font-weight: 600;
+    font-size: 24px!important;
 }
 
 select,
 select option {
-    color: #000000;
+    color: #000000!important;
 }
+
 
 select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
 }
 
+
 .btn{
     border: 2px solid #FF9900!important;
-    color: #666666!important;
-    font-size: 1.2rem!important;
+    color: #000000!important;
+    font-size: 28px!important;
 }
 
 .btn-outline-success.edit{
@@ -135,12 +139,20 @@ button.form-control{
     color: #ff0000;
 }
 
-input.form-control.search-box{
+select#id_default_country.lazyselect.option{
+    background-color: #669900;
+}
+
+input.form-control{
     background: transparent;
     border: none;
     border-bottom: 1px solid #ffffff;
-    font-size: 18px;
+    font-size: 24px;
 }
+
+input, select, textarea, input.ElementsApp input.InputElement {
+    font-size: 20px!important;
+  }
 
 .form-control:focus, .textinput.form-control:focus, .emailinput.form-control:focus{
     border: none!important;
@@ -156,7 +168,7 @@ input.form-control.search-box{
 
 .textinput.form-control, .emailinput.form-control{
     border: none!important;
-    border-bottom: 1px solid #666666!important;
+    border-bottom: 1px solid #000000!important;
     box-shadow: none!important;
 }
 
@@ -203,11 +215,14 @@ input.form-control.search-box{
     font-weight: bold;
 }
 .subtext, .progressbar-text{
-    font-size: 18px;
+    font-size: 26px;
+}
+p, .results{
+    font-size: 23px;
 }
 
 p.subtext.finish_line, .fa-envelope{
-    color: #669900
+    color: #669900;
 }
 
 
@@ -219,8 +234,8 @@ p.subtext.finish_line, .fa-envelope{
 
 .maintext {
     font-weight: bold;
-    font-size: 20px;
-    color: #666666;
+    font-size: 28px;
+    color: #000000!important;
 }
 
 .detail_info{
@@ -228,7 +243,7 @@ p.subtext.finish_line, .fa-envelope{
 }
 
 h2{
-    color: #666666;
+    color: #000000!important;
 }
 
 .orange_line{
@@ -244,7 +259,8 @@ h2{
 
 .footer_detail a{
     margin-bottom: 0px;
-    color: #666666!important;
+    color: #696969!important;
+    font-size: 18px;
 }
 
 .footer_row{
@@ -290,7 +306,7 @@ h2{
 }
 
 .progressbar-text, .subtext{
-    color: #666666;
+    color: #000000!important;
     font-style: italic;
 }
 
@@ -373,21 +389,15 @@ h2{
 }
 
 #myTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/
-#myTable.table.fixed td {overflow:hidden;}/*Hide text outside the cell.*/
-#myTable.table.fixed td:nth-of-type(1) {width:10%;}/*Setting the width of column 1.*/
-#myTable.table.fixed td:nth-of-type(2) {width:90%;}/*Setting the width of column 2.*/
 
 #myHistoryTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/
 
 #myProjectsTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/
-
+td {
+    font-size: 18px!important;
+}
 
 /*MEDIA QUERIES*/
-@media screen and (max-width: 767px) {
-  input, select, textarea {
-    font-size: 16px!important;
-  }
-}
 @media(min-width:1024px) {
   .delivery_seperator {
     display:none;

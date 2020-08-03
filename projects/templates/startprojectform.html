@@ -16,9 +16,22 @@
                 <div class="col-9 mx-auto  div_form">
                     <form role="form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    
-                        {{ form|crispy }}
-                    
+                        <fieldset class="rounded px-3 mb-5">
+                            {{ form.title | as_crispy_field }}
+                            {{ form.image | as_crispy_field }}
+                            {{ form.category | as_crispy_field }}
+                            {{ form.description | as_crispy_field }}
+                            {{ form.backers_story_option1 | as_crispy_field }}
+                            {{ form.backers_story_option2 | as_crispy_field }}
+                            {{ form.backers_story_option3 | as_crispy_field }}
+                            {% if request.path == '/projects/new/'%}
+                                {{ form.goal | as_crispy_field }}
+                                {{ form.end_date | as_crispy_field }}
+                                {{ form.conditions | as_crispy_field }}
+                            { %else  %}
+                            {% endif %}
+                        </fieldset>
+
                         <div> 
                             <button type="submit" class="btn float-right">Publish</button>
                         </div>

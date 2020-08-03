@@ -29,7 +29,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County, State or Locality',
-            'reward': 'For which reward do you want to pledge? Choose one of the categories from the project ',
+            'reward': 'Choose the reward matching the amount you want to pledge',
             'amount_pledged': 'Amount ($)'
         }
 

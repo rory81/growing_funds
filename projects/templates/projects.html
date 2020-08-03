@@ -16,7 +16,7 @@
     {% for project in projects|dictsortreversed:"percentage"|slice:"0:5"%}
     {% if project.num_days > 0 %}
     <div class="row no-gutters">
-        <div class="col-4  mx-auto mt-5">
+        <div class="col-4  mx-auto mt-5 mr-5 ">
             <div>
                 <div class="progress progress-section">
                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
@@ -27,14 +27,14 @@
             </div>
             
         </div>
-        <div class="col-6 mt-5 mr-5">
+        <div class="col-6 mt-5 mr-5 ml-5">
             <a href="{% url 'project_detail' project.id %}" target="_blank">
                 <h3 class="maintext">{{ project.title}}</h3>
             </a>
             <a href="{% url 'per_category' project.category %}" target="_blank">
                 <p class="subtext">{{ project.category }}</p>
             </a>
-            <p class="d-none d-sm-none d-lg-block">{{ project.description |truncatewords:30 }}</p>
+            <p >{{ project.description |truncatewords:30 }}</p>
             <p class="subtext">{{ project.num_days }} days left</p>
         </div>
     </div>
@@ -63,8 +63,8 @@
                     <a href="{% url 'per_category' project.category %}" target="_blank">
                         <p class="subtext">{{ project.category }}</p>
                     </a>
-                    <p>{{ project.description |truncatewords:30}}</p>
-                    <p class="subtext mb-5">goal: ${{project.goal}} &nbsp&nbsp&nbsp&nbsp  ends in: {{ project.num_days }} days</p>
+                    <p >{{ project.description |truncatewords:30}}</p>
+                    <p class="results">goal: ${{project.goal}}&nbsp&nbsp&nbsp&nbsp raised: ${{ project.raised }}&nbsp&nbsp&nbsp&nbsp ends in: {{ project.num_days }} days</p>
                 </div>
                 {% comment %} one col to show the pictures for the new projects {% endcomment %}
                 <div class="col-4 ml-5 mb-5">

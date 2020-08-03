@@ -10,7 +10,7 @@
 	</div>
 	<div class="row">
 		<div class="col-12 col-lg-5 card ml-2">
-            <h5>Default Delivery Information</h5>
+            <h4>Default Delivery Information</h4>
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
@@ -20,7 +20,7 @@
 		</div>
         <div class="col-12 col-lg-6 ml-2">
             <div class="card">
-                <h5 class="text-center mb-5">Order History</h5>
+                <h4 class="text-center mb-5">Order History</h4>
                 <table id="myHistoryTable" class="table fixed mb-5" style="width:100%">
                     <thead>
                         <tr>
@@ -47,7 +47,7 @@
             </div>
             
             <div class="card">
-                <h5 class="text-center mb-5">My Projects</h5>
+                <h4 class="text-center mb-5">My Projects</h4>
                 <table id="myProjectsTable" class="table fixed" style="width:100%">
                     <thead>
                         <tr>
