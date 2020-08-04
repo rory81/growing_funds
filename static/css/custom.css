@@ -417,7 +417,7 @@ h2{
 
 #myProjectsTable.table.fixed {table-layout:fixed; width:100%;}/*Setting the table width is important!*/
 td {
-    font-size: 18px!important;
+    font-size: 24px!important;
 }
 
 /*MEDIA QUERIES*/
