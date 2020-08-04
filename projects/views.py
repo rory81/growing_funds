@@ -103,7 +103,6 @@ def create_or_edit_project(request, pk=None):
             form = StartProjectForm(request.POST, request.FILES, instance=project)
         else:
             form = StartProjectForm2(request.POST, request.FILES, instance=project)
-            print('No!!!')
         if form.is_valid():
             project = form.save(commit=False)
             profile = UserProfile.objects.get(user=request.user)
