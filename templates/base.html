@@ -83,9 +83,10 @@
     {% endfor %}
 </ul>
 {% endif %}
-<main>
+<main class="mb-5">
 {% block content %}
 {% endblock %}
+</main>
 <footer class="footer mt-5">
     <div class="row no-gutters offset-3 footer_row">
         <div class="col-6">
@@ -97,7 +98,6 @@
     </div>
     <hr class="orange col-7"></hr>  
 </footer>
-</main>
 	{% block corejs %}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
