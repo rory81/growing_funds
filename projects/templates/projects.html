@@ -34,7 +34,7 @@
             <a href="{% url 'per_category' project.category %}" target="_blank">
                 <p class="subtext">{{ project.category }}</p>
             </a>
-            <p >{{ project.description |truncatewords:20 }}</p>
+            <p class="description">{{ project.description |truncatewords:20 }}</p>
             <p class="subtext">{{ project.num_days }} days left</p>
         </div>
     </div>

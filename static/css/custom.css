@@ -217,7 +217,9 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
     color:#FF9900!important;
 }
 
-
+.description {
+    font-size: 24px;
+}
 .detail_title{
     font-size: 30px;
     font-weight: bold;
