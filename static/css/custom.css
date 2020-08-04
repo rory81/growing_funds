@@ -17,6 +17,9 @@ body {
   li.text-danger{
       font-size: 20px;
   }
+  p {
+      font-size:24px;
+  }
   
 /*HEADER*/
 .logo_title, .logo_title::after, .logo_title:hover{
@@ -218,7 +221,7 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 }
 
 .description {
-    font-size: 24px;
+    font-size: 24px!important;
 }
 .detail_title{
     font-size: 30px;
@@ -232,7 +235,7 @@ p.results, a.button.secondaryAction{
 }
 
 p.subtext.finish_line, .fa-envelope{
-    color: #669900;
+    color: #669900!important;
 }
 
 
@@ -244,6 +247,11 @@ p.subtext.finish_line, .fa-envelope{
 
 .maintext {
     font-weight: bold;
+    font-size: 28px;
+    color: #000000!important;
+}
+
+.sub-cat{
     font-size: 28px;
     color: #000000!important;
 }

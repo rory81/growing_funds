@@ -12,9 +12,9 @@
 </div>
 <div class="row no-gutters">
     <div class="col-12  text-center mt-5">
-        <h3 class="detail_title">{{ project.title }}</h3>
+        <h2 class="detail_title">{{ project.title }}</h2>
         <a href="{% url 'per_category' project.category %}" target="_blank">
-            <p class="subtext"><i>{{ project.category }}</i></p>
+            <p class="sub-cat"><i>{{ project.category }}</i></p>
         </a>
     </div>              
 </div>
@@ -55,15 +55,15 @@
     <div class="col-11 detail_info">
         <h2>Project Description</h2>
         <hr class="orange"></hr>
-        <p >{{ project.description|linebreaks }}</p>
+        <p class="description">{{ project.description|linebreaks }}</p>
         <h2 class="mt-5">What's in it for the Backers?</h2>
         <hr class="orange"></hr>
-        <h4>Reward Option 1:</h4>
-        <p >{{ project.backers_story_option1|linebreaks }}</p>
-        <h4>Reward Option 2:</h4>
-        <p >{{ project.backers_story_option2|linebreaks }}</p>
-        <h4>Reward Option 3:</h4>
-        <p >{{ project.backers_story_option3|linebreaks }}</p>
+        <h3>Reward Option 1:</h3>
+        <p class="description">{{ project.backers_story_option1|linebreaks }}</p>
+        <h3>Reward Option 2:</h3>
+        <p class="description">{{ project.backers_story_option2|linebreaks }}</p>
+        <h3>Reward Option 3:</h3>
+        <p class="description">{{ project.backers_story_option3|linebreaks }}</p>
 
     </div>              
 </div>
