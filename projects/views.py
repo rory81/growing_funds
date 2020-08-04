@@ -4,7 +4,7 @@ from datetime import datetime
 from django.contrib import messages
 from django.db.models import Q
 from .models import Project, Category
-from .forms import StartProjectForm
+from .forms import StartProjectForm, StartProjectForm2
 from profiles.models import UserProfile
 from django.contrib.auth.models import User
 from django.urls import resolve
@@ -96,9 +96,14 @@ def create_or_edit_project(request, pk=None):
     depending if the Project_id is null or not
     """
     project = get_object_or_404(Project, pk=pk) if pk else None
+    current_url = resolve(request.path_info).url_name
 
     if request.method == "POST":
-        form = StartProjectForm(request.POST, request.FILES, instance=project)
+        if current_url == 'start_project':
+            form = StartProjectForm(request.POST, request.FILES, instance=project)
+        else:
+            form = StartProjectForm2(request.POST, request.FILES, instance=project)
+            print('No!!!')
         if form.is_valid():
             project = form.save(commit=False)
             profile = UserProfile.objects.get(user=request.user)
@@ -106,7 +111,10 @@ def create_or_edit_project(request, pk=None):
             project = form.save()
             return redirect(project_detail, project.pk)
     else:
-        form = StartProjectForm(instance=project)
+        if current_url == 'start_project':
+            form = StartProjectForm(instance=project)
+        else:
+            form = StartProjectForm2(instance=project)
 
     context = {
         'form': form,
