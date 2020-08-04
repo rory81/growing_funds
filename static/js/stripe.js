@@ -20,7 +20,7 @@ var style = {
     color: '#32325d',
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
     fontSmoothing: 'antialiased',
-    fontSize: '16px',
+    fontSize: '24px',
     '::placeholder': {
       color: '#aab7c4'
     }

@@ -89,6 +89,10 @@ label{
     font-size: 28px!important;
 }
 
+legend{
+   font-size: 28px!important;
+}
+
 .invalid-feedback{
     font-size:18px!important;
 }
@@ -189,7 +193,6 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
     box-sizing: border-box;
   
     height: 40px;
-  
     padding: 10px 12px;
   
     border: 1px solid transparent;
@@ -212,6 +215,8 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
   }
+
+ 
 
 
 /*PROJECT DETAILS*/
