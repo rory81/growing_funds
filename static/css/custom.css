@@ -13,6 +13,10 @@ body {
     padding: 30px 0px;
 
   }
+
+  li.text-danger{
+      font-size: 20px;
+  }
   
 /*HEADER*/
 .logo_title, .logo_title::after, .logo_title:hover{
@@ -49,8 +53,8 @@ a.dropdown-item:hover{
     color: #ffffff!important;
 } 
 
-a:hover, a.dropdown-item{
-    color: #FFFFFF!important;
+a:hover{
+    text-decoration: none!important;
 }
 
 
@@ -82,7 +86,9 @@ label{
     font-size: 28px!important;
 }
 
-p.text-muted
+.invalid-feedback{
+    font-size:18px!important;
+}
 
 select,
 select option {
@@ -219,7 +225,7 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 .subtext, .progressbar-text{
     font-size: 26px;
 }
-p.results{
+p.results, a.button.secondaryAction{
     font-size: 23px;
 }
 
