@@ -427,4 +427,8 @@ td {
     display:none;
   }
 
+  td {
+    font-size: 20px!important;
+}
+
 }
