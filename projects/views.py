@@ -41,8 +41,7 @@ def get_projects(request):
             results = projects.filter(queries)
 
     calculations(projects)
-    current_url = resolve(request.path_info).url_name
-    print('current_url',current_url)
+
     context = {
         'projects': projects,
         'search_term': query,
@@ -100,14 +99,11 @@ def create_or_edit_project(request, pk=None):
 
     if request.method == "POST":
         form = StartProjectForm(request.POST, request.FILES, instance=project)
-        current_url = resolve(request.path_info).url_name
-        print(current_url)
         if form.is_valid():
             project = form.save(commit=False)
             profile = UserProfile.objects.get(user=request.user)
             project.user_profile = profile
             project = form.save()
-
             return redirect(project_detail, project.pk)
     else:
         form = StartProjectForm(instance=project)

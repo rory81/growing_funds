@@ -1,7 +1,6 @@
 from django import forms
 from .models import Project
 from datetime import datetime
-from django.urls import resolve
 
 
 class StartProjectForm(forms.ModelForm):
@@ -29,14 +28,12 @@ class StartProjectForm(forms.ModelForm):
 
     def clean_goal(self):
         goal = self.cleaned_data.get('goal')
-        if goal <= 0:
+        if goal < 0:
             raise forms.ValidationError('Please enter a goal amount higher than 0')
         return goal
 
     def clean_end_date(self):
-        current_url = resolve(request.path_info).url_name
-
-        if(current_url == 'start_project'):  
-            end_date = self.cleaned_data.get('end_date')
-            if (end_date - datetime.now().date()).days < 30:
-                raise forms.ValidationError('The duration of a project should be at least 30 days')
+        end_date = self.cleaned_data.get('end_date')
+        if (end_date - datetime.now().date()).days < 30:
+            raise forms.ValidationError('The duration of a project should be at least 30 days')
+        return end_date
