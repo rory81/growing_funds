@@ -256,6 +256,12 @@ p.subtext.finish_line, .fa-envelope{
     color: #000000!important;
 }
 
+.maintext-cat {
+    font-size: 28px;
+    color: #000000!important;
+    font-style: italic;
+}
+
 .sub-cat{
     font-size: 28px;
     color: #000000!important;

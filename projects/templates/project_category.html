@@ -11,7 +11,7 @@
 </div>
 <div class="row no-gutters">
     <div class="col-11 col-lg-6 detail_info mx-auto text-center mt-5">
-        <h2>Highest Earner in {{projects.category}}</h2>
+        <h2><strong>Highest Earner in {{projects.category}}</strong></h2>
         <hr class="col-11 col-lg-9 col-xl-6 orange_line">
         {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
             {% if project.num_days > 0 %}
@@ -25,7 +25,7 @@
                 </a>
                 {% endif %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
-                <h3 class="maintext">{{ project.title }}</h3>
+                <h3 class="maintext-cat">{{ project.title }}</h3>
             </a>
 
             <div class="col-12 col-lg-6 mx-auto text-center mt-5">
@@ -40,7 +40,7 @@
         {% endfor %}
     </div>
     <div class="col-11 col-lg-6 detail_info mx-auto text-center mt-5">
-        <h2>Most Viewed in {{projects.category}}</h2>
+        <h2><strong>Most Viewed in {{projects.category}}</strong></h2>
         <hr class="col-11 col-lg-9 col-xl-6 orange_line">
         {% for project in projects|dictsortreversed:"views"|slice:"0:1"%}
             {% if project.num_days > 0 %}
@@ -55,7 +55,7 @@
                 {% endif %}
 
             <a href="{% url 'project_detail' project.id %}" target="_blank">
-                <h3 class="maintext">{{ project.title}}</h3>
+                <h3 class="maintext-cat">{{ project.title}}</h3>
             </a>
 
             <div class="col-12 col-lg-6 mx-auto text-center mt-5">
