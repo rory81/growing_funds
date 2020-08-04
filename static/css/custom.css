@@ -430,5 +430,8 @@ td {
   td {
     font-size: 20px!important;
 }
+    input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
+    font-size: 20px!important;
+  }
 
 }
