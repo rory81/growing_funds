@@ -2,69 +2,70 @@
 {% load static %}
 {% block content %}
 <div class="row no-gutters">
-    <div class="col-6  mx-auto text-center mt-5">
-    {% if project.image %}
-        <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image }}">
-    {% else %}
-        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-    {% endif %}
-    </div>
-</div>
-<div class="row no-gutters">
-    <div class="col-12  text-center mt-5">
-        <h2 class="detail_title">{{ project.title }}</h2>
-        <a href="{% url 'per_category' project.category %}" target="_blank">
-            <p class="sub-cat"><i>{{ project.category }}</i></p>
-        </a>
-    </div>              
-</div>
-<div class="row no-gutters">
-    <div class="col-4  text-center">
-        <p class="maintext">${{ project.raised }} <i class="fas fa-coins"></i></p>
-        <p class="subtext">end goal: ${{project.goal}}</p>
-        {% if project.raised >= project.goal %}
-            <p class="subtext finish_line">This project has reached its goal!</i></p>
-        {% endif%}
-        
-    </div>
-        <div class="col-4  text-center">
-            <p class="maintext">{{ project.views }}</p>
-            <p class="subtext">views</p>
-            <div class="text-center">
-                <a href="mailto:{{ project_user.email }}" title="Email the project owner for questions">
-                    <i class="fas fa-envelope fa-2x"></i>
+    <div class= "col-12 details mt-5">
+        <div class="offset-1 col-5 offset-xl-3 col-xl-3 align-items-center">
+        {% if project.image %}
+            <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image }}">
+        {% else %}
+            <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+        {% endif %}
+        </div>
+        <div class="col-5 col-xl-3">
+            <div class="title_cat">
+                <h2 class="project_title">{{ project.title }}</h2>
+                <a href="{% url 'per_category' project.category %}" target="_blank">
+                    <p class="subtext"><i>{{ project.category }}</i></p>
                 </a>
             </div>
+            <div class="progress progress-section">
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+                    {{ project.percentage }} %
+                </div>
+            </div>
+            <p class="subtext_black mt-3">raised: ${{ project.raised }} <i class="fas fa-coins"></i></p>
+            <div class="title_cat">
+            <p class="subtext_black">end goal: ${{project.goal}}</p>
+                {% if project.raised >= project.goal %}
+                    <p class="subtext_black finish_line">This project has reached its goal!</p>
+                {% endif%}
+            </div>
             {% if project.num_days > 0 %}
-                <a href="{% url 'checkout' project.id %}">
-                    <button type="submit" class="btn mt-5">Back this Project</button>
-                </a>
-                
+                <p class="subtext_black">{{ project.num_days }} days left &nbsp&nbsp&nbsp&nbsp {{ project.views }} views</p>
+            {% else %}
+                <p class="expired">This project has expired &nbsp&nbsp&nbsp&nbsp {{ project.views }} views</p>
             {% endif%}
-    </div>
-        <div class="col-4  text-center">
-        {% if project.num_days > 0 %}
-            <p class="maintext">{{ project.num_days }}</p>
-            <p class="subtext">days left</p>
-        {% else %}
-            <p class="expired">This project has expired</p>
-        {% endif%}
-    </div>        
-</div>
-<div class="row no-gutters">
-    <div class="col-11 detail_info">
-        <h2>Project Description</h2>
-        <hr class="orange"></hr>
-        <p class="description">{{ project.description|linebreaks }}</p>
-        <h2 class="mt-5">What's in it for the Backers?</h2>
-        <hr class="orange"></hr>
-        <h3>Reward Option 1:</h3>
-        <p class="description">{{ project.backers_story_option1|linebreaks }}</p>
-        <h3>Reward Option 2:</h3>
-        <p class="description">{{ project.backers_story_option2|linebreaks }}</p>
-        <h3>Reward Option 3:</h3>
-        <p class="description">{{ project.backers_story_option3|linebreaks }}</p>
+                
+            <a href="mailto:{{ project_user.email }}" title="Email the project owner for questions">
+                <i class="fas fa-envelope fa-lg float-right"></i>
+            </a>
 
+        </div> 
+    </div>            
+</div>
+<div class="row no-gutters justify-content-center mb-5">
+    <div class="col-3 col-xl-2  mx-auto">
+        {% if project.num_days > 0 %}
+            <a href="{% url 'checkout' project.id %}">
+                <button type="submit" class="btn mt-5">Back this Project</button>
+            </a>
+        {% endif%}
+    </div> 
+</div>
+<hr class="mt-5"></hr>
+<div class="row no-gutters">
+    <div class="col-8 offset-2 detail_info">
+        <div>
+            <h2 class="project_title">Project Description</h2>
+            <p class="description">{{ project.description|linebreaks }}</p>
+        </div>
+        <div class="align-items-baseline">
+            <h3 class="subtext_black">Reward Option 1:</h3>
+            <p class="description">{{ project.backers_story_option1|linebreaks }}</p>
+            <h3 class="subtext_black">Reward Option 2:</h3>
+            <p class="description">{{ project.backers_story_option2|linebreaks }}</p>
+            <h3 class="subtext_black">Reward Option 3:</h3>
+            <p class="description">{{ project.backers_story_option3|linebreaks }}</p>
+        </div>
     </div>              
 </div>
 

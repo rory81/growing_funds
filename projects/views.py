@@ -78,11 +78,11 @@ def project_detail(request, pk):
     """
     project = get_object_or_404(Project, pk=pk)
     project.views += 1
-    project.num_days = (abs(datetime.now().date() - project.end_date)).days
+    project.percentage = round(((project.raised/project.goal)*100), 1)
+    project.num_days = (project.end_date - datetime.now().date()).days
     project.save()
 
     project_user = get_object_or_404(User, username=project.user_profile)
-
     context = {
         'project': project,
         'project_user': project_user

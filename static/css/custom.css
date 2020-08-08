@@ -18,7 +18,7 @@ body {
       font-size: 20px;
   }
   p {
-      font-size:24px;
+      font-size:16px;
   }
   
 /*HEADER*/
@@ -86,7 +86,7 @@ hr.bar-end{
 label{
     color: #669900;
     font-weight: 600;
-    font-size: 28px!important;
+    font-size: 24px!important;
 }
 
 legend{
@@ -112,7 +112,7 @@ select option[value=""] {
 .btn{
     border: 2px solid #FF9900!important;
     color: #000000!important;
-    font-size: 28px!important;
+    font-size: 20px!important;
 }
 
 .btn-outline-success.edit{
@@ -263,7 +263,9 @@ p.subtext.finish_line, .fa-envelope{
 }
 
 .detail_info{
-    margin: 60px 10px 0px 40px;
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-column-gap: 14px;
 }
 
 h2{
@@ -326,12 +328,17 @@ h2{
 }
 
 .subtext, .results, .progressbar-text{
-    font-size: 14px;
+    font-size: 16px;
     color: #6f6f6f;
     font-variant: small-caps;
 }
 
-.grid {
+.subtext_black{
+    font-size: 16px;
+    font-variant: small-caps;
+}
+
+.grid, .details {
   display: flex;
   flex-wrap: wrap;
 }
@@ -354,6 +361,11 @@ h2{
     top: 50%;
 }
 
+.img-fluid{
+    width: 333.66px;
+    height: 187.68px!important;
+}
+
 .new_projects{
     background-color: rgba(66, 99, 00, 0.20);
     margin-bottom: 0;
@@ -371,12 +383,7 @@ h2{
 }
 
 
-.img-fluid{
-    /* max-width: 100%; */
-    width: 333.66px;
-    height: 187.68px!important;
-    /* margin-top: 30px; */
-}
+
 
 /*FOOTER*/
 /*PAYMENT_PAGE*/
@@ -456,9 +463,6 @@ td.space-divider{
     font-size: 20px!important;
   }
 
-  .btn{
-    font-size: 24px!important;
-}
 
 }
 
