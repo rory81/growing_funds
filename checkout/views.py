@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
 from .forms import OrderForm
 from projects.models import Project
 from .models import Order
+from django.contrib.auth.models import User
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
@@ -114,6 +116,15 @@ def success(request, total, pk, order_number):
     project = get_object_or_404(Project, pk=pk)
     project.raised += amount
     project.save(update_fields=["raised"])
+
+    new_line ='\n'
+    send_mail(
+        f'Confirmation order {order_number}',
+        f'Dear {profile.user}, Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.',
+        settings.EMAIL_HOST_USER,
+        [request.user.email],
+        fail_silently=False,
+    )
 
     context = {
         'project': project,
