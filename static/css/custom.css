@@ -226,16 +226,16 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 }
 
 .description {
-    font-size: 24px!important;
+    font-size: 16px;
 }
 .detail_title{
     font-size: 30px;
     font-weight: bold;
 }
-.subtext, .progressbar-text{
+.progressbar-text{
     font-size: 26px;
 }
-p.results, a.button.secondaryAction{
+a.button.secondaryAction{
     font-size: 23px;
 }
 
@@ -250,11 +250,6 @@ p.subtext.finish_line, .fa-envelope{
     color: #FF9900;
 }
 
-.maintext {
-    font-weight: bold;
-    font-size: 28px;
-    color: #000000!important;
-}
 
 .maintext-cat {
     font-size: 28px;
@@ -272,7 +267,8 @@ p.subtext.finish_line, .fa-envelope{
 }
 
 h2{
-    color: #000000!important;
+    /* color: #000000!important; */
+    font-size: 26px!important;
 }
 
 .orange_line{
@@ -324,6 +320,27 @@ h2{
 
 
 /*HOME - PROJECTS PAGE*/
+.project_title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.subtext, .results, .progressbar-text{
+    font-size: 14px;
+    color: #6f6f6f;
+    font-variant: small-caps;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  width: 30%;
+}
+
 .progress{
     height: 2rem!important;
     border: 2px solid #669900!important;
@@ -334,10 +351,11 @@ h2{
     font-size: 20px;
 }
 
-.progressbar-text, .subtext{
+/* .progressbar-text{
+    font-size: 14px;
     color: #000000!important;
     font-style: italic;
-}
+} */
 
 .progress-section{
     top: 50%;
@@ -354,7 +372,7 @@ h2{
 }
 
 .new_projects_title h2{
-    font-size: 32px;
+    font-size: 20px;
 }
 
 
@@ -367,10 +385,10 @@ h2{
 
 /*FOOTER*/
 /*PAYMENT_PAGE*/
-.project_title{
+/* .project_title{
     color: #669900!important;
     font-size: 20px;
-}
+} */
 
 /*PAYMENT SUCCESS*/
 .green_block{
@@ -429,6 +447,8 @@ td {
 td.space-divider{
     padding-top: 30px!important;
 }
+
+
 
 
 /*MEDIA QUERIES*/
