@@ -35,7 +35,9 @@
                             <p class="subtext">{{ project.category }}</p>
                         </a>
                         <p class="description">{{ project.description |truncatewords:20 }}</p>
+                        <br>
                         <p class="subtext">{{ project.num_days }} days left</p>
+                        
                         <div>
                             <div class="progress progress-section">
                                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
