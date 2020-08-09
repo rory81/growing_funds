@@ -476,13 +476,16 @@ td.space-divider{
 
 @media(min-width:1097px) {
     .variable_description{
-    height: 60px;
+    height: 70px;
 }
 }
 
 @media(min-width:1366px) {
     a.button.secondaryAction{
     font-size: 20px;
+}
+    .variable_description{
+    height: 60px;
 }
 }
 
