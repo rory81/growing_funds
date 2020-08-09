@@ -474,17 +474,15 @@ td.space-divider{
 }
 
 
-.variable_description{
-    height: 100px;
+@media(min-width:1097px) {
+    .variable_description{
+    height: 60px;
 }
+}
+
 @media(min-width:1366px) {
     a.button.secondaryAction{
     font-size: 20px;
 }
 }
 
-@media(min-width:1920px) {
-    .variable_description{
-    height: 60px;
-}
-}
