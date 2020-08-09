@@ -34,7 +34,7 @@
                         <a href="{% url 'per_category' project.category %}" target="_blank">
                             <p class="subtext">{{ project.category }}</p>
                         </a>
-                        <p class="description variable_description">{{ project.description |truncatewords:20 }}</p>
+                        <p class="description variable_description">{{ project.description |truncatewords:25 }}</p>
                         <br>
                         <p class="subtext">{{ project.num_days }} days left</p>
                         
