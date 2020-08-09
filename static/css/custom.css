@@ -331,7 +331,7 @@ h2{
 }
 
 .variable_description{
-    height: 100px!important;
+    height: 100px;
 }
 
 .subtext, .results, .progressbar-text{
@@ -473,8 +473,18 @@ td.space-divider{
 
 }
 
+
+.variable_description{
+    height: 100px;
+}
 @media(min-width:1366px) {
     a.button.secondaryAction{
     font-size: 20px;
+}
+}
+
+@media(min-width:1920px) {
+    .variable_description{
+    height: 60px;
 }
 }
