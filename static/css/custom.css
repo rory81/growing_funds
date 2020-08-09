@@ -239,7 +239,7 @@ a.button.secondaryAction{
     font-size: 23px;
 }
 
-p.subtext.finish_line, .fa-envelope{
+p.subtext_black.finish_line, .fa-envelope{
     color: #669900!important;
 }
 
@@ -264,8 +264,8 @@ p.subtext.finish_line, .fa-envelope{
 
 .detail_info{
     display: grid;
-    grid-template-columns: 8fr 2fr;
-    grid-column-gap: 14px;
+    grid-template-columns: 9fr 3fr;
+    grid-column-gap: 16px;
 }
 
 h2{
