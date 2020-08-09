@@ -75,10 +75,10 @@
                             <h3 class="project_title">{{ project.title}}</h3>
                         </a>
                         <a href="{% url 'per_category' project.category %}" target="_blank">
-                            <p class="subtext">{{ project.category }}</p>
+                            <p class="subtext mr-2">{{ project.category }}</p>
                         </a>
                     </div>
-                    <p class="description" >{{ project.description |truncatewords:30}}</p>
+                    <p class="description" >{{ project.description |truncatewords:40}}</p>
                     <p class="results">goal: ${{project.goal}}&nbsp&nbsp&nbsp&nbsp raised: ${{ project.raised }}&nbsp&nbsp&nbsp&nbsp ends in: {{ project.num_days }} days</p>
                 </div>
                 {% comment %} one col to show the pictures for the new projects {% endcomment %}

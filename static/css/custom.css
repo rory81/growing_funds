@@ -86,11 +86,11 @@ hr.bar-end{
 label{
     color: #669900;
     font-weight: 600;
-    font-size: 24px!important;
+    font-size: 20px!important;
 }
 
 legend{
-   font-size: 28px!important;
+   font-size: 24px!important;
 }
 
 .invalid-feedback{
@@ -162,11 +162,11 @@ input.form-control{
     background: transparent;
     border: none;
     border-bottom: 1px solid #ffffff;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
-    font-size: 24px!important;
+    font-size: 18px;
   }
 
 .form-control:focus, .textinput.form-control:focus, .emailinput.form-control:focus{
@@ -331,7 +331,7 @@ h2{
 }
 
 .variable_description{
-    height: 100px;
+    height: 120px;
 }
 
 .subtext, .results, .progressbar-text{
@@ -467,7 +467,7 @@ td.space-divider{
     font-size: 20px!important;
 }
     input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
-    font-size: 20px!important;
+    font-size: 18px!important;
   }
 
 
