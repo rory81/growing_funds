@@ -265,7 +265,7 @@ p.subtext_black.finish_line, .fa-envelope{
 .detail_info{
     display: grid;
     grid-template-columns: 9fr 3fr;
-    grid-column-gap: 16px;
+    grid-column-gap: 50px;
 }
 
 h2{
@@ -369,8 +369,8 @@ h2{
 }
 
 .img-fluid{
-    width: 333.66px;
-    height: 187.68px!important;
+    width: 400px;
+    height: inherit;
 }
 
 .new_projects{
@@ -470,13 +470,20 @@ td.space-divider{
     font-size: 18px!important;
   }
 
-
 }
 
 
 @media(min-width:1097px) {
     .variable_description{
     height: 70px;
+}
+
+.detail_info{
+    grid-column-gap: 100px;
+}
+
+.grid-item{
+    margin-right: 30px!important
 }
 }
 
