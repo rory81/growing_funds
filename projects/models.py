@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime, timedelta
 from profiles.models import UserProfile
+from ckeditor.fields import RichTextField
 
 
 def one_month_from_today():
@@ -28,10 +29,10 @@ class Project(models.Model):
     title = models.CharField(max_length=90, blank=False, null=False)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=False, null=True, on_delete=models.SET_NULL)
-    description = models.TextField(max_length=5000)
-    backers_story_option1 = models.TextField(max_length=5000, null=False, blank=False)
-    backers_story_option2 = models.TextField(max_length=5000, null=False, blank=False)
-    backers_story_option3 = models.TextField(max_length=5000, null=False, blank=False)
+    description = RichTextField(blank=False, null=False)
+    backers_story_option1 = RichTextField(null=False, blank=False)
+    backers_story_option2 = RichTextField(null=False, blank=False)
+    backers_story_option3 = RichTextField(null=False, blank=False)
     created_date = models.DateField(default=datetime.now, editable=False) # datetime instead of timezone else trouble with calculation of num_days
     views = models.IntegerField(default=0)
     goal = models.IntegerField(default=0)

@@ -187,6 +187,10 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
     box-shadow: none!important;
 }
 
+#cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
+    width: 700px!important;
+}
+
 /*STRIPE*/
 
 .StripeElement {
@@ -485,12 +489,16 @@ td.space-divider{
 .grid-item{
     margin-right: 30px!important
 }
+
+
 }
 
 @media(min-width:1366px) {
     a.button.secondaryAction{
     font-size: 20px;
 }
-
+#cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
+    width: 900px!important;
+}
 }
 

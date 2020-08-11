@@ -16,13 +16,17 @@
                 <div class="col-9 mx-auto  div_form">
                     <form role="form" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    
+                        {{ form.media }}
                         {{ form|crispy }}
                     
                         <div> 
                             <button type="submit" class="btn float-right">Publish</button>
                         </div>
-                    </form> 
+                    </form>
+                    {{ project.description|safe }}
+                    {{ project.backers_story_option1|safe }}
+                    {{ project.backers_story_option2|safe }}
+                    {{ project.backers_story_option3|safe }}
                 </div>
 	
             </div>

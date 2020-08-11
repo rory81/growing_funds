@@ -57,16 +57,17 @@
 <div class="row no-gutters">
     <div class="col-9 offset-1 detail_info">
         <div>
+            
             <h2 class="project_title">Project Description</h2>
-            <p class="description">{{ project.description|linebreaks }}</p>
+            <p class="description">{{ project.description|safe|linebreaks }}</p>
         </div>
         <div class="align-items-baseline">
             <h3 class="subtext_black">Reward Option 1:</h3>
-            <p class="description">{{ project.backers_story_option1|linebreaks }}</p>
+            <p class="description">{{ project.backers_story_option1|safe|linebreaks }}</p>
             <h3 class="subtext_black">Reward Option 2:</h3>
-            <p class="description">{{ project.backers_story_option2|linebreaks }}</p>
+            <p class="description">{{ project.backers_story_option2|safe|linebreaks }}</p>
             <h3 class="subtext_black">Reward Option 3:</h3>
-            <p class="description">{{ project.backers_story_option3|linebreaks }}</p>
+            <p class="description">{{ project.backers_story_option3|safe|linebreaks }}</p>
         </div>
     </div>              
 </div>
