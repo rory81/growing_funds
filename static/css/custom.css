@@ -370,7 +370,7 @@ h2{
 
 .img-fluid{
     width: 400px;
-    height: inherit;
+    height: inherit!important;
 }
 
 .new_projects{
