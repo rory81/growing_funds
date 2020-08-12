@@ -322,7 +322,9 @@ h2{
     bottom: 0;
     position: absolute!important;
   }
-
+#st-1 .st-btn[data-network='sharethis'] {
+    background-color: #669900!important;
+}
 
 /*HOME - PROJECTS PAGE*/
 .project_title{
