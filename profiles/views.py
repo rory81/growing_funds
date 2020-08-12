@@ -8,6 +8,9 @@ from django.contrib import messages
 
 
 def profile(request):
+    """
+    creating a profile form to enter or update user information
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':

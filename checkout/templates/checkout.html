@@ -10,11 +10,13 @@
 	</div>
     <div class="row no-gutters">
         <div class="col-12 mx-auto main_div">
+            <!-- GrowingFunds Logo -->
             <div class="col-2 main_coin_image">
                 <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
             </div>
             <div class="col-9 mx-auto  div_form">
                 <p class="text-muted text-center mb-5">Please fill out the form below to complete the transaction.</p>
+                <!-- Start Form -->
                 <form action="{% url 'charge' project.id %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -63,6 +65,7 @@
                         </button>
                     </div>
                 </form>
+                <!-- End Form -->
             </div>
 
         </div>
@@ -72,7 +75,7 @@
 </div>
   
 {% endblock %}
-
+<!-- Stripe keys needed for the payments and link to javascript code -->
 {% block postloadjs%}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}

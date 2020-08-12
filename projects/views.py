@@ -12,7 +12,8 @@ from django.urls import resolve
 
 def calculations(projects):
     """
-    calculate the num_days and percentage_raised for every template
+    calculate the num_days and percentage_raised
+    so that it can be called by every other view
     """
 
     for p in projects:
@@ -23,13 +24,14 @@ def calculations(projects):
 
 def get_projects(request):
     """
-    Create a view that will return a list op Projects
+    Create a view that will return a list of Projects
     that were created prior to 'now'
     and render them to the 'projects.html' template
     """
     projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     query = None
     if request.GET:
+        # code for top searchbar
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -52,8 +54,9 @@ def get_projects(request):
 
 def get_project_category(request, project_category):
     """
-    Projects for a specific category
-
+    Create a view that will return a list of Projects with a specific genre
+    that were created prior to 'now'
+    and render them to the 'project_category.html' template
     """
     projects = Project.objects.filter(
         category=Category.objects.get(category=project_category).id).order_by('-created_date')
@@ -78,6 +81,7 @@ def project_detail(request, pk):
     """
     project = get_object_or_404(Project, pk=pk)
     project.views += 1
+    # calculating percentage and num_days for one single project instead of a list, therefore not using calculations()
     project.percentage = round(((project.raised/project.goal)*100), 1)
     project.num_days = (project.end_date - datetime.now().date()).days
     project.save()

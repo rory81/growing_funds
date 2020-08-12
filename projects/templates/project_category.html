@@ -12,8 +12,8 @@
 <div class="row no-gutters">
     <div class="offset-sm-0 col-sm-11 offset-xl-3 col-xl-9 mx-auto mt-5 mb-5">
         <hr class="orange_line">
-
-    <table id="myTable" class="table fixed" style="width:100%">
+    <!--Start datatable with all projects for particular genre-->
+    <table id="myTable" class="table fixed">
         <thead>
             <tr>
                 <th>Image</th>
@@ -50,9 +50,11 @@
             {% endfor%}
         </tbody>
     </table>
+    <!--End datatable with all projects for particular genre-->
     </div>
-   
+  
     <div class="col-11 col-lg-6 mx-auto text-center mt-5">
+        <!--Start highest earner in this category-->
         <h2><strong>Highest Earner in {{projects.category}}</strong></h2>
         <hr class="col-11 col-lg-9 col-xl-6 orange_line">
         {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
@@ -81,6 +83,8 @@
             {% endif %}
         {% endfor %}
     </div>
+    <!--End highest earner in this category-->
+    <!--Start Most viewed in this category-->
     <div class="col-11 col-lg-6 mx-auto text-center mt-5">
         <h2><strong>Most Viewed in {{projects.category}}</strong></h2>
         <hr class="col-11 col-lg-9 col-xl-6 orange_line">
@@ -111,6 +115,7 @@
             {% endif %}
         {% endfor %}
     </div>
+    <!--End Most viewed in this category-->
 </div>
 
 

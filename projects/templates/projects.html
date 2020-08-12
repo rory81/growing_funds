@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<!--Code when the searchbar doesn't find anything-->
 {%if projects.count == 0 %}
     <h1 class="text-center logo_title">No projects found with that search criteria</h1>
+<!--End Code when the searchbar doesn't find anything-->
 {% else %}
     <div class="col">
         <div class="row no-gutters justify-content-center align-items-center ">
@@ -15,6 +16,7 @@
 
     <div class="row no-gutters mt-5">
         <div class="offset-2 col-10 offset-xl-4 col-xl-8 mx-auto">
+            <!--Top 3 highest earners-->
             <div class="grid">
                 {% for project in projects|dictsortreversed:"percentage"|slice:"0:3" %}
                 {% if project.num_days > 0 %}
@@ -53,7 +55,7 @@
         </div>
     </div>
 
-            
+    <!--Top 5 Newest projects-->
     {% comment %} row to make content for the new projects {% endcomment %}
     <div class="row no-gutters mt-5 mb-0">
         {% comment %} one column to make content for the new projects {% endcomment %}
