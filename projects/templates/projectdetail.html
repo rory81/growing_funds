@@ -3,9 +3,9 @@
 {% block content %}
 <div class="row no-gutters">
     <div class= "col-12 details mt-5">
-        <div class="offset-1 col-5 offset-xl-2 col-xl-3 align-items-center">
+        <div class="offset-1 col-5 offset-xl-2 col-xl-3 image-margin align-items-center">
         {% if project.image %}
-            <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image }}">
+            <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image }}" alt="project image">
         {% else %}
             <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
         {% endif %}
@@ -30,14 +30,14 @@
                 {% endif%}
             </div>
             {% if project.num_days > 0 %}
-                <p class="subtext_black">{{ project.num_days }} days left &nbsp&nbsp&nbsp&nbsp {{ project.views }} views &nbsp&nbsp&nbsp&nbsp
+                <p class="subtext_black">{{ project.num_days }} days left &nbsp;&nbsp;&nbsp;&nbsp; {{ project.views }} views &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="mailto:{{ project_user.email }}" title="Email the project owner for questions">
                         <i class="fas fa-envelope fa-lg float-right mt-2"></i>
                     </a>
                     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
                 </p>
             {% else %}
-                <p class="expired">This project has expired &nbsp&nbsp&nbsp&nbsp {{ project.views }} views</p>
+                <p class="expired">This project has expired &nbsp;&nbsp;&nbsp;&nbsp; {{ project.views }} views</p>
             {% endif%}
                 
 

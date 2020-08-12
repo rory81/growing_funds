@@ -11,7 +11,7 @@
 </div>
 <div class="row no-gutters">
     <div class="offset-sm-0 col-sm-11 offset-xl-3 col-xl-9 mx-auto mt-5 mb-5">
-        <hr class="orange_line"></hr>
+        <hr class="orange_line">
 
     <table id="myTable" class="table fixed" style="width:100%">
         <thead>
@@ -27,7 +27,7 @@
                 <td class="space-divider">
                     {% if project.image %}
                         <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}">
+                            <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
                         </a>
                     {% else %}
                         <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -43,7 +43,7 @@
                         <p class="subtext mr-3">{{ project.category }}</p>
                     </div>
                     <p class="description">{{ project.description|safe|striptags|truncatewords:40}}</p>
-                    <p class="results">goal: ${{project.goal}}&nbsp&nbsp&nbsp&nbsp raised: ${{ project.raised }}&nbsp&nbsp&nbsp&nbsp ends in: {{ project.num_days }} days</p>
+                    <p class="results">goal: ${{project.goal}}&nbsp;&nbsp;&nbsp;&nbsp; raised: ${{ project.raised }}&nbsp;&nbsp;&nbsp;&nbsp; ends in: {{ project.num_days }} days</p>
                 </td>
             </tr>
             {% endif %}
@@ -59,7 +59,7 @@
             {% if project.num_days > 0 %}
                 {% if project.image %}
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}">
+                    <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
                 </a>
                 {% else %}
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -88,7 +88,7 @@
             {% if project.num_days > 0 %}
                 {% if project.image %}
                 <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}">
+                    <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
                 </a>
                 {% else %}
                 <a href="{% url 'project_detail' project.id %}" target="_blank">

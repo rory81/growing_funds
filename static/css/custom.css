@@ -117,17 +117,28 @@ select option[value=""] {
 
 .btn-outline-success.edit{
     border: 2px solid #669900!important;
-    color: #669900!important
+    color: #669900!important;
+} 
+.btn-outline-danger.delete{
+    border: 2px solid #dc3545!important;
+    color: #dc3545!important;
 } 
 
 .btn-outline-success.edit, .btn-outline-danger.delete{
     font-size: 1.2rem!important;
     background-color: #ffffff;
+    padding: 1px 6px;
 } 
 
 .btn-outline-success:hover, .btn-outline-success:focus-within{
     color: #ffffff!important;
     background-color: #669900!important;
+}
+
+
+.btn-outline-danger:hover, .btn-outline-danger:focus-within{
+    color: #ffffff!important;
+    background-color: #dc3545!important;
 }
 
 
@@ -250,7 +261,8 @@ p.subtext_black.finish_line, .fa-envelope{
 
 .expired{
     font-size: 20px;
-    font-style: italic bold;
+    font-style: italic;
+    font-weight: bold;
     color: #FF9900;
 }
 
@@ -378,6 +390,7 @@ h2{
     width: 333.66px;
     height: 187.68px!important;
 }
+
 
 .new_projects{
     background-color: rgba(66, 99, 00, 0.20);

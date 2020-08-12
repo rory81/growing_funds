@@ -11,10 +11,10 @@
     	<div class="row no-gutters">
 		    <div class="col mx-auto main_div">
                 <div class="col-2 main_coin_image">
-                    <img class="coin_image" src="{% static 'img/growing_coins.png' %}">
+                    <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
                 </div>
                 <div class="col-9 mx-auto  div_form">
-                    <form role="form" method="POST" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                         {{ form.media }}
                         {{ form|crispy }}
