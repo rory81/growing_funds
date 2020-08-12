@@ -119,7 +119,7 @@ def success(request, total, pk, order_number):
     new_line ='\n'
     send_mail(
         f'Growing Funds: confirmation order {order_number}',
-        f'Dear {profile.user},{new_line}Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.{new_line} Kind Regards, Growing Funds ',
+        f'Dear {profile.user},{new_line}Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.{new_line}Kind Regards, Growing Funds ',
         'GrowingFunds <settings.EMAIL_HOST_USER>',
         [request.user.email],
         fail_silently=False,
