@@ -3,8 +3,43 @@
 
 # Growing Funds 
 ###### Disclaimer: *this app is made for educational use only.*
+Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some garantees it will be successfull.
+Furthermore, peoples dreams aren't considered much profitable. That's where crowdfunding fills the gap in the market.
+Suddenly, cold hard facts aren't the only reasons to get funding anymore and likebility, sympathy and pure curiosity become very important.
 
-### **Template Code Institute**
+This project gives people a change to get funding for their own hobby project, their life long dream project or solving heartaches projects. 
+
+## UX
+The User Stories where made for two kind of users:
+1) The site user, looking for an interesting project to pledge to
+2) A crowdfunding host, wanting to present its project to the public and get money to realise the project.
+
+Some aspects are relevant to both users, like:
+- able to register easily
+- get an email after registration
+- login and logout with emailaddress
+- possibility to reset password
+- able to email the site owner in case of misuse or fraud or any other questions
+
+
+##### The Site User
+At first instance the user will look to the most popular projects or the newest projects. 
+To see the newest project, the top-5 newest projects are displayed on the homepage.
+
+To show the popularity the user is given the number of views the projects has had. Furthermore, on the homepage the top-3 highest earners are displayed to see what is trending.
+The simplest form to get more funding is word of mouth. So, everytime the page is looked at one view is added to the total number of views of that specific project. 
+To increase the word of mouth the user has the ability to share the link of a certain project on all kinds of social media.
+
+Secondly, the user has personal interests and wants to easily find projects that fit their personal interests.
+Therefore, the projects are categorised by set categories and these categories are displayed on every page throughout the site.
+When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, but has an option to select 5, 10, 25 or 50 projects per page.
+If the user has a (part of the) name of an interesting project it can use the searchbar in the table to look for it in this particular genre.
+
+Other ways to search for a particular project is to use the search bar present on every page
+
+
+
+## Template Code Institute
 The template provided by Code Institute is used as basis (https://github.com/Code-Institute-Org/gitpod-full-template.git) and with this template a repository was created on GitHub by choosing the green *Use this template* button.
 
 
@@ -29,7 +64,7 @@ After the work on the branch is deemed good enough to be deployed it will be mer
 ## How to create a django project
 To use Django it needs to be installed first, so *pip3 install django==1.11.29* was used to install Django. To create a Django project where the necessary files are immediately created enter *django-admin startproject <name_project> .*
 The '.' in the end is needed so the project is created in the root directory.
-This will automatically create the manage.py file, but isn't necesarily an executable yet. So enter *chmod +x manage.py* in the terminal to flag this file as an executable. 
+This will automatically create the `manage.py` file, but isn't necesarily an executable yet. So enter *chmod +x `manage.py`* in the terminal to flag this file as an executable. 
 
 To initialize the database enter */manage.py migrate* in the terminal.
 To see if the Django project is setup correctly run the project by using *python3 runserver manage.py* or *./manage.py runserver*. Depending on the IDE you may get an error that there is an invalid HTTP_HOST in ALLOWED_HOSTS. When this occurs go to the folder with your project name (in this case growing_funds) and open the *settings.py* file. Search in this file for the phrase "ALLOWED_HOSTS".

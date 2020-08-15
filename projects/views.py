@@ -29,6 +29,23 @@ def get_projects(request):
     and render them to the 'projects.html' template
     """
     projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
+    calculations(projects)
+
+    context = {
+        'projects': projects,
+    }
+
+    return render(request, 'projects.html', context)
+
+
+def search_projects(request):
+    """
+    Create a view that will return a list of Projects
+    that were created prior to 'now' for a specific search query from the user
+    and render them to the 'search_projects.html' template.
+    Different view, because hoempage only shows 3 or 5 projects and search results can be more than that.
+    """
+    projects = Project.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
     query = None
     if request.GET:
         # code for top searchbar
@@ -49,7 +66,7 @@ def get_projects(request):
         'search_term': query,
     }
 
-    return render(request, 'projects.html', context)
+    return render(request, 'search_projects.html', context)
 
 
 def get_project_category(request, project_category):
