@@ -9,7 +9,7 @@ Suddenly, cold hard facts aren't the only reasons to get funding anymore and lik
 
 This project gives people a change to get funding for their own hobby project, their life long dream project or solving heartaches projects. 
 
-## UX
+## UX and Features
 The User Stories where made for two kind of users:
 1) The site user, looking for an interesting project to pledge to
 2) A crowdfunding host, wanting to present its project to the public and get money to realise the project.
@@ -20,6 +20,7 @@ Some aspects are relevant to both users, like:
 - login and logout with emailaddress
 - possibility to reset password
 - able to email the site owner in case of misuse or fraud or any other questions
+- able to update personal/delivery information in the profile page
 
 
 ##### The Site User
@@ -35,7 +36,39 @@ Therefore, the projects are categorised by set categories and these categories a
 When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, but has an option to select 5, 10, 25 or 50 projects per page.
 If the user has a (part of the) name of an interesting project it can use the searchbar in the table to look for it in this particular genre.
 
-Other ways to search for a particular project is to use the search bar present on every page
+Other ways to search for a particular project is to use the search bar present that searches through **all** projects.
+Every searchbar searches for words within the title as well as the description.
+
+If a user is deciding rather of not to pledge it is important to tell them what's in it for them. In each project the project owner has to name 3 possible rewards.
+The more enticing the rewards the higher the change people will pledge. For now it is necessary to fill in all three project so people can pledge to reward no. 1, 2 or 3.
+The user can only pledge to a project when logged on.
+
+In the backlog there are a few more items to further develop this section:
+1) crowdfunding host only obligated to fill in 1 reward, but can also make more than 3 rewards if they want to.
+2) user can select only the number of rewards that that specific project has when making a pledge.
+3) when the pledged amount is lower than the amount needed for the selected reward, it should raise an error.
+
+If the user has any questions for the host, the envelope in the project's page creates an email with the email address of the host as the recipient.
+Once the user has pledged the user will get an email confirmation with the order number, the amount pledged and the name of the project.
+Furthermore, the pledge will be shown in the projects table  on the user's profile page. This way the user can see back to which projects it has pledged to. 
+On this same profile page can the user change their delivery information (address etc), although this information can also be updated when a user makes a pledge.
+
+
+##### The Crowdfunding host
+A project can only be started when logged on and the user has to agree to the conditions of the site to be able to publish the project.
+
+The crowdfunding host wants to be able to tell their story, in order to entice people to pledge to their project.
+The CKeditor is added to enable the host to put some styling in to the story and therefore make it more attractive.
+A dropdown with predefined categories are given so that their isn't a proliferation of categories, making it harder for users to find a specific project. 
+
+When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised.
+In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.
+
+If a project is deleted, but a pledge has been made, the table will still show the pledge.
+However, the project title corresponding to this pledge will display <em>This project has been deleted</em>.
+
+When a project is edited the goal and end date of the project are not shown and therefore not editable. This is to avoid a host extending the project every time it is almost ended.
+
 
 
 

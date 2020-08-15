@@ -23,6 +23,7 @@ def profile(request):
 
     projects = profile.projects.all()
     calculations(projects)
+
     context = {
         'form': form,
         'orders': orders,

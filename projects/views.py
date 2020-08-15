@@ -149,3 +149,10 @@ def delete_project(request, pk):
     project = get_object_or_404(Project, pk=pk)
     project.delete()
     return redirect('profile')
+
+
+def terms_conditions(request):
+    """
+    Redirects to the terms & conditions page
+    """
+    return render(request, 'terms_and_conditions.html')

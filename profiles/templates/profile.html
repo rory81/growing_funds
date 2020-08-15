@@ -39,9 +39,15 @@
                         <tr>
                             <td title="{{ order.order_number }}">{{ order.order_number }}</td>
                             <td> {{ order.date|date:"d-m-Y" }}</td>
+                            {% if order.project == None %}
+                                <td>                             
+                                    <em>This project has been deleted</em>
+                                </td>
+                            {% else %}
                             <td title="{{ order.project }}">                             
-                                    {{ order.project|truncatewords:5}}
+                                {{ order.project|truncatewords:5}}
                             </td>
+                            {% endif %}
                             <td> {{ order.amount_pledged }}</td>
                         </tr>
                         {% endfor%}
