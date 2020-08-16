@@ -5,6 +5,11 @@ from django.conf import settings
 from django.utils import timezone
 from django_countries.fields import CountryField
 from profiles.models import UserProfile
+from django.core.validators import MinValueValidator
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
+from decimal import Decimal
+
 
 REWARDS = (
     ('Option 1', 'Option 1'),
@@ -12,6 +17,7 @@ REWARDS = (
     ('Option 3', 'Option 3'),
     ('Nothing', 'Nothing'),
 )
+
 
 class Order(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
@@ -36,7 +42,6 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the ordernumber
@@ -45,6 +50,6 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
         return self.order_number

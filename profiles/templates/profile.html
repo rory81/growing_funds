@@ -45,7 +45,7 @@
                                 </td>
                             {% else %}
                             <td title="{{ order.project }}">                             
-                                {{ order.project|truncatewords:5}}
+                                <a href="{% url 'project_detail' order.project.pk %}" target="_blank" >{{ order.project|truncatewords:5}}</a>
                             </td>
                             {% endif %}
                             <td> {{ order.amount_pledged }}</td>

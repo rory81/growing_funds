@@ -13,8 +13,9 @@ This project gives people a change to get funding for their own hobby project, t
 The User Stories where made for two kind of users:
 1) The site user, looking for an interesting project to pledge to
 2) A crowdfunding host, wanting to present its project to the public and get money to realise the project.
+3) The admin, wanting to keep the site up and running
 
-Some aspects are relevant to both users, like:
+Some aspects are relevant to the first two users, like:
 - able to register easily
 - get an email after registration
 - login and logout with emailaddress
@@ -41,7 +42,8 @@ Every searchbar searches for words within the title as well as the description.
 
 If a user is deciding rather of not to pledge it is important to tell them what's in it for them. In each project the project owner has to name 3 possible rewards.
 The more enticing the rewards the higher the change people will pledge. For now it is necessary to fill in all three project so people can pledge to reward no. 1, 2 or 3.
-The user can only pledge to a project when logged on.
+The user can only pledge to a project when logged on and can enter an amount of their own choosing to pledge, though Stripe needs it to be higher or equal to $0.50.
+For that reason the default value is 1 and when a user accidentally enters a value lower than 1 it will return an error.
 
 In the backlog there are a few more items to further develop this section:
 1) crowdfunding host only obligated to fill in 1 reward, but can also make more than 3 rewards if they want to.
@@ -52,6 +54,7 @@ If the user has any questions for the host, the envelope in the project's page c
 Once the user has pledged the user will get an email confirmation with the order number, the amount pledged and the name of the project.
 Furthermore, the pledge will be shown in the projects table  on the user's profile page. This way the user can see back to which projects it has pledged to. 
 On this same profile page can the user change their delivery information (address etc), although this information can also be updated when a user makes a pledge.
+
 
 
 ##### The Crowdfunding host
@@ -65,14 +68,15 @@ When there isn't an image added to the project a default image will be shown.
 Any fields that have an asterisk are obligated and will raise an error:
 
 <em>Standard Errors</em>
-- Fill in these fields, if obligated fields are empty
+- Fill in these fields or this field is required , if obligated fields are empty
 - Select an item in the list, if no category has been selected
 
 
 <em>Customised Errors</em>
-- Please enter a goal amount higher than 0, if the amount is lower or equal to 0
+- Please enter a goal  higher than 0, if the goal is lower or equal to 0
 - A project should be at least 30 days. If the number of days between the date of creation and the end date are lower than that an error will occur.
 - As mentioned before, the host has to agree to the terms and conditions. If there is no agreement an error will occur.
+- Value should be higher or equal to 1 if the amount to be pledged is lower than one.
 
 When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised.
 In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.

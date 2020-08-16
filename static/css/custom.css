@@ -179,7 +179,7 @@ input.form-control{
     border-bottom: 1px solid #ffffff;
     font-size: 18px;
 }
-#id_goal, #id_end_date{
+#id_goal, #id_end_date, #id_amount_pledged{
     border-bottom: 1px solid #000000;
 }
 
