@@ -59,14 +59,25 @@ A project can only be started when logged on and the user has to agree to the co
 
 The crowdfunding host wants to be able to tell their story, in order to entice people to pledge to their project.
 The CKeditor is added to enable the host to put some styling in to the story and therefore make it more attractive.
-A dropdown with predefined categories are given so that their isn't a proliferation of categories, making it harder for users to find a specific project. 
+A dropdown with predefined categories are given so that their isn't a proliferation of categories, making it harder for users to find a specific project.
+When there isn't an image added to the project a default image will be shown.
+
+Any fields that have an asterisk are obligated and will raise an error:
+
+<em>Standard Errors</em>
+- Fill in these fields, if obligated fields are empty
+- Select an item in the list, if no category has been selected
+
+
+<em>Customised Errors</em>
+- Please enter a goal amount higher than 0, if the amount is lower or equal to 0
+- A project should be at least 30 days. If the number of days between the date of creation and the end date are lower than that an error will occur.
+- As mentioned before, the host has to agree to the terms and conditions. If there is no agreement an error will occur.
 
 When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised.
 In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.
-
 If a project is deleted, but a pledge has been made, the table will still show the pledge.
 However, the project title corresponding to this pledge will display <em>This project has been deleted</em>.
-
 When a project is edited the goal and end date of the project are not shown and therefore not editable. This is to avoid a host extending the project every time it is almost ended.
 
 

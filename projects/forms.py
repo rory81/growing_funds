@@ -1,6 +1,8 @@
 from django import forms
 from .models import Project
 from datetime import datetime
+from django.utils.safestring import mark_safe
+from django.shortcuts import reverse
 
 
 class StartProjectForm(forms.ModelForm):
@@ -22,8 +24,9 @@ class StartProjectForm(forms.ModelForm):
 
     def clean_conditions(self):
         conditions = self.cleaned_data.get('conditions')
+        url = reverse("terms_conditions")
         if conditions is False:
-            raise forms.ValidationError('Please agree to our terms and conditions')
+            raise forms.ValidationError(mark_safe('Please agree to our terms and conditions. Click <a href="%s" target="_blank">here</a>.' % url))
         return conditions
 
     def clean_goal(self):
@@ -37,10 +40,6 @@ class StartProjectForm(forms.ModelForm):
         if (end_date - datetime.now().date()).days < 30:
             raise forms.ValidationError('The duration of a project should be at least 30 days')
         return end_date
-
-from django import forms
-from .models import Project
-from datetime import datetime
 
 
 class StartProjectForm2(forms.ModelForm):
@@ -59,9 +58,3 @@ class StartProjectForm2(forms.ModelForm):
             "end_date": "Project End Date",
             "conditions": "Agree to Terms & Conditions?"
         }
-
-    def clean_conditions(self):
-        conditions = self.cleaned_data.get('conditions')
-        if conditions is False:
-            raise forms.ValidationError('Please agree to our terms and conditions')
-            return conditions

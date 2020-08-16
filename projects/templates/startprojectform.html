@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <div class="container-fluid">
 	<div class="row no-gutters">
 		<div class="col-12 title text-center">
@@ -15,7 +16,7 @@
                 </div>
                 <div class="col-9 mx-auto  div_form">
                     <!--Start project Form-->
-                    <form method="POST" enctype="multipart/form-data">
+                    <form id="startProject" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                         <!--Code for the ckeditor-->
                         {{ form.media }}
@@ -38,3 +39,4 @@
 </div>
   
 {% endblock %}
+
