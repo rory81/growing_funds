@@ -10,12 +10,19 @@ Suddenly, cold hard facts aren't the only reasons to get funding anymore and lik
 This project gives people a change to get funding for their own hobby project, their life long dream project or solving heartaches projects. 
 
 ## UX and Features
-The User Stories where made for two kind of users:
+To make sure all user stories were made or **not** made for a specific reason an Excel file was made with the following fields:
+- Perspective: from which user's point of view am I looking
+- Regarding: which part of the site does it apply to
+- I want to be able to: what would that specific user want
+- So that I can: what goal does that specific user want to achieve with that action
+- Status: options were '*Not Started*', '*Ongoing*' or '*Done*' to maintain overview of the status of the entire backlog.
+
+The User Stories where made for three kind of users:
 1) The site user, looking for an interesting project to pledge to
 2) A crowdfunding host, wanting to present its project to the public and get money to realise the project.
 3) The admin, wanting to keep the site up and running
 
-Some aspects are relevant to the first two users, like:
+Some aspects are relevant to the first and second group of users, like:
 - able to register easily
 - get an email after registration
 - login and logout with emailaddress
@@ -23,6 +30,8 @@ Some aspects are relevant to the first two users, like:
 - able to email the site owner in case of misuse or fraud or any other questions
 - able to update personal/delivery information in the profile page
 
+These items are also beneficial for the admin if these elements go smoothly
+Below the several (future) functionalities are mentioned, per user group.
 
 ##### The Site User
 At first instance the user will look to the most popular projects or the newest projects. 
@@ -33,7 +42,7 @@ The simplest form to get more funding is word of mouth. So, everytime the page i
 To increase the word of mouth the user has the ability to share the link of a certain project on all kinds of social media.
 
 Secondly, the user has personal interests and wants to easily find projects that fit their personal interests.
-Therefore, the projects are categorised by set categories and these categories are displayed on every page throughout the site.
+Therefore, the projects are categorised by set categories and these categories are displayed on every page throughout the site (by putting the categories in a contexts.py).
 When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, but has an option to select 5, 10, 25 or 50 projects per page.
 If the user has a (part of the) name of an interesting project it can use the searchbar in the table to look for it in this particular genre.
 
@@ -46,24 +55,30 @@ The user can only pledge to a project when logged on and can enter an amount of 
 For that reason the default value is 1 and when a user accidentally enters a value lower than 1 it will return an error.
 
 In the backlog there are a few more items to further develop this section:
-1) crowdfunding host only obligated to fill in 1 reward, but can also make more than 3 rewards if they want to.
-2) user can select only the number of rewards that that specific project has when making a pledge.
-3) when the pledged amount is lower than the amount needed for the selected reward, it should raise an error.
+1) user can select only the number of rewards that that specific project has when making a pledge.
+2) when the pledged amount is lower than the amount needed for the selected reward, it should raise an error.
 
 If the user has any questions for the host, the envelope in the project's page creates an email with the email address of the host as the recipient.
 Once the user has pledged the user will get an email confirmation with the order number, the amount pledged and the name of the project.
-Furthermore, the pledge will be shown in the projects table  on the user's profile page. This way the user can see back to which projects it has pledged to. 
+Furthermore, the pledge will be shown in the projects table on the user's profile page. This way the user can see back to which projects it has pledged to and can easily return to those project pages.
 On this same profile page can the user change their delivery information (address etc), although this information can also be updated when a user makes a pledge.
 
-
+Another item on the backlog for the site user is to add the 'Add to Favorites' functionality, where a user can add click on a heart and can access their favorites list in for instance the profile page.
 
 ##### The Crowdfunding host
-A project can only be started when logged on and the user has to agree to the conditions of the site to be able to publish the project.
+A project can only be started when logged on and the user has to agree to the conditions of the site to be able to publish the project. 
+The content of the terms and conditions are now all made up, but are accessible by the information button next to the "Your Project" title.
+Also when the host doesn't agree to the terms and conditions the arising error will give a link to the Terms and Conditions page.
 
 The crowdfunding host wants to be able to tell their story, in order to entice people to pledge to their project.
 The CKeditor is added to enable the host to put some styling in to the story and therefore make it more attractive.
 A dropdown with predefined categories are given so that their isn't a proliferation of categories, making it harder for users to find a specific project.
 When there isn't an image added to the project a default image will be shown.
+
+In the backlog there are a few more items to further develop this section:
+1) crowdfunding host only obligated to fill in 1 reward, but can also make more than 3 rewards if they want to.
+2) host can enter a to and from amount, so that it can be used to check if the amount for the reward is consistent with the reward chosen by the site's user.
+3) host can add pictures and format them on the site so that layout consistency is maintained.
 
 Any fields that have an asterisk are obligated and will raise an error:
 
@@ -71,21 +86,52 @@ Any fields that have an asterisk are obligated and will raise an error:
 - Fill in these fields or this field is required , if obligated fields are empty
 - Select an item in the list, if no category has been selected
 
-
+Some fields needed extra help to validate and were customised:
 <em>Customised Errors</em>
 - Please enter a goal  higher than 0, if the goal is lower or equal to 0
 - A project should be at least 30 days. If the number of days between the date of creation and the end date are lower than that an error will occur.
 - As mentioned before, the host has to agree to the terms and conditions. If there is no agreement an error will occur.
 - Value should be higher or equal to 1 if the amount to be pledged is lower than one.
 
-When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised.
+When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised as of yet.
 In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.
-If a project is deleted, but a pledge has been made, the table will still show the pledge.
+If a project is deleted, but a pledge has been made, the order history table will still show the pledge with the order number and the pledged amount.
 However, the project title corresponding to this pledge will display <em>This project has been deleted</em>.
-When a project is edited the goal and end date of the project are not shown and therefore not editable. This is to avoid a host extending the project every time it is almost ended.
+When a project is edited the goal and end date of the project are not shown and therefore not editable. 
+This is to avoid a host extending the project every time it is almost ended or to manipulate the goal to their advantage.
 
 
+##### admin
+In case the user is an administrator the option '<em>Project Management</em>' is available to easily get access to the admin functionality from Django.
+The projects, categories, email addresses, users, orders and site name can also be managed from the project management page.
 
+## Technologies used
+- [JavaScript](https://www.javascript.com/): to make Stripe elements, ShareThis button and dataTables work and to add the django-countries dropdown.
+- [Django](https://www.djangoproject.com/): web framework version 3.0.8
+- [Python](https://www.python.org/): Python3 is used as programming language
+- [Whitenoise](http://whitenoise.evans.io/en/stable/): to serve the static files. Which is an alternative to AWS if you do not have an amazon account and a creditcard.
+- [Pillow](https://pillow.readthedocs.io/en/stable/): to be able to upload images
+- [Allauth](https://django-allauth.readthedocs.io/en/latest/): addressing authentication, registration and account management
+- [Stripe](https://stripe.com/en-nl): to enable the user to make payments and check credit cards
+- [CKeditor](https://django-ckeditor.readthedocs.io/en/latest/): to be able to format the text entered by the user.
+- [Crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): to easily make the forms and make them userfriendly.
+- [Bootstrap](https://getbootstrap.com/): to customise the html and make it responsive to different devices.
+- [JQuery](https://jquery.com): to simplify DOM manipulation.
+- [Gitpod](https://gitpod.io/): used as IDE
+- [Herokus](www.heroku.com): used as deployment platform
+- [Trello](https://trello.com/): to register the user stories and issues, so to pick up a set of issues in a certain week
+
+
+The following pages were made for the users:
+- project_category.html: to display all projects per selected category
+- projectdetail.html: show the details for one specific project
+- projects.html: homepage, showing the top-3 top earners and the last 5 projects that were newly added
+- search_projects.html: page showing the results from the top searchbar. Not using the homepage as there are filters (top-3 and top-5) on the projects
+- startprojectform.html: form to create and publish your own project
+- terms_and_conditions.html: terms and conditions the host has to agree to.
+- checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
+- payment_success.html: shows the results of an succeeded payment
+- profile.html: shows the order history and the created projects of a user with the delivery info of the user.
 
 ## Template Code Institute
 The template provided by Code Institute is used as basis (https://github.com/Code-Institute-Org/gitpod-full-template.git) and with this template a repository was created on GitHub by choosing the green *Use this template* button.
@@ -123,8 +169,8 @@ Within one project multiple apps can exists, each with their own urls, models, f
 
 There are multiple apps in this project:
 - **projects: ** contains everything regarding the content of a crowdfunding page
-- **auth: ** contains everything regarding the authorisation to the page
-- **payment: ** contains everything needed to back a project financially
+- **profile: ** contains everything to make a profile page with user specific information
+- **checkout: ** contains everything needed to pledge to project
 
 To add an app to the project enter *./manage.py startapp <Name app>* to the terminal. A directory with the app name will be created in the main directory.
 
@@ -170,17 +216,32 @@ When you push to Heroku at this point it will fail, because two additional files
 1. requirements.txt : the requirements text file will contain a list of the application that are required for Heroku to run the application.
 To create this file enter 'pip3 freeze --local>requirements.txt' in the terminal. A file is then generated and contains the underlining content:
 
-Click==7.0
-dnspython==1.16.0
-Flask==1.1.1
-Flask-PyMongo==2.3.0
-itsdangerous==1.1.0
-pymongo==3.10.0
-Werkzeug==0.16.0
+    - asgiref==3.2.10
+    - click==7.1.2
+    - dj-database-url==0.5.0
+    - Django==3.0.8
+    - django-allauth==0.42.0
+    - django-ckeditor==5.9.0
+    - django-countries==6.1.2
+    - django-crispy-forms==1.9.1
+    - django-js-asset==1.2.2
+    - gunicorn==20.0.4
+    - itsdangerous==1.1.0
+    - oauthlib==3.1.0
+    - Pillow==7.2.0
+    - psycopg2-binary==2.8.5
+    - python3-openid==3.2.0
+    - pytz==2020.1
+    - requests-oauthlib==1.3.0
+    - sqlparse==0.3.1
+    - stripe==2.49.0
+    - whitenoise==5.1.0
 
 2. Procfile (note that there isn't an extension) : the Procfile is an instruction to Heroku as to which file is used as our entry point at the application.
 In other words, which file is used to call the application and run it. To create a Procfile enter 'echo web: python app.py > Procfile'.
-A file is created which contains the content: 'web: python3 app.py'.
+A file is created which contains the content: 
+
+    **web: gunicorn growing_funds.wsgi:application**.
 
 Do not forget to add the two files to GitHub, using the previously mentioned git add and git commit.
 
@@ -197,12 +258,16 @@ The only thing left to do is to specify the IP and port by adding them as config
 1. Login to Heroku and go to the app
 2. select the Settings button from the navigation
 3. Go to the section 'Config Vars' and click the Add-button
-    a. set the Key to 'IP'. Set the value of IP to 0.0.0.0
-    b. set the Key to 'PORT'. Set the value of PORT to 5000
-    c. set the Key to 'MONGO_URI'. Set the value to mongodb+srv://rory81:<password>@myfirstcluster-nn45a.mongodb.net/<name_database>?retryWrites=true&w=majority
+    a. set the Key to 'DATABASE_URL'. Set the value of the postgress address provided by Heroku
+    b. set the Key to 'DISABLE_COLLECTSTATIC' if you do not want Heroku to run collectstatic on your behalf.
+    c. set the Key to 'EMAIL_HOST_PASS'. Set the value provided by the email host, in this case gmail.
+    d. set the Key to 'EMAIL_HOST_USER'. Set the value provided by the email host, in this case an email address from gmail.
+    e. set the Key to 'SECRET_KEY'. Set the value to provide cryptographic signing. This key kan be regenerated on https://miniwebtool.com/django-secret-key-generator/
+    f. set the Key to 'STRIPE_SECRET_KEY'. API key provided by Stripe Your account’s secret API key can perform any API request to Stripe without restriction.
+    g. set the Key to 'STRIPE_PUBLIC_KEY'. API key provided by Stripe are meant solely to identify your account with StripePublishable keys only have the power to create tokens.
 
 Now that it is all setup click the button 'Open app' and the app is deployed.
-If a "404 Not Found" appears it is probably due to a missing @app.route('/'). After @app.route('/') come the routes needed to make this website work.
+If a "404 Not Found" appears it is probably due to a missing url in a urls.py. After ('<app_name>/') come the routes needed to make this website work for the purposes specified in the views and named in the urls.py.
 
 ## Run Locally
 To run locally, this repository can be cloned directly into the editor of your choice by pasting git clone  into your terminal. To cut ties with this GitHub repository, type git remote rm origin into the terminal.
@@ -219,16 +284,74 @@ The underlining steps are needed to clone this GitHub repository to another loca
 
 **Step 5:** Type `git clone [URL]`. For [URL] fill in the URL that was copied in step 3 and press Enter
 
+
+## Testing
+1. The pages are validated using:
+[HTML validation](https://validator.w3.org/#validate_by_input): the django elements will create an error.
+Therefor the pages where run with Chrome and **CTRL+U** was used to "view page source". This source code was entered into the validator.
+
+The following pages where checked and ok.
+- project_category.html
+- projectdetail.html
+- projects.html
+- search_projects.html
+- startprojectform.html
+- terms_and_conditions.html
+- checkout.html
+- payment_success.html
+- profile.html
+
+[CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input):
+[JS validation](https://jshint.com/):
+[Python validation](https://extendsclass.com/python-tester.html):
+- f'strings aren't recognised in this validator
+
+
+2. The console was checked for errors:
+Only Same-site-cookie warnings where displayed
+
+3. Check forms:
+
+validations were checked:
+a) login with a email address unknown to database
+b) login with wrong password
+c) register with an email address already in database
+d) register and not entering the same password twice
+e) add a book with amazon link en picture not using the right format
+f) check the required fields if they are really required.
+
+4. Check pagination:
+There are 5 books per page. The above mentioned number of books per genre were used to test the pagination. Some genres have exactly ten books (exactly 2 pages), 
+other genres have one or two books less/more, so that standard number of 5 books per pages do no longer apply, to see if pagination still works.
+
+
+
+6. Tested on multiple devices:
+Used the standard dev tools from Chrome to test the different devices. Also tested it live on:
+- on a 1920 x 1080 screen and one size bigger screen
+- tested it on an iPad (old version)
+- tested it on an iPhone
+- tested it on a android (Samsung Galaxy S20)
+- put the project in the peer-code-review put didn't get any comments
+
+
+
 ## Acknowledgements
 - For the basic setup of the environment of the app and its documentation the video's from Code Institute were used
 and the Heroku site for a more detailed explanation of some terminology used by Heroku.
 
 - logo picture: https://www.freepik.com/free-vector/piggy-bank-happy-piggy-bank-background_1137678.htm
-- stackoverflow (https://stackoverflow.com/questions/31130706/dropdown-in-django-model)
+- stackoverflow: every error that I got went almost through Stack Overflow
 - http://gregblogs.com/the-little-things-tlt-django-creating-a-drop-down-list-with-django/
-- https://codepen.io/mahish/pen/RajmQw
 - https://www.youtube.com/watch?v=US_3XvufMLU: to set footer on the bottom of the page
 - picture for when no picture is made available: Alsero-Budget-spiekozijn lqkunststoffen.nl
 - https://datatables.net/manual/installation for the datatable in the category page
 - https://stackoverflow.com/questions/51758405/django-give-date-field-default-value-of-one-month-from-today
-- https://www.youtube.com/watch?v=oZwyA9lUwRk&t=1454s : Stripe for a donation page 
+- https://stripe.com/docs: to get the payments for a variable amount working
+- https://www.youtube.com/watch?v=mF5jzSXb1dc&feature=youtu.be: to get the CKeditor added
+- https://sharethis.com/: to get the share button to social media implemented
+- the tutors from Code Institute for helping and sparring
+- people on Slack when having questions
+- my mentor, Maranatha Ilesanmi,for supporting and helping me when needed.
+- friends and family willing to test the site for me
+

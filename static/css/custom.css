@@ -17,14 +17,12 @@ body {
   li.text-danger{
       font-size: 20px;
   }
-  p {
-      font-size:16px;
-  }
+
   
 /*HEADER*/
 .logo_title, .logo_title::after, .logo_title:hover{
     font-variant: small-caps;
-    color:#669900!important;
+    color:#669900;
     letter-spacing: 1px;
     font-size: 45px;
     font-weight: 500;
@@ -36,17 +34,17 @@ body {
 
 
 .title h1{
-    color: #000000!important;
+    color: #000000;
     font-variant: small-caps;
     margin: 20px 0px 50px 0px;
 }
 
 /*MAIN NAVIGATION*/
 .navbar, .dropdown-menu{
-    background-color:#FF9900!important;
+    background-color:#FF9900;
 } 
 a.dropdown-item:hover{
-    color: #000000!important;
+    color: #000000;
     background-color: #FFFFFF;
 }
 
@@ -72,7 +70,7 @@ a:hover{
 .cat-bar .cat-bar-item{
     padding:16px 16px;
     float: left;
-    color: #000000!important;
+    color: #000000;
     font-size: 28px;
 }
 hr.bar-end{
@@ -86,7 +84,7 @@ hr.bar-end{
 label{
     color: #669900;
     font-weight: 600;
-    font-size: 20px!important;
+    font-size: 20px;
 }
 
 legend{
@@ -95,6 +93,8 @@ legend{
 
 .invalid-feedback{
     font-size:18px!important;
+    display: flex!important; /*makes the error message visible for the CKeditor*/
+}
 }
 
 select,
@@ -165,9 +165,6 @@ button.form-control{
     color: #ff0000;
 }
 
-.invalid-feedback {
-    display: flex!important; /*makes the error message visible for the CKeditor*/
-}
 
 select#id_default_country.lazyselect.option{
     background-color: #669900;
@@ -194,10 +191,10 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 }
 
 
-.textarea.form-control:focus{
+/* .textarea.form-control:focus{
     border: 2px solid #669900!important;
     box-shadow: none!important;
-}
+} */
 
 .textinput.form-control, .emailinput.form-control{
     border: none!important;
@@ -208,6 +205,12 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 #cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
     width: 700px!important;
 }
+
+html body p{
+	font-size: 16px!important;
+}
+
+
 
 /*STRIPE*/
 

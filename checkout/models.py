@@ -1,15 +1,9 @@
 from django.db import models
 import uuid  # to create order_number
 from projects.models import Project
-from django.conf import settings
 from django.utils import timezone
 from django_countries.fields import CountryField
 from profiles.models import UserProfile
-from django.core.validators import MinValueValidator
-from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
-from decimal import Decimal
-
 
 REWARDS = (
     ('Option 1', 'Option 1'),

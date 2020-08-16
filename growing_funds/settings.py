@@ -42,14 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'django_forms_bootstrap',
     'crispy_forms',
     'django.contrib.sites',
     'ckeditor',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'bootstrap_pagination',
     'projects',
     'checkout',
     'profiles',
@@ -198,6 +196,7 @@ else:
 
 
 CKEDITOR_CONFIGS = {
+
     'default': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
@@ -211,3 +210,4 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+

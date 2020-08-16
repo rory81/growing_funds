@@ -62,13 +62,13 @@ def charge(request, pk=None):
 
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
-        # CREATE PAYMENT INTENT and STRIPE DASHBOARD VARIABLES 
+        # CREATE PAYMENT INTENT and STRIPE DASHBOARD VARIABLES
         total = str(float(request.POST['amount_pledged']))
         stripe_total = float(request.POST['amount_pledged'])*100
         customer = stripe.Customer.create(
             source=request.POST['stripeToken']
         )
-        # PAYMENT INTENT 
+        # PAYMENT INTENT
         intent = stripe.PaymentIntent.create(
             amount=int(stripe_total),
             currency="usd",
@@ -134,7 +134,7 @@ def success(request, total, pk, order_number):
     project.save(update_fields=["raised"])
 
     # send a confirmation email with the order details to the user that made the order
-    new_line ='\n'
+    new_line = '\n'
     send_mail(
         f'Growing Funds: confirmation order {order_number}',
         f'Dear {profile.user},{new_line}{new_line}Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.{new_line}{new_line}Kind Regards, Growing Funds ',
