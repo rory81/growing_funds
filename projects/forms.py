@@ -26,7 +26,7 @@ class StartProjectForm(forms.ModelForm):
         conditions = self.cleaned_data.get('conditions')
         url = reverse("terms_conditions")
         if conditions is False:
-            raise forms.ValidationError(mark_safe('Please agree to our terms and conditions. Click <a href="%s" target="_blank">here to read</a>.' % url))
+            raise forms.ValidationError(mark_safe('Please agree to our terms and conditions. Click <a href="%s" target="_blank">here</a> to read.' % url))
         return conditions
 
     def clean_goal(self):
