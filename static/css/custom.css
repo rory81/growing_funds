@@ -41,11 +41,11 @@ body {
 
 /*MAIN NAVIGATION*/
 .navbar, .dropdown-menu{
-    background-color:#FF9900;
+    background-color:#FF9900!important;
 } 
 a.dropdown-item:hover{
-    color: #000000;
-    background-color: #FFFFFF;
+    color: #000000!important;
+    background-color: #FFFFFF!important;
 }
 
 
