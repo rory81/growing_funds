@@ -141,7 +141,7 @@ def success(request, total, pk, order_number):
         f'Growing Funds: confirmation order {order_number}',
         f'Dear {profile.user},{new_line}{new_line}Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.{new_line}{new_line}Kind Regards, Growing Funds ',
         'GrowingFunds <settings.EMAIL_HOST_USER>',
-        [request.user.email],
+        [profile.user.email],
         fail_silently=False,
     )
 
@@ -158,7 +158,7 @@ def success(request, total, pk, order_number):
         f'County: {order.county}{new_line}' \
         f'Country: {order.country.name}{new_line}' \
         f'Phonenumber: {order.phone_number}{new_line}' \
-        f'Email: {request.user.email}{new_line}{new_line}' \
+        f'Email: {profile.user.email}{new_line}{new_line}' \
         f'Kind Regards, Growing Funds' \
     
     message_nothing = f'Dear {project_user},{new_line}{new_line}' \
@@ -167,7 +167,6 @@ def success(request, total, pk, order_number):
         f'Kind Regards, Growing Funds' \
 
 
-    print("message:", message, message_nothing)
     if order.reward == 'Nothing':
         send_mail(
             f'Growing Funds: confirmation order {order_number}',

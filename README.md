@@ -33,7 +33,7 @@ These items are also beneficial for the admin, eventhough the admin isn't mentio
 Three user stories were not finished:
 1) See how many people actually have donated. This wasn't done, because the site has the number of views to determine popularity of a project and percentage raised (and a progress bar) to see how far the host is from reaching the goal.
 2) Adding Favorites, so that the user can decide on a later date if they want to pledge and if so can easily find them. This issue will be added to the backlog.
-3) The host can see which reward and corresponding amount is most popular by the users. T 
+3) The host can see which reward and corresponding amount is most popular by the users like a dashboard for the host.This issue will be added to the backlog.
 
 Below the several (future) functionalities are mentioned, per user group.
 
@@ -67,7 +67,6 @@ Once the user has pledged the user will get an email confirmation with the order
 Furthermore, the pledge will be shown in the projects table on the user's profile page. This way the user can see back to which projects it has pledged to and can easily return to those project pages.
 On this same profile page can the user change their delivery information (address etc), although this information can also be updated when a user makes a pledge.
 
-Another item on the backlog for the site user is to add the 'Add to Favorites' functionality, where a user can add click on a heart and can access their favorites list in for instance the profile page.
 
 ##### The Crowdfunding host
 A project can only be started when logged on and the user has to agree to the conditions of the site to be able to publish the project. 
@@ -83,6 +82,7 @@ In the backlog there are a few more items to further develop this section:
 1) crowdfunding host only obligated to fill in 1 reward, but can also make more than 3 rewards if they want to.
 2) host can enter a to and from amount, so that it can be used to check if the amount for the reward is consistent with the reward chosen by the site's user.
 3) host can add pictures and format them on the site so that layout consistency is maintained.
+
 
 Any fields that have an asterisk are obligated and will raise an error:
 
@@ -104,6 +104,15 @@ However, the project title corresponding to this pledge will display <em>This pr
 When a project is edited the goal and end date of the project are not shown and therefore not editable. 
 This is to avoid a host extending the project every time it is almost ended or to manipulate the goal to their advantage.
 
+If a user makes a pledge to the project of the host, the host will receive an email with:
+- the amount, 
+- the project name (just in case the host has multiple project)
+- the reward chosen and
+- the delivery information. The delivery information will **not** be send if the selected option for reward is "*Nothing*".
+
+One issue will be placed on the backlog to further improve this latter section:
+1) instead of the basic email with the order details the crowdfunding host will only get an email that a new order has been placed and can see the order details in a dashboard where all placed orders can be seen and sorted through.
+The host will then be able to mark them as finished if the reward has been sent.
 
 ##### admin
 In case the user is an administrator the option '<em>Project Management</em>' is available to easily get access to the admin functionality from Django.
