@@ -206,7 +206,8 @@ So in this case to make the fields/data from the app Projects visible in the bac
 As the apps are integrated in the project the models from these apps can also interact with each other. So all the models combined will give the data schema for this whole project.
 The picture below is the data schema for this project generated with [https://dbdiagram.io/] :
 
-![alt text]({% static 'img/data_schema.png' %} "Logo Title Text 1")
+![alt text](.\static\img\data_schema.png "data schema")
+<img src=".\static\img\data_schema.png" alt="data schema" height="25%" width="100%">
 
 
 ## Git(Hub) version control
