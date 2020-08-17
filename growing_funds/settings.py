@@ -15,6 +15,10 @@ import dj_database_url
 
 if os.path.exists('env.py'):
     import env
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
+else:
+    DEBUG = False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,9 +29,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'growing-funds.herokuapp.com']
 
@@ -112,7 +113,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-# ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # for testing and logout purposes
 LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'growing_funds.wsgi.application'
 
@@ -175,13 +175,15 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY','')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY','')
+
+# Stripe elements
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_CURRENCY = 'usd'
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET','')
 
+# Email function
 if os.path.exists('env.py'):
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'GrowingFunds@example.com'
@@ -194,7 +196,7 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
 
-
+# Customising CKeditor
 CKEDITOR_CONFIGS = {
 
     'default': {
@@ -208,7 +210,6 @@ CKEDITOR_CONFIGS = {
             ['Format', 'Font', 'FontSize'],
             ['TextColor', 'BGColor']
         ],
-        'fontSize': 8,
+        'contentsCss': ["body {font-size: 16px; font-family: Arial;}"],
     }
 }
-

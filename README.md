@@ -17,7 +17,9 @@
 10. [ Testing ](#test)
 11. [ Acknowledgements ](#thanks)
 
-#
+&nbsp;  
+&nbsp;  
+&nbsp;  
 <a name="goal"></a>
 ## Goal of GrowingFunds
 Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some garantees it will be successfull.
