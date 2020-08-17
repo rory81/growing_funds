@@ -62,7 +62,7 @@ In the backlog there are a few more items to further develop this section:
 1) user can select only the number of rewards that that specific project has when making a pledge.
 2) when the pledged amount is lower than the amount needed for the selected reward, it should raise an error.
 
-If the user has any questions for the host, the envelope in the project's page creates an email with the email address of the host as the recipient.
+If the user has any questions for the host, the envelope in the project's page creates an email with the email address of the host as the recipient as well as the project title in the subject.
 Once the user has pledged the user will get an email confirmation with the order number, the amount pledged and the name of the project.
 Furthermore, the pledge will be shown in the projects table on the user's profile page. This way the user can see back to which projects it has pledged to and can easily return to those project pages.
 On this same profile page can the user change their delivery information (address etc), although this information can also be updated when a user makes a pledge.
@@ -145,9 +145,68 @@ The following pages were made for the users:
 - checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
 - payment_success.html: shows the results of an succeeded payment
 - profile.html: shows the order history and the created projects of a user with the delivery info of the user.
+- terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing.
+- search_projects.html: if the search bar in the header is used the results will be displayed on this page.
 
 ## Template Code Institute
 The template provided by Code Institute is used as basis (https://github.com/Code-Institute-Org/gitpod-full-template.git) and with this template a repository was created on GitHub by choosing the green *Use this template* button.
+
+## How to create a django project
+To use Django it needs to be installed first, so *pip3 install django==1.11.29* was used to install Django. To create a Django project where the necessary files are immediately created enter *django-admin startproject <name_project> .*
+The '.' in the end is needed so the project is created in the root directory.
+This will automatically create the `manage.py` file, but isn't necesarily an executable yet. So enter *chmod +x `manage.py`* in the terminal to flag this file as an executable. 
+
+To initialize the database enter */manage.py migrate* in the terminal.
+To see if the Django project is setup correctly run the project by using *python3 runserver manage.py* or *./manage.py runserver*. 
+Depending on the IDE you may get an error that there is an invalid HTTP_HOST in ALLOWED_HOSTS. 
+When this occurs go to the folder with your project name (in this case growing_funds) and open the *settings.py* file. Search in this file for the phrase "ALLOWED_HOSTS".
+Enter the address given in the error message in the given brackets, like ALLOWED_HOSTS = ['127.0.0.1'] for instance. When the project is deployed to heroku the heroku address has to be added to this ALLOWED_HOSTS array.
+
+
+
+### How to create an app within the main project
+Within one project multiple apps can exists, each with their own urls, models, forms, etc. By adding the urls to the urls.py file in the main project, those apps become integrated in the project.
+
+There are multiple apps in this project:
+- **projects: ** contains everything regarding the content of a crowdfunding page
+- **profile: ** contains everything to make a profile page with user specific information
+- **checkout: ** contains everything needed to pledge to project
+
+To add an app to the project enter python3 manage.py startapp <Name app> to the terminal. A directory with the app name will be created in the main directory.
+
+There are few standard files/folders that come along with the creation of an app:
+- **__init__.py:** An empty file that tells Python that this directory should be considered a Python package.
+- **admin.py:** see next chapter *Django admin backend*
+- **migrations folder:** migrations are entirely derived from your models file, and are essentially just a history that Django can roll through to update your database schema to match your current models.
+- **models.py:** A model is the single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you’re storing. 
+- **tests.py:** for testing scripts
+- **views.py:** A view function, or view for short, is a Python function that takes a Web request and returns a Web response.
+- **apps.py:** to register the app in the settings.py file under ))INSTALLED_APPS =** . This settings.py is created when making the Django project. This way the apps are integrated in the project.
+
+Some files/folders are created when needed:
+- **templates folder for the html files.** Besides the created apps, the main directory has also a templates folder. In the latter the base.html and the allauth html files (for authorisation) are located
+- **forms.py:** here the data for the forms are defined
+- **contexts.py:** to display the categories on every single page a context.py is needed. As categories are part of the projects app, the context.py file is located in this app.
+- **urls.py:** per app the urls are defined. The urls are sort of linked to a view. When this url is entered in the web browser, it will call the corresponding view and will display the html output connected to that view.
+
+
+## Django admin backend
+To access the django portal in the browser, simply add */admin* after the main url (like: <your url.com>/admin).
+The portal requests a username and password. This username and password can be created in the terminal by entering *./manage.py createsuperuser*
+
+To be able to see/add/change data from the models in this backend view you need to register the model in the admin.py file.
+So in this case to make the fields/data from the app Projects visible in the backend, I need to add the underlining code to the admin.py file (from the Projects folder):
+
+*from django.contrib import admin*
+*from .models import Project*
+
+*admin.site.register(Project)*
+
+## Data schema
+As the apps are integrated in the project the models from these apps can also interact with each other. So all the models combined will give the data schema for this whole project.
+The picture below is the data schema for this project generated with [https://dbdiagram.io/] :
+
+![alt text]({% static 'img/data_schema.png' %} "Logo Title Text 1")
 
 
 ## Git(Hub) version control
@@ -166,39 +225,6 @@ Branches where created to experiment with new features by using:
 After the work on the branch is deemed good enough to be deployed it will be merged tot the master branch:
 **Step 1: $ git checkout master** To go to the master branch
 **Step 2: $ git merge [branch name]** To merge the branch into the master branch
-
-
-## How to create a django project
-To use Django it needs to be installed first, so *pip3 install django==1.11.29* was used to install Django. To create a Django project where the necessary files are immediately created enter *django-admin startproject <name_project> .*
-The '.' in the end is needed so the project is created in the root directory.
-This will automatically create the `manage.py` file, but isn't necesarily an executable yet. So enter *chmod +x `manage.py`* in the terminal to flag this file as an executable. 
-
-To initialize the database enter */manage.py migrate* in the terminal.
-To see if the Django project is setup correctly run the project by using *python3 runserver manage.py* or *./manage.py runserver*. Depending on the IDE you may get an error that there is an invalid HTTP_HOST in ALLOWED_HOSTS. When this occurs go to the folder with your project name (in this case growing_funds) and open the *settings.py* file. Search in this file for the phrase "ALLOWED_HOSTS".
-Enter the address given in the error message in the given brackets, like ALLOWED_HOSTS = ['127.0.0.1'] for instance. When the project is deployed to heroku the heroku address has to be added to this ALLOWED_HOSTS array.
-
-### How to create an app within the main project
-Within one project multiple apps can exists, each with their own urls, models, forms, etc. By adding the urls to the urls.py file in the main project, those apps become integrated in the project.
-
-There are multiple apps in this project:
-- **projects: ** contains everything regarding the content of a crowdfunding page
-- **profile: ** contains everything to make a profile page with user specific information
-- **checkout: ** contains everything needed to pledge to project
-
-To add an app to the project enter *./manage.py startapp <Name app>* to the terminal. A directory with the app name will be created in the main directory.
-
-## Django admin backend
-To access the django portal in the browser, simply add */admin* after the main url (like: <your url.com>/admin).
-The portal requests a username and password. This username and password can be created in the terminal by entering *./manage.py createsuperuser*
-
-To be able to see/add/change data from the models in this backend view you need to register the model in the admin.py file.
-So in this case to make the fields/data from the app Projects visible in the backend, I need to add the underlining code to the admin.py file (from the Projects folder):
-
-*from django.contrib import admin*
-*from .models import Project*
-
-*admin.site.register(Project)*
-
 
 
 ## Deployment on Heroku
