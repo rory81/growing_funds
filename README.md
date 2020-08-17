@@ -3,6 +3,12 @@
 
 # Growing Funds 
 ###### Disclaimer: *this app is made for educational use only.*
+
+# Index
+1. [ Goal of GrowingFunds ](#goal)
+
+<a name="goal"></a>
+## Goal of GrowingFunds
 Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some garantees it will be successfull.
 Furthermore, peoples dreams aren't considered much profitable. That's where crowdfunding fills the gap in the market.
 Suddenly, cold hard facts aren't the only reasons to get funding anymore and likebility, sympathy and pure curiosity become very important.
@@ -118,6 +124,21 @@ The host will then be able to mark them as finished if the reward has been sent.
 In case the user is an administrator the option '<em>Project Management</em>' is available to easily get access to the admin functionality from Django.
 The projects, categories, email addresses, users, orders and site name can also be managed from the project management page.
 
+##### function of the different HTML pages
+The following pages were made for the users:
+- project_category.html: to display all projects per selected category
+- projectdetail.html: show the details for one specific project
+- projects.html: homepage, showing the top-3 top earners and the last 5 projects that were newly added
+- search_projects.html: page showing the results from the top searchbar. Not using the homepage as there are filters (top-3 and top-5) on the projects
+- startprojectform.html: form to create and publish your own project
+- terms_and_conditions.html: terms and conditions the host has to agree to.
+- checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
+- payment_success.html: shows the results of an succeeded payment
+- profile.html: shows the order history and the created projects of a user with the delivery info of the user.
+- terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing.
+- search_projects.html: if the search bar in the header is used the results will be displayed on this page.
+
+
 ## Technologies used
 - [JavaScript](https://www.javascript.com/): to make Stripe elements, ShareThis button and dataTables work and to add the django-countries dropdown.
 - [Django](https://www.djangoproject.com/): web framework version 3.0.8
@@ -133,20 +154,9 @@ The projects, categories, email addresses, users, orders and site name can also 
 - [Gitpod](https://gitpod.io/): used as IDE
 - [Herokus](www.heroku.com): used as deployment platform
 - [Trello](https://trello.com/): to register the user stories and issues, so to pick up a set of issues in a certain week
+- [dbdiagram.io](dbdiagram.io): to make the data schema picture
 
 
-The following pages were made for the users:
-- project_category.html: to display all projects per selected category
-- projectdetail.html: show the details for one specific project
-- projects.html: homepage, showing the top-3 top earners and the last 5 projects that were newly added
-- search_projects.html: page showing the results from the top searchbar. Not using the homepage as there are filters (top-3 and top-5) on the projects
-- startprojectform.html: form to create and publish your own project
-- terms_and_conditions.html: terms and conditions the host has to agree to.
-- checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
-- payment_success.html: shows the results of an succeeded payment
-- profile.html: shows the order history and the created projects of a user with the delivery info of the user.
-- terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing.
-- search_projects.html: if the search bar in the header is used the results will be displayed on this page.
 
 ## Template Code Institute
 The template provided by Code Institute is used as basis (https://github.com/Code-Institute-Org/gitpod-full-template.git) and with this template a repository was created on GitHub by choosing the green *Use this template* button.
@@ -208,6 +218,10 @@ The picture below is the data schema for this project generated with [https://db
 
 <img src=".\static\img\data_schema.png" alt="data schema" height="25%" width="100%">
 
+The user part is from django.contrib.auth.models that is connected to UserProfile with a OneToMany relation.
+UserProfile is connected to the projects and the order model, because the app needs to know who made the project and who pledges to a project.
+Category is a single table, making it easier to adjust as an admin from the admin backend, used in the contexts.py
+This category table is connected to the projects table in order to link a project to a certain category via a dropdown menu.
 
 ## Git(Hub) version control
 Git is used to track the changes made and with that to have version control. The following steps are needed to track the changes made in the local repository:
