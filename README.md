@@ -6,6 +6,8 @@
 
 # Index
 1. [ Goal of GrowingFunds ](#goal)
+2. [ UX and Features ](#ux)
+3. [ Technologies used ](#tech)
 
 <a name="goal"></a>
 ## Goal of GrowingFunds
@@ -14,7 +16,7 @@ Furthermore, peoples dreams aren't considered much profitable. That's where crow
 Suddenly, cold hard facts aren't the only reasons to get funding anymore and likebility, sympathy and pure curiosity become very important.
 
 This project gives people a change to get funding for their own hobby project, their life long dream project or solving heartaches projects. 
-
+<a name="ux"></a>
 ## UX and Features
 To make sure all user stories were made or **not** made for a specific reason an Excel file was made with the following fields:
 - Perspective: from which user's point of view am I looking
@@ -138,7 +140,7 @@ The following pages were made for the users:
 - terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing.
 - search_projects.html: if the search bar in the header is used the results will be displayed on this page.
 
-
+<a name="tech"></a>
 ## Technologies used
 - [JavaScript](https://www.javascript.com/): to make Stripe elements, ShareThis button and dataTables work and to add the django-countries dropdown.
 - [Django](https://www.djangoproject.com/): web framework version 3.0.8
