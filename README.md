@@ -4,19 +4,20 @@
 # Growing Funds 
 ###### Disclaimer: *this app is made for educational use only.*
 
-# Index
+## Index
 1. [ Goal of GrowingFunds ](#goal)
 2. [ UX and Features ](#ux)
 3. [ Technologies used ](#tech)
 4. [ Create a Django project ](#add_project)
 5. [ Create an app within project ](#add_app)
-6. [ Django admin backend ](#admin)
-7. [ Data Schema ](#admin)
+6. [ Django admin backend ](#admin_backend)
+7. [ Data Schema ](#schema)
 8. [ Git Version Control ](#git)
 9. [ Deployment on Heroku ](#deploy)
 10. [ Testing ](#test)
 11. [ Acknowledgements ](#thanks)
 
+#
 <a name="goal"></a>
 ## Goal of GrowingFunds
 Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some garantees it will be successfull.
@@ -210,7 +211,7 @@ Some files/folders are created when needed:
 - **contexts.py:** to display the categories on every single page a context.py is needed. As categories are part of the projects app, the context.py file is located in this app.
 - **urls.py:** per app the urls are defined. The urls are sort of linked to a view. When this url is entered in the web browser, it will call the corresponding view and will display the html output connected to that view.
 
-<a name="admin"></a>
+<a name="admin_backend"></a>
 ## Django admin backend
 To access the django portal in the browser, simply add */admin* after the main url (like: <your url.com>/admin).
 The portal requests a username and password. This username and password can be created in the terminal by entering *./manage.py createsuperuser*
@@ -398,7 +399,7 @@ Used the standard dev tools from Chrome to test the different devices. Also test
 - tested it on an iPad (old version)
 - tested it on an iPhone
 - tested it on a android (Samsung Galaxy S20)
-- put the project in the peer-code-review put didn't get any comments
+- put the project in the peer-code-review slack group for a week put didn't get any comments.
 
 
 <a name="thanks"></a>
