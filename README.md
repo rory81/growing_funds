@@ -8,6 +8,14 @@
 1. [ Goal of GrowingFunds ](#goal)
 2. [ UX and Features ](#ux)
 3. [ Technologies used ](#tech)
+4. [ Create a Django project ](#add_project)
+5. [ Create an app within project ](#add_app)
+6. [ Django admin backend ](#admin)
+7. [ Data Schema ](#admin)
+8. [ Git Version Control ](#git)
+9. [ Deployment on Heroku ](#deploy)
+10. [ Testing ](#test)
+11. [ Acknowledgements ](#thanks)
 
 <a name="goal"></a>
 ## Goal of GrowingFunds
@@ -160,9 +168,10 @@ The following pages were made for the users:
 
 
 
-## Template Code Institute
+#### Template Code Institute
 The template provided by Code Institute is used as basis (https://github.com/Code-Institute-Org/gitpod-full-template.git) and with this template a repository was created on GitHub by choosing the green *Use this template* button.
 
+<a name="add_project"></a>
 ## How to create a django project
 To use Django it needs to be installed first, so *pip3 install django==1.11.29* was used to install Django. To create a Django project where the necessary files are immediately created enter *django-admin startproject <name_project> .*
 The '.' in the end is needed so the project is created in the root directory.
@@ -175,7 +184,7 @@ When this occurs go to the folder with your project name (in this case growing_f
 Enter the address given in the error message in the given brackets, like ALLOWED_HOSTS = ['127.0.0.1'] for instance. When the project is deployed to heroku the heroku address has to be added to this ALLOWED_HOSTS array.
 
 
-
+<a name="add_app"></a>
 ### How to create an app within the main project
 Within one project multiple apps can exists, each with their own urls, models, forms, etc. By adding the urls to the urls.py file in the main project, those apps become integrated in the project.
 
@@ -201,7 +210,7 @@ Some files/folders are created when needed:
 - **contexts.py:** to display the categories on every single page a context.py is needed. As categories are part of the projects app, the context.py file is located in this app.
 - **urls.py:** per app the urls are defined. The urls are sort of linked to a view. When this url is entered in the web browser, it will call the corresponding view and will display the html output connected to that view.
 
-
+<a name="admin"></a>
 ## Django admin backend
 To access the django portal in the browser, simply add */admin* after the main url (like: <your url.com>/admin).
 The portal requests a username and password. This username and password can be created in the terminal by entering *./manage.py createsuperuser*
@@ -214,6 +223,7 @@ So in this case to make the fields/data from the app Projects visible in the bac
 
 *admin.site.register(Project)*
 
+<a name="schema"></a>
 ## Data schema
 As the apps are integrated in the project the models from these apps can also interact with each other. So all the models combined will give the data schema for this whole project.
 The picture below is the data schema for this project generated with [https://dbdiagram.io/] :
@@ -225,6 +235,7 @@ UserProfile is connected to the projects and the order model, because the app ne
 Category is a single table, making it easier to adjust as an admin from the admin backend, used in the contexts.py
 This category table is connected to the projects table in order to link a project to a certain category via a dropdown menu.
 
+<a name="git"></a>
 ## Git(Hub) version control
 Git is used to track the changes made and with that to have version control. The following steps are needed to track the changes made in the local repository:
 
@@ -242,7 +253,7 @@ After the work on the branch is deemed good enough to be deployed it will be mer
 **Step 1: $ git checkout master** To go to the master branch
 **Step 2: $ git merge [branch name]** To merge the branch into the master branch
 
-
+<a name="deploy"></a>
 ## Deployment on Heroku
 When logged on to Heroku (https://www.heroku.com/, registration needed) click the button 'New' and select the option 'Create new app'.
 Give the app a name, but be aware that this should be an unique name and not previously used by you or another app on heroku.
@@ -339,7 +350,7 @@ The underlining steps are needed to clone this GitHub repository to another loca
 
 **Step 5:** Type `git clone [URL]`. For [URL] fill in the URL that was copied in step 3 and press Enter
 
-
+<a name="test"></a>
 ## Testing
 1. The pages are validated using:
 [HTML validation](https://validator.w3.org/#validate_by_input): the django elements will create an error.
@@ -390,7 +401,7 @@ Used the standard dev tools from Chrome to test the different devices. Also test
 - put the project in the peer-code-review put didn't get any comments
 
 
-
+<a name="thanks"></a>
 ## Acknowledgements
 - For the basic setup of the environment of the app and its documentation the video's from Code Institute were used
 and the Heroku site for a more detailed explanation of some terminology used by Heroku.
