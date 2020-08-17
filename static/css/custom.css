@@ -55,7 +55,7 @@ a.dropdown-item:hover{
 } 
 
 a:hover{
-    text-decoration: none!important;
+    text-decoration: none;
 }
 
 

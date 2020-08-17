@@ -1,121 +1,114 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 <div class="row no-gutters">
-    <div class="col-12 title text-center">
-        <!--Heading Form-->
-        <h1>Category: {{projects.category}}</h1>	
-    </div>
+   <div class="col-12 title text-center">
+      <!--Heading Form-->
+      <h1>Category: {{projects.category}}</h1>
+   </div>
 </div>
 <div class="row no-gutters">
-    <div class="offset-sm-0 col-sm-11 offset-xl-3 col-xl-9 mx-auto mt-5 mb-5">
-        <hr class="orange_line">
-    <!--Start datatable with all projects for particular genre-->
-    <table id="myTable" class="table fixed">
-        <thead>
+   <div class="offset-sm-0 col-sm-11 offset-xl-3 col-xl-9 mx-auto mt-5 mb-5">
+      <hr class="orange_line">
+      <!--Start datatable with all projects for particular genre-->
+      <table id="myTable" class="table fixed">
+         <thead>
             <tr>
-                <th>Image</th>
-                <th>Project Details</th>
+               <th>Image</th>
+               <th>Project Details</th>
             </tr>
-        </thead>
-        <tbody>
+         </thead>
+         <tbody>
             {% for project in projects|dictsortreversed:"created_date"%}
             {% if project.num_days > 0 %}
             <tr>
-                <td class="space-divider">
-                    {% if project.image %}
-                        <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
-                        </a>
-                    {% else %}
-                        <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-                        </a>
-                    {% endif %}
-                </td>
-                <td class="space-divider">
-                    <div class="title_cat">
-                        <a href="{% url 'project_detail' project.id %}" target="_blank">
-                            <h3 class="project_title">{{ project.title}}</h3>
-                        </a>
-                        <p class="subtext mr-3">{{ project.category }}</p>
-                    </div>
-                    <p class="description">{{ project.description|safe|striptags|truncatewords:40}}</p>
-                    <p class="results">goal: ${{project.goal}}&nbsp;&nbsp;&nbsp;&nbsp; raised: ${{ project.raised }}&nbsp;&nbsp;&nbsp;&nbsp; ends in: {{ project.num_days }} days</p>
-                </td>
+               <td class="space-divider">
+                  {% if project.image %}
+                  <a href="{% url 'project_detail' project.id %}" target="_blank">
+                  <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+                  </a>
+                  {% else %}
+                  <a href="{% url 'project_detail' project.id %}" target="_blank">
+                  <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                  </a>
+                  {% endif %}
+               </td>
+               <td class="space-divider">
+                  <div class="title_cat">
+                     <a href="{% url 'project_detail' project.id %}" target="_blank">
+                        <h3 class="project_title">{{ project.title}}</h3>
+                     </a>
+                     <p class="subtext mr-3">{{ project.category }}</p>
+                  </div>
+                  <p class="description">{{ project.description|safe|striptags|truncatewords:40}}</p>
+                  <p class="results">goal: ${{project.goal}}&nbsp;&nbsp;&nbsp;&nbsp; raised: ${{ project.raised }}&nbsp;&nbsp;&nbsp;&nbsp; ends in: {{ project.num_days }} days</p>
+               </td>
             </tr>
             {% endif %}
             {% endfor%}
-        </tbody>
-    </table>
-    <!--End datatable with all projects for particular genre-->
-    </div>
-  
-    <div class="col-11 col-lg-6 mx-auto text-center mt-5">
-        <!--Start highest earner in this category-->
-        <h2><strong>Highest Earner in {{projects.category}}</strong></h2>
-        <hr class="col-11 col-lg-9 col-xl-6 orange_line">
-        {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
-            {% if project.num_days > 0 %}
-                {% if project.image %}
-                <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
-                </a>
-                {% else %}
-                <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid mb-3" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-                </a>
-                {% endif %}
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-                <h3 class="project_title">{{ project.title }}</h3>
-            </a>
-
-            <div class="col-12 col-lg-6 mx-auto text-center mt-5">
-                <div class="category progress progress-section mx-auto text-center">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
-                        {{ project.percentage }} %
-                    </div>
-                </div>
-                <p class="progressbar-text">{{ project.num_days }} days left</p>
+         </tbody>
+      </table>
+      <!--End datatable with all projects for particular genre-->
+   </div>
+   <div class="col-11 col-lg-6 mx-auto text-center mt-5">
+      <!--Start highest earner in this category-->
+      <h2><strong>Highest Earner in {{projects.category}}</strong></h2>
+      <hr class="col-11 col-lg-9 col-xl-6 orange_line">
+      {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
+      {% if project.num_days > 0 %}
+      {% if project.image %}
+      <a href="{% url 'project_detail' project.id %}" target="_blank">
+      <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+      </a>
+      {% else %}
+      <a href="{% url 'project_detail' project.id %}" target="_blank">
+      <img class="img-fluid mb-3" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+      </a>
+      {% endif %}
+      <a href="{% url 'project_detail' project.id %}" target="_blank">
+         <h3 class="project_title">{{ project.title }}</h3>
+      </a>
+      <div class="col-12 col-lg-6 mx-auto text-center mt-5">
+         <div class="category progress progress-section mx-auto text-center">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+               {{ project.percentage }} %
             </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <!--End highest earner in this category-->
-    <!--Start Most viewed in this category-->
-    <div class="col-11 col-lg-6 mx-auto text-center mt-5">
-        <h2><strong>Most Viewed in {{projects.category}}</strong></h2>
-        <hr class="col-11 col-lg-9 col-xl-6 orange_line">
-        {% for project in projects|dictsortreversed:"views"|slice:"0:1"%}
-            {% if project.num_days > 0 %}
-                {% if project.image %}
-                <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
-                </a>
-                {% else %}
-                <a href="{% url 'project_detail' project.id %}" target="_blank">
-                    <img class="img-fluid mb-3" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-                </a>
-                {% endif %}
-
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-                <h3 class="project_title">{{ project.title}}</h3>
-            </a>
-
-            <div class="col-12 col-lg-6 mx-auto text-center mt-5">
-                <div class="category progress progress-section mx-auto text-center">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
-                        {{ project.percentage }} %
-                    </div>
-                </div>
-                <p class="progressbar-text">{{ project.views }} views</p>
+         </div>
+         <p class="progressbar-text">{{ project.num_days }} days left</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+   </div>
+   <!--End highest earner in this category-->
+   <!--Start Most viewed in this category-->
+   <div class="col-11 col-lg-6 mx-auto text-center mt-5">
+      <h2><strong>Most Viewed in {{projects.category}}</strong></h2>
+      <hr class="col-11 col-lg-9 col-xl-6 orange_line">
+      {% for project in projects|dictsortreversed:"views"|slice:"0:1"%}
+      {% if project.num_days > 0 %}
+      {% if project.image %}
+      <a href="{% url 'project_detail' project.id %}" target="_blank">
+      <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+      </a>
+      {% else %}
+      <a href="{% url 'project_detail' project.id %}" target="_blank">
+      <img class="img-fluid mb-3" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+      </a>
+      {% endif %}
+      <a href="{% url 'project_detail' project.id %}" target="_blank">
+         <h3 class="project_title">{{ project.title}}</h3>
+      </a>
+      <div class="col-12 col-lg-6 mx-auto text-center mt-5">
+         <div class="category progress progress-section mx-auto text-center">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+               {{ project.percentage }} %
             </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <!--End Most viewed in this category-->
+         </div>
+         <p class="progressbar-text">{{ project.views }} views</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+   </div>
+   <!--End Most viewed in this category-->
 </div>
-
-
 {% endblock %}

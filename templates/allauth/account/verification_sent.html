@@ -1,29 +1,24 @@
 {% extends "account/base.html" %}
-
 {% load i18n %}
 {% load  static %}
-
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
-
 {% block content %}
 <div class="container-fluid">
-	<div class="row no-gutters">
-		<div class="col-12 title text-center">
-            <!--Heading-->
-            <h1>{% trans "Verify Your E-mail Address" %}</h1>
-		</div>
-        <div class="offset-2 col-8 text-center">
-            <p class="text-muted">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
-        </div>
-	</div>
-    <div class="row no-gutters">
-        <div class="col mx-auto">
-            <div class="col-3 col-xl-2 mx-auto mt-5">
-                <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
-            </div>
-        </div>
-    </div>
+   <div class="row no-gutters">
+      <div class="col-12 title text-center">
+         <!--Heading-->
+         <h1>{% trans "Verify Your E-mail Address" %}</h1>
+      </div>
+      <div class="offset-2 col-8 text-center">
+         <p class="text-muted">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+      </div>
+   </div>
+   <div class="row no-gutters">
+      <div class="col mx-auto">
+         <div class="col-3 col-xl-2 mx-auto mt-5">
+            <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
+         </div>
+      </div>
+   </div>
 </div>
-
-
 {% endblock %}

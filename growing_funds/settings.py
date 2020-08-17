@@ -207,7 +207,8 @@ CKEDITOR_CONFIGS = {
             ['RemoveFormat'],
             ['Format', 'Font', 'FontSize'],
             ['TextColor', 'BGColor']
-        ]
+        ],
+        'fontSize': 8,
     }
 }
 

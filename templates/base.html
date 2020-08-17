@@ -1,124 +1,115 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	{% block meta %}
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	{% endblock %}
-	{% block corecss %}
-		<link rel="icon" href="{% static 'img/growing_coins.png' %}">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CRoboto%20300%20400%20500%20600;lang=en" />
-		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
-		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-		
-	{% endblock %}
-	{% block head_js %}
-		
-	{% endblock head_js %}
-
-	<title>Growing Funds</title>
-</head>
-
-<body>
-<header>
-<div class="container-fluid">
-	<div class="row no-gutters">
-		<div class="col-3 col-lg-1 picture-logo">
-			<a href="{% url 'get_projects' %}">
-			    <img src="{% static 'img/main_logo_small.jpg' %}" alt="logo growing funds">
-			</a>
-		</div>
-        <div class="col-9 col-lg-11 container-fluid mt-5">
-            <a href="{% url 'get_projects' %}" class= "col-9 col-lg-11 logo_title">Growing Funds</a>
-            <form class="form-inline float-right mt-4 mr-3" action="{% url 'search_projects' %}">
-                <input class="form-control mr-sm-1 text-right" type="search" name="q" placeholder="Search Project" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
-	</div>
-</div>
-
-<!--Main Navigationbar-->
-<nav class="navbar">
-	<div class="justify-content-start">
-		{% if request.user.is_authenticated %}
-		<a href="{% url 'start_project' %}" class="left ml-3">Start Project</a>
-        {% else %}
-        <a href="{% url 'account_login' %}" class="left ml-3">Start Project</a>
-		{% endif%}
-	</div>
-    <a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="mr-3" >My Account</a>
-    <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-                <a href="{% url 'admin:index' %}" class="dropdown-item">Project Management</a>
-            {% endif %}
-            <a href="{% url 'profile'%}" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-    </div>
-</nav>
-<!--End Main Navigationbar-->
-<!--Category bar-->
-<div class="cat-bar">
-	{% for c in categories|slice:"0:8"%} <!--making sure there only 8 categories when someone accidentally adds one -->
-		<a href="{% url 'get_projects' %}category={{ c.category }}"><div class="cat-bar-item">{{ c.category }}</div></a>
-	{% endfor %}
-</div>
-<hr class="bar-end">
-<!--End Category bar-->
-</header>
-<!--Messages-->
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li class="text-danger"> {{ message }} </li>
-    {% endfor %}
-</ul>
-{% endif %}
-<main class="mb-5">
-{% block content %}
-{% endblock %}
-</main>
-<footer class="footer mt-5">
-    <div class="row no-gutters offset-3 footer_row">
-        <div class="col-6">
-            <p class="footer_detail"><i class="fas fa-question-circle"></i><a href="mailto:service@GrowingFunds.com">    Questions for GrowingFunds?</a></p>
-        </div>
-        <div class="col-6">
-            <p class="footer_detail"><i class="fas fa-exclamation-circle"></i><a href="mailto:service@GrowingFunds.com">    Report Misuse</a></p>
-        </div>           
-    </div>
-    <hr class="orange col-7">
-</footer>
-	{% block corejs %}
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"
-        ></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-		</script>
-		<script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
-        <script src="{% static 'js/datatables.js' %}"></script>
-		<script src="https://js.stripe.com/v3/"></script>
-        <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5f33e1ccde52a0001208d829&product=sop' async='async'></script>
-
-	{% endblock %}
-	{% block postloadjs%}
-	{% endblock %}
-
-</body>
-
+   <head>
+      {% block meta %}
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      {% endblock %}
+      {% block corecss %}
+      <link rel="icon" href="{% static 'img/growing_coins.png' %}">
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CRoboto%20300%20400%20500%20600;lang=en" />
+      <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+      {% endblock %}
+      {% block head_js %}
+      {% endblock head_js %}
+      <title>Growing Funds</title>
+   </head>
+   <body>
+      <header>
+         <div class="container-fluid">
+            <div class="row no-gutters">
+               <div class="col-3 col-lg-1 picture-logo">
+                  <a href="{% url 'get_projects' %}">
+                  <img src="{% static 'img/main_logo_small.jpg' %}" alt="logo growing funds">
+                  </a>
+               </div>
+               <div class="col-9 col-lg-11 container-fluid mt-5">
+                  <a href="{% url 'get_projects' %}" class= "col-9 col-lg-11 logo_title">Growing Funds</a>
+                  <form class="form-inline float-right mt-4 mr-3" action="{% url 'search_projects' %}">
+                     <input class="form-control mr-sm-1 text-right" type="search" name="q" placeholder="Search Project" aria-label="Search">
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <!--Main Navigationbar-->
+         <nav class="navbar">
+            <div class="justify-content-start">
+               {% if request.user.is_authenticated %}
+               <a href="{% url 'start_project' %}" class="left ml-3">Start Project</a>
+               {% else %}
+               <a href="{% url 'account_login' %}" class="left ml-3">Start Project</a>
+               {% endif%}
+            </div>
+            <a href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="mr-3" >My Account</a>
+            <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
+               {% if request.user.is_authenticated %}
+               {% if request.user.is_superuser %}
+               <a href="{% url 'admin:index' %}" class="dropdown-item">Project Management</a>
+               {% endif %}
+               <a href="{% url 'profile'%}" class="dropdown-item">My Profile</a>
+               <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
+               {% else %}
+               <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+               <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+               {% endif %}
+            </div>
+         </nav>
+         <!--End Main Navigationbar-->
+         <!--Category bar-->
+         <div class="cat-bar">
+            {% for c in categories|slice:"0:8"%} <!--making sure there only 8 categories when someone accidentally adds one -->
+            <a href="{% url 'get_projects' %}category={{ c.category }}">
+               <div class="cat-bar-item">{{ c.category }}</div>
+            </a>
+            {% endfor %}
+         </div>
+         <hr class="bar-end">
+         <!--End Category bar-->
+      </header>
+      <!--Messages-->
+      {% if messages %}
+      <ul class="messages">
+         {% for message in messages %}
+         <li class="text-danger"> {{ message }} </li>
+         {% endfor %}
+      </ul>
+      {% endif %}
+      <main class="mb-5">
+         {% block content %}
+         {% endblock %}
+      </main>
+      <footer class="footer mt-5">
+         <div class="row no-gutters offset-3 footer_row">
+            <div class="col-6">
+               <p class="footer_detail"><i class="fas fa-question-circle"></i><a href="mailto:service@GrowingFunds.com">    Questions for GrowingFunds?</a></p>
+            </div>
+            <div class="col-6">
+               <p class="footer_detail"><i class="fas fa-exclamation-circle"></i><a href="mailto:service@GrowingFunds.com">    Report Misuse</a></p>
+            </div>
+         </div>
+         <hr class="orange col-7">
+      </footer>
+      {% block corejs %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+         crossorigin="anonymous"
+         ></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/059bd5e7b7.js" crossorigin="anonymous"></script>
+      <script src="{% static 'js/datatables.js' %}"></script>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5f33e1ccde52a0001208d829&product=sop' async='async'></script>
+      {% endblock %}
+      {% block postloadjs%}
+      {% endblock %}
+   </body>
 </html>
-

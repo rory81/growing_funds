@@ -3,64 +3,61 @@
 {% block content %}
 <!--Code when the searchbar doesn't find anything-->
 {%if projects.count == 0 %}
-    <h1 class="text-center logo_title">No projects found with that search criteria</h1>
+<h1 class="text-center logo_title">No projects found with that search criteria</h1>
 <!--End Code when the searchbar doesn't find anything-->
 {% else %}
-    <div class="col">
-        <div class="row no-gutters justify-content-center align-items-center ">
-            <div class="col-3 text-center new_projects_title mt-3 mb-2">
-                <h2>Search results</h2>
-            </div>
-        </div>
-    </div>
-
-	<div class="row mt-5">
-        <div class="col-11 mx-auto">
-            <!--Start datatable My Projects-->
-            <div class="card">
-                <table id="searchProjectsTable" class="table fixed">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Title</th>
-                            <th>Created</th>
-                            <th>Raised</th>
-                            <th>Views</th>
-                            <th>Days left</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for project in projects|dictsortreversed:"created_date"%}
-                        <tr>
-                            <td class="space-divider">
-                                {% if project.image %}
-                                    <a href="{% url 'project_detail' project.id %}" target="_blank">
-                                        <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'project_detail' project.id %}" target="_blank">
-                                        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-                                    </a>
-                                {% endif %}
-                            </td>
-                            <td title="{{ project.title }}" class="space-divider"><a href="{% url 'project_detail' project.id %}" target="_blank">{{ project.title }}</a></td>
-                            <td class="space-divider"> {{ project.created_date }}</td>
-                            <td class="space-divider"> {{ project.percentage }}%</td>
-                            <td class="space-divider"> {{ project.views }} </td>
-                            {% if project.num_days > 0 %}
-                                <td class="space-divider"> {{ project.num_days }}</td>
-                            {% else %}
-                                <td class="space-divider"> Ended</td>
-                            {% endif %}
-                        </tr>
-                        {% endfor%}
-                    </tbody>
-                </table>
-                <!--End datatable My Projects-->
-
-            </div>
-		</div>
-	</div>
-
+<div class="col">
+   <div class="row no-gutters justify-content-center align-items-center ">
+      <div class="col-3 text-center new_projects_title mt-3 mb-2">
+         <h2>Search results</h2>
+      </div>
+   </div>
+</div>
+<div class="row mt-5">
+   <div class="col-11 mx-auto">
+      <!--Start datatable Search Projects-->
+      <div class="card">
+         <table id="searchProjectsTable" class="table fixed">
+            <thead>
+               <tr>
+                  <th></th>
+                  <th>Title</th>
+                  <th>Created</th>
+                  <th>Raised</th>
+                  <th>Views</th>
+                  <th>Days left</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for project in projects|dictsortreversed:"created_date"%}
+               <tr>
+                  <td class="space-divider">
+                     {% if project.image %}
+                     <a href="{% url 'project_detail' project.id %}" target="_blank">
+                     <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+                     </a>
+                     {% else %}
+                     <a href="{% url 'project_detail' project.id %}" target="_blank">
+                     <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+                     </a>
+                     {% endif %}
+                  </td>
+                  <td title="{{ project.title }}" class="space-divider"><a href="{% url 'project_detail' project.id %}" target="_blank">{{ project.title }}</a></td>
+                  <td class="space-divider"> {{ project.created_date }}</td>
+                  <td class="space-divider"> {{ project.percentage }}%</td>
+                  <td class="space-divider"> {{ project.views }} </td>
+                  {% if project.num_days > 0 %}
+                  <td class="space-divider"> {{ project.num_days }}</td>
+                  {% else %}
+                  <td class="space-divider"> Ended</td>
+                  {% endif %}
+               </tr>
+               {% endfor%}
+            </tbody>
+         </table>
+         <!--End datatable Search Projects-->
+      </div>
+   </div>
+</div>
 {% endif %}
 {% endblock %}

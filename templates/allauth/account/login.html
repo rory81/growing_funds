@@ -1,66 +1,56 @@
 {% extends "account/base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
-
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 {% load static %}
 {% block content %}
 <div class="container-fluid">
-	<div class="row no-gutters">
-    <div class="col-12 title text-center">
-      <h1>Welcome Back!</h1>
-    </div>
-  </div>
-
-  {% get_providers as socialaccount_providers %}
-
-  {% if socialaccount_providers %}
-  <p>{% blocktrans with site.name as site_name %}Please sign in with one
-  of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-  <div class="socialaccount_ballot">
-
-    <ul class="socialaccount_providers">
-      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-    </ul>
-
-    <div class="login-or">{% trans 'or' %}</div>
-
-  </div>
-
-  {% include "socialaccount/snippets/login_extra.html" %}
-
-  {% else %}
-  <div class="col-12 text-center">
-    <p class="text-muted">{% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-  </div>
-  {% endif %}
-  <div class="row no-gutters mt-5 mx-auto">
-		    <div class="col-12 mx-auto main_div">
-              <div class="offset-1 col-2 main_coin_image">
-                  <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
-              </div>
-              <div class="col-6 mx-auto  div_form">
-                <form class="login" method="POST" action="{% url 'account_login' %}">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    {% if redirect_field_value %}
-                    <input class="form_field" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <div class="float-right">
-                        <button class="primaryAction btn" type="submit">{% trans "Sign In" %}</button>
-                        <p class="mt-2">
-                            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-                        </p>
-                    </div>
-                </form>
-              </div>
-	
-          </div>
-	</div>
+   <div class="row no-gutters">
+      <div class="col-12 title text-center">
+         <h1>Welcome to Crowdfunding!</h1>
+      </div>
+   </div>
+   {% get_providers as socialaccount_providers %}
+   {% if socialaccount_providers %}
+   <p>{% blocktrans with site.name as site_name %}Please sign in with one
+      of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+      for a {{ site_name }} account and sign in below:{% endblocktrans %}
+   </p>
+   <div class="socialaccount_ballot">
+      <ul class="socialaccount_providers">
+         {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </ul>
+      <div class="login-or">{% trans 'or' %}</div>
+   </div>
+   {% include "socialaccount/snippets/login_extra.html" %}
+   {% else %}
+   <div class="col-12 text-center">
+      <p class="text-muted">{% blocktrans %}If you have not created an account yet, then please
+         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+      </p>
+   </div>
+   {% endif %}
+   <div class="row no-gutters mt-5 mx-auto">
+      <div class="col-12 mx-auto main_div">
+         <div class="offset-1 col-2 main_coin_image">
+            <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
+         </div>
+         <div class="col-6 mx-auto  div_form">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
+               {% csrf_token %}
+               {{ form|crispy }}
+               {% if redirect_field_value %}
+               <input class="form_field" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+               {% endif %}
+               <div class="float-right">
+                  <button class="primaryAction btn" type="submit">{% trans "Sign In" %}</button>
+                  <p class="mt-2">
+                     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                  </p>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
 </div>
 {% endblock %}
