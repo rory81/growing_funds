@@ -17,12 +17,11 @@ To make sure all user stories were made or **not** made for a specific reason an
 - So that I can: what goal does that specific user want to achieve with that action
 - Status: options were '*Not Started*', '*Ongoing*' or '*Done*' to maintain overview of the status of the entire backlog.
 
-The User Stories where made for three kind of users:
+The User Stories where made for two kind of users:
 1) The site user, looking for an interesting project to pledge to
 2) A crowdfunding host, wanting to present its project to the public and get money to realise the project.
-3) The admin, wanting to keep the site up and running
 
-Some aspects are relevant to the first and second group of users, like:
+Some aspects are relevant to both group of users, like:
 - able to register easily
 - get an email after registration
 - login and logout with emailaddress
@@ -30,7 +29,12 @@ Some aspects are relevant to the first and second group of users, like:
 - able to email the site owner in case of misuse or fraud or any other questions
 - able to update personal/delivery information in the profile page
 
-These items are also beneficial for the admin if these elements go smoothly
+These items are also beneficial for the admin, eventhough the admin isn't mentioned as a separate group,  If these elements go smoothly the less work it is for the admin to support the app.
+Three user stories were not finished:
+1) See how many people actually have donated. This wasn't done, because the site has the number of views to determine popularity of a project and percentage raised (and a progress bar) to see how far the host is from reaching the goal.
+2) Adding Favorites, so that the user can decide on a later date if they want to pledge and if so can easily find them. This issue will be added to the backlog.
+3) The host can see which reward and corresponding amount is most popular by the users. T 
+
 Below the several (future) functionalities are mentioned, per user group.
 
 ##### The Site User

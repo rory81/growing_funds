@@ -5,6 +5,7 @@ from django.core.mail import send_mail
 from .forms import OrderForm
 from projects.models import Project
 from .models import Order
+from django.contrib.auth.models import User
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
@@ -132,6 +133,7 @@ def success(request, total, pk, order_number):
     project = get_object_or_404(Project, pk=pk)
     project.raised += amount
     project.save(update_fields=["raised"])
+    project_user = get_object_or_404(User, username=project.user_profile)
 
     # send a confirmation email with the order details to the user that made the order
     new_line = '\n'
@@ -142,6 +144,46 @@ def success(request, total, pk, order_number):
         [request.user.email],
         fail_silently=False,
     )
+
+    # send an email with the order details to the project host
+    message = f'Dear {project_user},{new_line}{new_line}' \
+        f'You have a new order for ${amount} for project {project.title}.{new_line}' \
+        f'The client requested {order.reward} as reward.{new_line}{new_line}'\
+        f'Delivery Information for this order:{new_line}{new_line}' \
+        f'Name: {order.full_name}{new_line}' \
+        f'Address 1: {order.street_address1}{new_line}' \
+        f'Address 2: {order.street_address2}{new_line}' \
+        f'postcode: {order.postcode}{new_line}' \
+        f'Town or city: {order.town_or_city}{new_line}' \
+        f'County: {order.county}{new_line}' \
+        f'Country: {order.country.name}{new_line}' \
+        f'Phonenumber: {order.phone_number}{new_line}' \
+        f'Email: {request.user.email}{new_line}{new_line}' \
+        f'Kind Regards, Growing Funds' \
+    
+    message_nothing = f'Dear {project_user},{new_line}{new_line}' \
+        f'You have a new order for ${amount} for project {project.title}.{new_line}' \
+        f'The client requested {order.reward} as reward.{new_line}{new_line}'\
+        f'Kind Regards, Growing Funds' \
+
+
+    print("message:", message, message_nothing)
+    if order.reward == 'Nothing':
+        send_mail(
+            f'Growing Funds: confirmation order {order_number}',
+            message_nothing,
+            'GrowingFunds <settings.EMAIL_HOST_USER>',
+            [project_user.email],
+            fail_silently=False,
+        )
+    else:
+        send_mail(
+            f'Growing Funds: confirmation order {order_number}',
+            message,
+            'GrowingFunds <settings.EMAIL_HOST_USER>',
+            [project_user.email],
+            fail_silently=False,
+        )
 
     context = {
         'project': project,
