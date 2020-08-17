@@ -139,9 +139,9 @@ def success(request, total, pk, order_number):
     new_line = '\n'
     send_mail(
         f'Growing Funds: confirmation order {order_number}',
-        f'Dear {profile.user},{new_line}{new_line}Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.{new_line}{new_line}Kind Regards, Growing Funds ',
+        f'Dear {order.full_name},{new_line}{new_line}Thank you for pledging ${amount} to project {project.title}{new_line}Hope to see you again soon.{new_line}{new_line}Kind Regards, Growing Funds ',
         'GrowingFunds <settings.EMAIL_HOST_USER>',
-        [profile.user.email],
+        [order.email],
         fail_silently=False,
     )
 
@@ -158,14 +158,13 @@ def success(request, total, pk, order_number):
         f'County: {order.county}{new_line}' \
         f'Country: {order.country.name}{new_line}' \
         f'Phonenumber: {order.phone_number}{new_line}' \
-        f'Email: {profile.user.email}{new_line}{new_line}' \
+        f'Email: {order.email}{new_line}{new_line}' \
         f'Kind Regards, Growing Funds' \
-    
+
     message_nothing = f'Dear {project_user},{new_line}{new_line}' \
         f'You have a new order for ${amount} for project {project.title}.{new_line}' \
         f'The client requested {order.reward} as reward.{new_line}{new_line}'\
         f'Kind Regards, Growing Funds' \
-
 
     if order.reward == 'Nothing':
         send_mail(
@@ -183,6 +182,7 @@ def success(request, total, pk, order_number):
             [project_user.email],
             fail_silently=False,
         )
+    print("email", order.email)
 
     context = {
         'project': project,
