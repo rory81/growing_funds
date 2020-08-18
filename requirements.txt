@@ -16,7 +16,11 @@ Flask==1.1.2
 gunicorn==20.0.4
 itsdangerous==1.1.0
 oauthlib==3.1.0
+<<<<<<< HEAD
 Pillow==7.2.0
+=======
+Pillow==5.4.1.
+>>>>>>> parent of 82baf55... change static_storage to default
 psycopg2-binary==2.8.5
 python3-openid==3.2.0
 pytz==2020.1
