@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
     'crispy_forms',
     'django.contrib.sites',
     'ckeditor',
@@ -101,6 +102,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.getenv('CLOUD_API_KEY'),
     'API_SE RET': os.getenv('CLOUD_API_SECRET')
 }
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 AUTHENTICATION_BACKENDS = [
@@ -184,7 +186,6 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
