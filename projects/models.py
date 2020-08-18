@@ -27,7 +27,7 @@ class Project(models.Model):
 
     user_profile = models.ForeignKey(UserProfile,on_delete=models.SET("deleted_user"), null=True, blank=True, related_name='projects')
     title = models.CharField(max_length=90, blank=False, null=False)
-    image = models.ImageField(upload_to="img", blank=True, null=True)
+    image = models.ImageField(upload_to="media/img", blank=True, null=True)
     category = models.ForeignKey('Category', blank=False, null=True, on_delete=models.SET_NULL)
     description = RichTextField(blank=False, null=False)
     backers_story_option1 = RichTextField(null=False, blank=False)
