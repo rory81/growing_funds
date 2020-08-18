@@ -21,7 +21,7 @@ if os.path.exists('env.py'):
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False) 
 
 # Quick-start development settings - unsuitable for production
