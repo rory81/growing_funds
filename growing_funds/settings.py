@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['localhost', 'growing-funds.herokuapp.com']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
