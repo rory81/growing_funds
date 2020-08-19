@@ -46,7 +46,7 @@ Some aspects are relevant to both group of users, like:
 - get an email after registration
 - login and logout with emailaddress
 - possibility to reset password
-- able to email the site owner in case of misuse or fraud or any other questions
+- able to email the site owner in case of misuse or fraud or any other questions (note that the current emailaddress used for the footer item is a fake and only for educational purposes. All project related email functionalities are real)
 - able to update personal/delivery information in the profile page
 
 These items are also beneficial for the admin, eventhough the admin isn't mentioned as a separate group,  If these elements go smoothly the less work it is for the admin to support the app.
