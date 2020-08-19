@@ -19,6 +19,8 @@ def calculations(projects):
     for p in projects:
         p.percentage = round(((p.raised/p.goal)*100), 1)
         p.num_days = (p.end_date - datetime.now().date()).days
+        p.image = p.image.url
+        print(p.image)
     return projects
 
 
@@ -98,9 +100,10 @@ def project_detail(request, pk):
     """
     project = get_object_or_404(Project, pk=pk)
     project.views += 1
-    # calculating percentage and num_days for one single project instead of a list, therefore not using calculations()
+    # calculating percentage and num_days and add image_url for one single project instead of a list, therefore not using calculations()
     project.percentage = round(((project.raised/project.goal)*100), 1)
     project.num_days = (project.end_date - datetime.now().date()).days
+    project.image = project.image.url
     project.save()
 
     project_user = get_object_or_404(User, username=project.user_profile)

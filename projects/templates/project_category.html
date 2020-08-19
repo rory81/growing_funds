@@ -23,9 +23,9 @@
             {% if project.num_days > 0 %}
             <tr>
                <td class="space-divider">
-                  {% if project.image.image.url %}
+                  {% if project.image %}
                   <a href="{% url 'project_detail' project.id %}" target="_blank">
-                  <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image.image.url }}" alt="project image">
+                  <img class="img-fluid" src="{{ project.image }}" alt="project image">
                   </a>
                   {% else %}
                   <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -56,9 +56,9 @@
       <hr class="col-11 col-lg-9 col-xl-6 orange_line">
       {% for project in projects|dictsortreversed:"percentage"|slice:"0:1"%}
       {% if project.num_days > 0 %}
-      {% if project.image.image.url %}
+      {% if project.image %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
-      <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image.image.url }}" alt="project image">
+      <img class="img-fluid mb-3" src="{{ project.image }}" alt="project image">
       </a>
       {% else %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -86,9 +86,9 @@
       <hr class="col-11 col-lg-9 col-xl-6 orange_line">
       {% for project in projects|dictsortreversed:"views"|slice:"0:1"%}
       {% if project.num_days > 0 %}
-      {% if project.image.image.url %}
+      {% if project.image %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
-      <img class="img-fluid mb-3" src="{{MEDIA_URL}}{{ project.image.image.url }}" alt="project image">
+      <img class="img-fluid mb-3" src="{{ project.image }}" alt="project image">
       </a>
       {% else %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
