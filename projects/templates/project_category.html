@@ -25,7 +25,7 @@
                <td class="space-divider">
                   {% if project.image %}
                   <a href="{% url 'project_detail' project.id %}" target="_blank">
-                  <img class="img-fluid" src="{{ project.image }}" alt="project image">
+                  <img class="img-fluid" src="{{ project.image.url }}" alt="project image">
                   </a>
                   {% else %}
                   <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -58,7 +58,7 @@
       {% if project.num_days > 0 %}
       {% if project.image %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
-      <img class="img-fluid mb-3" src="{{ project.image }}" alt="project image">
+      <img class="img-fluid mb-3" src="{{ project.image.url }}" alt="project image">
       </a>
       {% else %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -88,7 +88,7 @@
       {% if project.num_days > 0 %}
       {% if project.image %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">
-      <img class="img-fluid mb-3" src="{{ project.image }}" alt="project image">
+      <img class="img-fluid mb-3" src="{{ project.image.url }}" alt="project image">
       </a>
       {% else %}
       <a href="{% url 'project_detail' project.id %}" target="_blank">

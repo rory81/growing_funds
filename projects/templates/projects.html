@@ -17,7 +17,7 @@
          <div class="grid-item justify-content-between mr-4">
             {% if project.image %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid mx-auto" src="{{ project.image }}" alt="project image">
+            <img class="img-fluid mx-auto mt-5" src="{{ project.image.url }}" alt="project image">
             </a>
             {% else %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -47,6 +47,7 @@
       </div>
    </div>
 </div>
+
 <!--Top 5 Newest projects-->
 {% comment %} row to make content for the new projects {% endcomment %}
 <div class="row no-gutters mt-5 mb-0">
@@ -79,7 +80,7 @@
          <div class="col-4 ml-5 mb-5">
             {% if project.image %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid" src="{{ project.image }}" alt="project image">
+            <img class="img-fluid" src="{{ project.image.url }}" alt="project image">
             </a>
             {% else %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
