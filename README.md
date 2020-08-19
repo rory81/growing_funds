@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/rory81/growing_funds.svg?branch=master)](https://travis-ci.org/rory81/growing_funds)
 <img src=".\static\img\main_logo.jpg" alt="logo" height="25%" width="25%">
 
 # Growing Funds 
@@ -156,7 +156,7 @@ The following pages were made for the users:
 - [JavaScript](https://www.javascript.com/): to make Stripe elements, ShareThis button and dataTables work and to add the django-countries dropdown.
 - [Django](https://www.djangoproject.com/): web framework version 3.0.8
 - [Python](https://www.python.org/): Python3 is used as programming language
-- [Whitenoise](http://whitenoise.evans.io/en/stable/): to serve the static files. Which is an alternative to AWS if you do not have an amazon account and a creditcard.
+- [Whitenoise](http://whitenoise.evans.io/en/stable/): to serve the static files. 
 - [Pillow](https://pillow.readthedocs.io/en/stable/): to be able to upload images
 - [Allauth](https://django-allauth.readthedocs.io/en/latest/): addressing authentication, registration and account management
 - [Stripe](https://stripe.com/en-nl): to enable the user to make payments and check credit cards
@@ -168,6 +168,7 @@ The following pages were made for the users:
 - [Herokus](www.heroku.com): used as deployment platform
 - [Trello](https://trello.com/): to register the user stories and issues, so to pick up a set of issues in a certain week
 - [dbdiagram.io](dbdiagram.io): to make the data schema picture
+- [Cloudinary](https://cloudinary.com/): for the storage of uploaded media images, which is an alternative to AWS if you do not have an amazon account and/or a creditcard.
 
 
 
@@ -333,26 +334,30 @@ When you push to Heroku at this point it will fail, because two additional files
 1. requirements.txt : the requirements text file will contain a list of the application that are required for Heroku to run the application.
 To create this file enter 'pip3 freeze --local>requirements.txt' in the terminal. A file is then generated and in the end it contains the underlining content:
 
-    - asgiref==3.2.10
-    - click==7.1.2
-    - dj-database-url==0.5.0
-    - Django==3.0.8
-    - django-allauth==0.42.0
-    - django-ckeditor==5.9.0
-    - django-countries==6.1.2
-    - django-crispy-forms==1.9.1
-    - django-js-asset==1.2.2
-    - gunicorn==20.0.4
-    - itsdangerous==1.1.0
-    - oauthlib==3.1.0
-    - Pillow==7.2.0
-    - psycopg2-binary==2.8.5
-    - python3-openid==3.2.0
-    - pytz==2020.1
-    - requests-oauthlib==1.3.0
-    - sqlparse==0.3.1
-    - stripe==2.49.0
-    - whitenoise==5.1.0
+- asgiref==3.2.10
+- click==7.1.2
+- cloudinary==1.22.0
+- dj-database-url==0.5.0
+- Django==3.0.8
+- django-allauth==0.42.0
+- django-ckeditor==5.9.0
+- django-cloudinary-storage==0.2.3
+- django-countries==6.1.2
+- django-crispy-forms==1.9.1
+- django-js-asset==1.2.2
+- django-utils-six==2.0
+- gunicorn==20.0.4
+- itsdangerous==1.1.0
+- oauthlib==3.1.0
+- Pillow==7.2.0
+- psycopg2-binary==2.8.5
+- python3-openid==3.2.0
+- pytz==2020.1
+- requests-oauthlib==1.3.0
+- sqlparse==0.3.1
+- stripe==2.49.0
+- whitenoise==5.1.0
+
 
 2. Procfile (note that there isn't an extension) : the Procfile is an instruction to Heroku as to which file is used as our entry point at the application.
 In other words, which file is used to call the application and run it. To create a Procfile enter 'echo web: python app.py > Procfile'.
@@ -487,4 +492,5 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - people on Slack when having questions
 - my mentor, Maranatha Ilesanmi,for supporting and helping me when needed.
 - friends and family willing to test the site for me
+- https://github.com/klis87/django-cloudinary-storage: for the implementation of Cloudinary storage
 

@@ -1,7 +1,7 @@
 language: python
 python:
-  - "3.4"
-install: "pip install -r requirements.txt"
+  - "3.7"
+ 
+install: "pip3 install -r requirements.txt"
 script:
-  - chmod +x manage.py
-  - SECRET_KEY="!n7^%2vs##1$wdtl(!kj@97c+=6_&d)7t29nz66t84(fg3m5k2" ./manage.py test
+  - python3 manage.py test
