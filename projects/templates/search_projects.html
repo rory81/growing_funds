@@ -32,9 +32,9 @@
                {% for project in projects|dictsortreversed:"created_date"%}
                <tr>
                   <td class="space-divider">
-                     {% if project.image %}
+                     {% if project.image.url %}
                      <a href="{% url 'project_detail' project.id %}" target="_blank">
-                     <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+                     <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image.url }}" alt="project image">
                      </a>
                      {% else %}
                      <a href="{% url 'project_detail' project.id %}" target="_blank">

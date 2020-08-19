@@ -4,8 +4,8 @@
 <div class="row no-gutters">
    <div class= "col-12 details mt-5">
       <div class="offset-1 col-5 offset-xl-2 col-xl-3 image-margin align-items-center">
-         {% if project.image %}
-         <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image }}" alt="project image">
+         {% if project.image.url %}
+         <img class="img-fluid" src="{{ MEDIA_URL }}{{ project.image.url }}" alt="project image">
          {% else %}
          <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
          {% endif %}

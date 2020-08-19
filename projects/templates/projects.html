@@ -15,9 +15,9 @@
          {% for project in projects|dictsortreversed:"percentage"|slice:"0:3" %}
          {% if project.num_days > 0 %}
          <div class="grid-item justify-content-between mr-4">
-            {% if project.image %}
+            {% if project.image.url %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid mx-auto" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+            <img class="img-fluid mx-auto" src="{{MEDIA_URL}}{{ project.image.url }}" alt="project image">
             </a>
             {% else %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
@@ -77,9 +77,9 @@
          </div>
          {% comment %} one col to show the pictures for the new projects {% endcomment %}
          <div class="col-4 ml-5 mb-5">
-            {% if project.image %}
+            {% if project.image.url %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image }}" alt="project image">
+            <img class="img-fluid" src="{{MEDIA_URL}}{{ project.image.url }}" alt="project image">
             </a>
             {% else %}
             <a href="{% url 'project_detail' project.id %}" target="_blank">
