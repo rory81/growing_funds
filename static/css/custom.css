@@ -95,7 +95,6 @@ legend{
     font-size:18px!important;
     display: flex!important; /*makes the error message visible for the CKeditor*/
 }
-}
 
 select,
 select option {

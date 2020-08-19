@@ -14,8 +14,9 @@
 7. [ Data Schema ](#schema)
 8. [ Git Version Control ](#git)
 9. [ Deployment on Heroku ](#deploy)
-10. [ Testing ](#test)
-11. [ Acknowledgements ](#thanks)
+10. [ Cloudinary ](#cloud)
+11. [ Testing ](#test)
+12. [ Acknowledgements ](#thanks)
 
 &nbsp;  
 &nbsp;  
@@ -57,16 +58,14 @@ Three user stories were not finished:
 Below the several (future) functionalities are mentioned, per user group.
 
 ##### The Site User
-At first instance the user will look to the most popular projects or the newest projects. 
-To see the newest project, the top-5 newest projects are displayed on the homepage.
-
-To show the popularity the user is given the number of views the projects has had. Furthermore, on the homepage the top-3 highest earners are displayed to see what is trending.
+At first instance the user will look to the most profitable projects (top-3) or the newest projects(top-5). 
+To show the popularity the user is given the number of views the projects has had. Furthermore, on the homepage the top-3 highest earners are displayed to see what is trending and maybe worthy to join in as so much is pledged already.
 The simplest form to get more funding is word of mouth. So, everytime the page is looked at one view is added to the total number of views of that specific project. 
-To increase the word of mouth the user has the ability to share the link of a certain project on all kinds of social media.
+To increase the word of mouth, the user has the ability to share the link of a certain project on all kinds of social media.
 
 Secondly, the user has personal interests and wants to easily find projects that fit their personal interests.
 Therefore, the projects are categorised by set categories and these categories are displayed on every page throughout the site (by putting the categories in a contexts.py).
-When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, but has an option to select 5, 10, 25 or 50 projects per page.
+When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, so that a mobile user can easily go through the different pages, but has an option to select 5, 10, 25 or 50 projects per page.
 If the user has a (part of the) name of an interesting project it can use the searchbar in the table to look for it in this particular genre.
 
 Other ways to search for a particular project is to use the search bar present that searches through **all** projects.
@@ -303,12 +302,12 @@ The URL value provided by Heroku needs to be entered in the settings.py file of 
 ```
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse('<DATABASE_URL FROM HEROKU>')
+        'default': dj_database_url.parse(os.environ.get'(<DATABASE_URL'))
     }
 else:
 ```
 
-The else is used to set up the development part of the database.
+The else is used to set up the development part of the database and the DATABASE_URL is provided by Heroku.
 Do not forget to import this addon in the top of the settings.py, right underneath the import os. (import dj_database_url)
 
 Any changes to the models are not processed by this progress database unless migrations are made:
@@ -386,23 +385,30 @@ A searchbar appears where the name of the repository can be entered and click th
 
 Underneath this section a black **Enable Automatic Deploys** can be clicked. The default setting is the git master branch, but the section underneath allows another branch to be selected.
 
+
+
 #### configuration variables Heroku and Django
 **Heroku**
 The only thing left to do is to specify some configuration variables in Heroku.
 1. Login to Heroku and go to the app
 2. select the Settings button from the navigation
 3. Go to the section 'Config Vars' and click the Add-button
-    a. set the Key to 'DATABASE_URL'. Set the value of the postgress address provided by Heroku
-    b. set the Key to 'EMAIL_HOST_PASS'. Set the value provided by the email host, in this case gmail.
-    c. set the Key to 'EMAIL_HOST_USER'. Set the value provided by the email host, in this case an email address from gmail.
-    d. set the Key to 'SECRET_KEY'. Set the value to provide cryptographic signing. This key kan be regenerated on https://miniwebtool.com/django-secret-key-generator/
-    e. set the Key to 'STRIPE_SECRET_KEY'. API key provided by Stripe Your account’s secret API key can perform any API request to Stripe without restriction.
-    f. set the Key to 'STRIPE_PUBLIC_KEY'. API key provided by Stripe are meant solely to identify your account with StripePublishable keys only have the power to create tokens.
+    - set the Key to 'DATABASE_URL'. Set the value of the postgress address provided by Heroku
+    - set the Key to 'EMAIL_HOST_PASS'. Set the value provided by the email host, in this case gmail.
+    - set the Key to 'EMAIL_HOST_USER'. Set the value provided by the email host, in this case an email address from gmail.
+    - set the Key to 'SECRET_KEY'. Set the value to provide cryptographic signing. This key kan be regenerated on https://miniwebtool.com/django-secret-key-generator/
+    - set the Key to 'STRIPE_SECRET_KEY'. API key provided by Stripe Your account’s secret API key can perform any API request to Stripe without restriction.
+    - set the Key to 'STRIPE_PUBLIC_KEY'. API key provided by Stripe are meant solely to identify your account with StripePublishable keys only have the power to create tokens.
+    - set the Key to 'CLOUD_NAME'. Cloud name you generate when making an account.
+    - set the Key to 'CLOUD_API_SECRET'. Secret key provided by Cloudinary.
+    - set the Key to 'CLOUD_API_KEY'. API key provided by Cloudinary.
+
+It is important to note that secret en API keys should not be pushed to git, but should be set as an environment variable.
 
 Now that it is all setup click the button 'Open app' and the app is deployed.
 If a "404 Not Found" appears it is probably due to a missing url in a urls.py. After ('<app_name>/') come the routes needed to make this website work for the purposes specified in the views and named in the urls.py.
 
-**Django setting.py**
+When deploying the app it is important to set the DEBUG variable in the settings.py to False. This prevents showing unwanted system/code information, when an unexpected error occurs.
 
 ## Run Locally
 To run locally, this repository can be cloned directly into the editor of your choice by pasting git clone  into your terminal. To cut ties with this GitHub repository, type git remote rm origin into the terminal.
@@ -422,13 +428,23 @@ The underlining steps are needed to clone this GitHub repository to another loca
 GitHub has another green button besides **Code**, namely the button **Gitpod**. When pushing this button the repository will be opened in the Gitpod IDE.
 Step 3 to five aren't necessary anymore, unless you want a different IDE.
 
+
+<a name="cloud"></a>
+## Cloudinary
+If you don't have a creditcard you cannot make an AWS account to store the uploaded images by the user. To solve that problem, Cloudinary can be used as storage.
+Heroku has an addon for this that can be connected to Heroku the same way as was done with Heroku postgress. Unfortunately, when doing this in Heroku you still need a creditcard.
+To avoid that an account is made on  https://cloudinary.com/ where the API keys are provided as mentioned in the deployment section of Heroku.
+
+To setup cloudinary follow the setup in https://github.com/klis87/django-cloudinary-storage
+Be aware that you do not use {{MEDIA_URL}}{{project.image}} in the template when you want to render the image, but {{project.image.url}}
+
 <a name="test"></a>
 ## Testing
 1. The pages are validated using:
 [HTML validation](https://validator.w3.org/#validate_by_input): the django elements will create an error.
 Therefor the pages where run with Chrome and **CTRL+U** was used to "view page source". This source code was entered into the validator.
 
-The following pages where checked and ok.
+The following pages where checked and no errors were found 
 - project_category.html
 - projectdetail.html
 - projects.html
@@ -439,8 +455,10 @@ The following pages where checked and ok.
 - payment_success.html
 - profile.html
 
-[CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input):
-[JS validation](https://jshint.com/):
+Only the startprojectform.html gives an warning that the type attribute is unnecessary, but this JQuery is generate by the use of CKeditor.
+
+[CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input):no errors or warnings found
+[JS validation](https://jshint.com/): no errors or warnings found
 [Python validation](https://extendsclass.com/python-tester.html):
 - f'strings aren't recognised in this validator
 
