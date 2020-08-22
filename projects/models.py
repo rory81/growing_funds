@@ -39,7 +39,7 @@ class Project(models.Model):
     end_date = models.DateField(default=one_month_from_today)
     num_days = models.IntegerField(default=0)
     raised = models.IntegerField(default=0)
-    conditions = models.BooleanField(default=False, choices=[(True, 'Yes'), (False, 'No')], null=True, blank=False)
+    conditions = models.BooleanField(default=False, null=True, blank=False)
 
 
     def __str__(self):

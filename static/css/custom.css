@@ -178,6 +178,7 @@ input.form-control{
 }
 #id_goal, #id_end_date, #id_amount_pledged{
     border-bottom: 1px solid #000000;
+    border-radius: 0px;
 }
 
 input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
@@ -191,19 +192,15 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 }
 
 
-/* .textarea.form-control:focus{
-    border: 2px solid #669900!important;
-    box-shadow: none!important;
-} */
-
 .textinput.form-control, .emailinput.form-control{
     border: none!important;
     border-bottom: 1px solid #000000!important;
     box-shadow: none!important;
+    border-radius: 0;
 }
 
 #cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
-    width: 700px!important;
+    width: 100%!important;
 }
 
 html body p{
@@ -337,9 +334,11 @@ h2{
   }
   .main_div{
       position: relative!important;
+      min-height: 200px!important;
   }
 
   .main_coin_image{
+    /* margin-top: 100px; */
     padding: 20px;
     bottom: 0;
     position: absolute!important;
@@ -525,7 +524,18 @@ td.space-divider{
     font-size: 20px;
 }
 #cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
-    width: 900px!important;
+    width: 112%!important;
 }
+
+}
+
+@media(min-width:1400px) {
+    a.button.secondaryAction{
+    font-size: 20px;
+}
+#cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
+    width: 128%!important;
+}
+
 }
 

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#myTable').dataTable({
-        "pageLength":2,
+        "pageLength":5,
         "lengthMenu":[2,5,10,25,50],
         "columnDefs": [{ "width": "40%", "targets": 0 }]
     });

@@ -6,6 +6,7 @@ from django.shortcuts import reverse
 
 
 class StartProjectForm(forms.ModelForm):
+    conditions = forms.BooleanField(required=True, label="Agree to Terms & Conditions?")
     class Meta:
         model = Project
         fields = ('title', 'image', 'category', 'description', 'backers_story_option1', 'backers_story_option2', 'backers_story_option3', 'goal', 'end_date', 'conditions')
@@ -21,13 +22,6 @@ class StartProjectForm(forms.ModelForm):
             "end_date": "Project End Date",
             "conditions": "Agree to Terms & Conditions?"
         }
-
-    def clean_conditions(self):
-        conditions = self.cleaned_data.get('conditions')
-        url = reverse("terms_conditions")
-        if conditions is False:
-            raise forms.ValidationError(mark_safe('Please agree to our terms and conditions. Click <a href="%s" target="_blank">here</a> to read.' % url))
-        return conditions
 
     def clean_goal(self):
         goal = self.cleaned_data.get('goal')
@@ -54,7 +48,4 @@ class StartProjectForm2(forms.ModelForm):
             "backers_story_option1": "What's in it for the backers? - Option 1",
             "backers_story_option2": "Option 2",
             "backers_story_option3": "Option 3",
-            "goal": "Goal (USD)",
-            "end_date": "Project End Date",
-            "conditions": "Agree to Terms & Conditions?"
         }
