@@ -369,7 +369,7 @@ a.project_title:hover{
 }
 
 .variable_description{
-    height: 160px;
+    height: 180px;
 }
 
 .subtext, .results, .progressbar-text{
@@ -535,8 +535,8 @@ html body p{
 
 
 @media(min-width:1097px) {
-    .variable_description{
-    height: 90px;
+.variable_description{
+    height: 100px;
 }
 
 .detail_info{
