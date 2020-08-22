@@ -44,30 +44,3 @@ class TestProjectForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('goal', form.errors.keys())
         self.assertEqual(form.errors['goal'][0], 'This field is required.')
-
-    def test_project_end_date_is_required(self):
-        form = StartProjectForm({'end_date': ''})
-        self.assertFalse(form.is_valid())
-        self.assertIn('end_date', form.errors.keys())
-        self.assertEqual(form.errors['end_date'][0], 'This field is required.')
-
-    def test_project_created_date_is_required(self):
-        form = StartProjectForm({'created_date': ''})
-        self.assertFalse(form.is_valid())
-
-    def test_project_num_raised_is_required(self):
-        form = StartProjectForm({'num_raised': ''})
-        self.assertFalse(form.is_valid())
-
-    def test_fields_are_explicit_in_form_metaclass(self):
-        form = StartProjectForm()
-        self.assertEqual(form.Meta.fields, [
-            'title',
-            'category',
-            'description',
-            'backers_story_option1',
-            'backers_story_option2',
-            'backers_story_option3',
-            'goal',
-            'end_date'
-        ])
