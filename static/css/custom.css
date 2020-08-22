@@ -204,7 +204,7 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
 }
 
 html body p{
-	font-size: 16px!important;
+	font-size: 18px!important;
 }
 
 
@@ -252,9 +252,6 @@ html body p{
     margin-bottom: 20px;
 }
 
-.description {
-    font-size: 16px;
-}
 .detail_title{
     font-size: 30px;
     font-weight: bold;
@@ -363,7 +360,7 @@ h2{
 }
 
 .variable_description{
-    height: 120px;
+    height: 160px;
 }
 
 .subtext, .results, .progressbar-text{
@@ -519,10 +516,13 @@ td.space-divider{
 .reward_title{
     display: none;
 }
-
+html body p{
+	font-size: 16px!important;
 }
 
 }
+
+
 
 
 @media(min-width:1097px) {
