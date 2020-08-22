@@ -44,3 +44,9 @@ class TestProjectForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('goal', form.errors.keys())
         self.assertEqual(form.errors['goal'][0], 'This field is required.')
+    
+    def test_project_end_date_is_required(self):
+        form = StartProjectForm({'end_date': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('end_date', form.errors.keys())
+        self.assertEqual(form.errors['end_date'][0], 'This field is required.')
