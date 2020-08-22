@@ -3,14 +3,14 @@
 {% block content %}
 <div class="row no-gutters">
    <div class= "col-12 details mt-5">
-      <div class="offset-1 col-5 offset-xl-2 col-xl-3 image-margin align-items-center">
+      <div class="offset-3 col-6 offset-lg-2 col-lg-4 image-margin align-items-center">
          {% if project.image %}
-         <img class="img-fluid" src="{{ project.image.url }}" alt="project image">
+         <img class="mobile-detail-image" src="{{ project.image.url }}" alt="project image">
          {% else %}
-         <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+         <img class="mobile-detail-image" src="{% static 'img/No-image-available.png' %}" alt="no image available">
          {% endif %}
       </div>
-      <div class="col-5 col-xl-4">
+      <div class="offset-3 col-6 offset-lg-0 col-lg-4">
          <div class="title_cat">
             <h2 class="project_title">{{ project.title }}</h2>
             <a href="{% url 'per_category' project.category %}" target="_blank">
@@ -46,7 +46,7 @@
    </div>
 </div>
 <div class="row no-gutters justify-content-center mb-5">
-   <div class="col-3 col-xl-2  mx-auto">
+   <div class="offset-6 col-3 col-xl-2  mx-auto">
       {% if project.num_days > 0 %}
       {% if request.user.is_authenticated %}
       <a href="{% url 'checkout' project.id %}">
@@ -61,14 +61,14 @@
    </div>
 </div>
 <hr class="mt-5">
-</hr>
 <div class="row no-gutters">
-   <div class="col-9 offset-1 detail_info">
+   <div class="col-9 offset-2 detail_info">
       <div>
          <h2 class="project_title">Project Description</h2>
          <p class="description">{{ project.description|safe|linebreaks }}</p>
       </div>
       <div class="align-items-baseline">
+         <h2 class="project_title reward_title">Reward</h2>      
          <h3 class="subtext_black">Reward Option 1:</h3>
          <p class="description">{{ project.backers_story_option1|safe|linebreaks }}</p>
          <h3 class="subtext_black">Reward Option 2:</h3>

@@ -36,7 +36,7 @@ class StartProjectForm(forms.ModelForm):
         return end_date
 
 
-class StartProjectForm2(forms.ModelForm):
+class EditProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ('title', 'image', 'category', 'description', 'backers_story_option1', 'backers_story_option2', 'backers_story_option3')

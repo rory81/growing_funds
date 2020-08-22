@@ -246,6 +246,11 @@ html body p{
 .fa-coins, .fa-question-circle, .fa-exclamation-circle{
     color:#FF9900!important;
 }
+.mobile-detail-image{
+    width: 450px;
+    height: 250;
+    margin-bottom: 20px;
+}
 
 .description {
     font-size: 16px;
@@ -287,8 +292,8 @@ p.subtext_black.finish_line, .fa-envelope{
 
 .detail_info{
     display: grid;
-    grid-template-columns: 9fr 3fr;
-    grid-column-gap: 50px;
+    grid-template-columns: 10fr;
+    /* grid-column-gap: 50px; */
 }
 
 h2{
@@ -397,7 +402,7 @@ h2{
 
 .img-fluid{
     width: 333.66px;
-    height: 187.68px!important;
+    height: 187.68px;
 }
 
 
@@ -500,6 +505,23 @@ td.space-divider{
     font-size: 18px!important;
   }
 
+  .mobile-detail-image{
+    width: 333.66px;
+    height: 187.68px;
+}
+.image-margin{
+    margin-right: 20px;
+}
+.detail_info{
+    grid-template-columns: 9fr 3fr;
+    grid-column-gap: 30px;
+}
+.reward_title{
+    display: none;
+}
+
+}
+
 }
 
 
@@ -525,6 +547,10 @@ td.space-divider{
 }
 #cke_id_description, #cke_id_backers_story_option1, #cke_id_backers_story_option2, #cke_id_backers_story_option3{
     width: 112%!important;
+}
+  .mobile-detail-image{
+    width: 450px;
+    height: 250px;
 }
 
 }
