@@ -248,7 +248,7 @@ html body p{
 }
 .mobile-detail-image{
     width: 450px;
-    height: 250;
+    height: 250!important;
     margin-bottom: 20px;
 }
 
@@ -402,7 +402,7 @@ h2{
 
 .img-fluid{
     width: 333.66px;
-    height: 187.68px;
+    height: 187.68px!important;
 }
 
 
@@ -507,7 +507,7 @@ td.space-divider{
 
   .mobile-detail-image{
     width: 333.66px;
-    height: 187.68px;
+    height: 187.68px!important;
 }
 .image-margin{
     margin-right: 20px;
@@ -550,7 +550,7 @@ td.space-divider{
 }
   .mobile-detail-image{
     width: 450px;
-    height: 250px;
+    height: 250px!important;
 }
 
 }
