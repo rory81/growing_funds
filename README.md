@@ -7,16 +7,17 @@
 ## Index
 1. [ Goal of GrowingFunds ](#goal)
 2. [ UX and Features ](#ux)
-3. [ Technologies used ](#tech)
-4. [ Create a Django project ](#add_project)
-5. [ Create an app within project ](#add_app)
-6. [ Django admin backend ](#admin_backend)
-7. [ Data Schema ](#schema)
-8. [ Git Version Control ](#git)
-9. [ Deployment on Heroku ](#deploy)
-10. [ Cloudinary ](#cloud)
-11. [ Testing ](#test)
-12. [ Acknowledgements ](#thanks)
+3. [ Mockups ](#mockups)
+4. [ Technologies used ](#tech)
+5. [ Create a Django project ](#add_project)
+6. [ Create an app within project ](#add_app)
+7. [ Django admin backend ](#admin_backend)
+8. [ Data Schema ](#schema)
+9. [ Git Version Control ](#git)
+10. [ Deployment on Heroku ](#deploy)
+11. [ Cloudinary ](#cloud)
+12. [ Testing ](#test)
+13. [ Acknowledgements ](#thanks)
 
 &nbsp;  
 &nbsp;  
@@ -112,7 +113,6 @@ Some fields needed extra help to validate and were customised:
 <em>Customised Errors</em>
 - Please enter a goal  higher than 0, if the goal is lower or equal to 0
 - A project should be at least 30 days. If the number of days between the date of creation and the end date are lower than that an error will occur.
-- As mentioned before, the host has to agree to the terms and conditions. If there is no agreement an error will occur.
 - Value should be higher or equal to 1 if the amount to be pledged is lower than one.
 
 When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised as of yet.
@@ -143,12 +143,48 @@ The following pages were made for the users:
 - projects.html: homepage, showing the top-3 top earners and the last 5 projects that were newly added
 - search_projects.html: page showing the results from the top searchbar. Not using the homepage as there are filters (top-3 and top-5) on the projects
 - startprojectform.html: form to create and publish your own project
-- terms_and_conditions.html: terms and conditions the host has to agree to.
 - checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
 - payment_success.html: shows the results of an succeeded payment
 - profile.html: shows the order history and the created projects of a user with the delivery info of the user.
-- terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing.
+- terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing. Note that the content is fake and for educational purposes only 
 - search_projects.html: if the search bar in the header is used the results will be displayed on this page.
+
+<a name="mockups"></a>
+## Mockups
+In the static folder there is also a seperate folder for the mockups, where a PDF print out of all the mockups made is saved.
+
+There are many differences between the mockups and the real site. This is partly due to mentor session after the first build that some layouts were changed, 
+but also because some mockups were a bit crowded when actually build and there are multipe different pictures on it.
+
+**Homepage:** The highest earners where displayed differently making it much less like a summation list by putting the information per project vertically instead of horizontally.
+Because, this section works vertically it has a nice contrast with the new project section.
+The bigger devices are displayed in the same layout as the mobile (highest earnerst above the new projects), because looks less crowded and more calm to the eye.
+
+**Category:** To show the user which projects are more popular, not only the highest earner is displayed, but the most viewed was also added.
+These are 2 different ways to show popularity, as a high precentage of raised money doesn't necesarily mean that the project is the most popular with the public. 
+Furthermore, the highest earner and the most viewed were moved below the table with all the projects, because seeing all the other projects and searching through them is more valuable to the user.
+Due to the addition of the category most viewed, the same layout (one project per category highest earner and most viewed) was maintained for the bigger devices, instead of a top 3 highest earned.
+
+**Start Project:** Option 1 till 3 were added instead of just 1 big textarea to write all rewards in.
+A checkbox was added to agree to the terms and conditions of this site, as well as a picture of the coins for a consistent styling.
+A new page was made to enable the user to read the Terms and Conditions (content is fake) by clicking on the information button. The latter wasn't in the mockups 
+
+**Projects details:**: the layout was changed after having built it. The new format was inspired by kickstart and made it possible to add more information and give it a more clean look and less crowded.
+For the mobile version the information was stacked to make it more readible. On the bigger devices the product description is now next to the reward section, so the user doesn't have to scroll up and down again when the detail information about most of the rewards are often in the description.
+
+**Search projects:**: A new page was made to display the search results when using the search bar. The search was based on the homepage and the projects displayed there all have a filter on them.
+Therefore, when there were more than 5 projects fitting the search they were not all displayed. For that reason another page was made.
+
+**Pledge to project:**: delivery information was added, so that the host will know where to send the reward to, as well as the image of stacked coins.
+
+**Payment successfull:**: additional information was added about the order and the project.
+
+**Profile page:**: This page was not in the mockups and was added to make the user story where a user could track their projects as well as their pledges made to other projects.
+
+
+
+
+
 
 <a name="tech"></a>
 ## Technologies used
