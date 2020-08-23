@@ -476,9 +476,14 @@ Be aware that you do not use {{MEDIA_URL}}{{project.image}} in the template when
 [HTML validation](https://validator.w3.org/#validate_by_input): the django elements will create an error.
 Therefor the pages where run with Chrome and **CTRL+U** was used to "view page source". This source code was entered into the validator.
 
-The following pages where checked and no errors were found 
+The following pages where checked
 - project_category.html
-- projectdetail.html
+- projectdetail.html: a few errors occured:
+    - an error using the html validator occurs, due to the use of the CKeditor. The CKeditor uses empty paragraph tags to indicate a linebreak. The HTML validator sees this as an error:
+    <img src=".\static\img\bug_CKeditor.PNG" alt="bug CKeditor" height="25%" width="25%">
+    The solution is to force an enter, but the CKeditor site does not recommend this.
+    <img src=".\static\img\bug_CKeditor_not_recommended.PNG" alt="bug CKeditor" height="25%" width="25%">
+    - The mailto takes as subject the {{project.title}}. This project title contains spaces.
 - projects.html
 - search_projects.html
 - startprojectform.html
@@ -490,11 +495,13 @@ The following pages where checked and no errors were found
 Only the startprojectform.html gives an warning that the type attribute is unnecessary, but this JQuery is generate by the use of CKeditor.
 
 [CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input): no errors or warnings found
+
 [JS validation](https://jshint.com/): no errors or warnings found
+
 [Python validation](https://extendsclass.com/python-tester.html): f'strings aren't recognised in this validator
 
 2. The console was checked for errors:
-Only Same-site-cookie warnings where displayed
+Only Same-site-cookie warnings where displayed. The internet was not very clear on one solution and also talked about an update the browsers needed to so in order to prevent this.
 
 3. Check forms:
 
@@ -506,6 +513,10 @@ c) 3 independent users made projects and made pledges.
 4. Check pagination:
 all datatables were checked to see if the pagination worked, even with different number of projects.
 
+5. check email functionality:
+- checked if the user gets an email when pledging to a project
+- checked if the host gets an email when a user pledges to their project
+
 6. Tested on multiple devices:
 Used the standard dev tools from Chrome to test the different devices. Also tested it live on:
 - on a 1920 x 1080 screen and one size bigger screen
@@ -513,6 +524,14 @@ Used the standard dev tools from Chrome to test the different devices. Also test
 - tested it on an iPhone
 - tested it on a android (Samsung Galaxy S20)
 - put the project in the peer-code-review slack group for a week put didn't get any comments.
+
+7. Tested the share button:
+Tested:
+- whatsapp
+- email
+- gmail
+- yahoomail
+- if it prints out in the printer and how it comes out (projectdetail page)
 
 
 <a name="thanks"></a>
