@@ -500,12 +500,13 @@ The following pages where checked
 
 [CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input): no errors or warnings found
 
-[JS validation](https://jshint.com/): no errors or warnings found
+[JS validation](https://jshint.com/): the following warnings occurred
+    - countryfield.js: let should be replaced by var and an unnecessary ; was removed.
 
-[Python validation](https://extendsclass.com/python-tester.html): f'strings aren't recognised in this validator
+[Python validation](https://extendsclass.com/python-tester.html): all views were tested and the only error was that the f'strings aren't recognised in this validator.
 
 2. The console was checked for errors:
-Only Same-site-cookie warnings where displayed. The internet was not very clear on one solution and also talked about an update the browsers needed to so in order to prevent this.
+Only Same-site-cookie warnings where displayed. The internet was not very clear on a solution that did not have a possible negative consequence and also talked about an update the browsers needed to so in order to prevent this.
 
 3. Check forms:
 
