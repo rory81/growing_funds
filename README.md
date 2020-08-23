@@ -478,13 +478,15 @@ Therefor the pages where run with Chrome and **CTRL+U** was used to "view page s
 
 The following pages where checked
 - project_category.html
-- projectdetail.html: a few errors occured:
+- projectdetail.html: the following errors occurred:
     - an error using the html validator occurs, due to the use of the CKeditor. The CKeditor uses empty paragraph tags to indicate a linebreak. The HTML validator sees this as an error:
-    <img src=".\static\img\bug_CKeditor.PNG" alt="bug CKeditor" height="25%" width="25%">
-    The solution is to force an enter, but the CKeditor site does not recommend this.
-    <img src=".\static\img\bug_CKeditor_not_recommended.PNG" alt="bug CKeditor" height="25%" width="25%">
-    - The mailto takes as subject the {{project.title}}. This project title contains spaces.
-- projects.html
+    <img src=".\static\img\bug_CKeditor.PNG" alt="bug CKeditor" height="100%" width="100%">
+    
+    The solution is to force an enter, but the CKeditor site does not recommend this and was therefore not solved.
+    <img src=".\static\img\bug_CKeditor_not_recommended.PNG" alt="bug CKeditor" height="100%" width="100%">
+    
+    - The mailto takes as subject the {{project.title}}. This project title contains spaces. This was solved by adding %20 instead of the spaces in the title.
+- projects.html : no errors or warnings
 - search_projects.html
 - startprojectform.html
 - terms_and_conditions.html
