@@ -7,7 +7,7 @@
 ## Index
 1. [ Goal of GrowingFunds ](#goal)
 2. [ UX and Features ](#ux)
-3. [ Mockups ](#mockups)
+3. [ Mock-ups ](#mock-ups)
 4. [ Technologies used ](#tech)
 5. [ Create a Django project ](#add_project)
 6. [ Create an app within project ](#add_app)
@@ -24,11 +24,11 @@
 &nbsp;  
 <a name="goal"></a>
 ## Goal of GrowingFunds
-Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some garantees it will be successfull.
+Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some guarantees it will be successful.
 Furthermore, peoples dreams aren't considered much profitable. That's where crowdfunding fills the gap in the market.
-Suddenly, cold hard facts aren't the only reasons to get funding anymore and likebility, sympathy and pure curiosity become very important.
+Suddenly, cold hard facts aren't the only reasons to get funding anymore and likeability, sympathy and pure curiosity become very important.
 
-This project gives people a change to get funding for their own hobby project, their life long dream project or solving heartaches projects. 
+This project gives people a chance to get funding for their own hobby project, their lifelong dream project or solving heartaches projects. 
 <a name="ux"></a>
 ## UX and Features
 To make sure all user stories were made or **not** made for a specific reason an Excel file was made with the following fields:
@@ -45,32 +45,32 @@ The User Stories where made for two kind of users:
 Some aspects are relevant to both group of users, like:
 - able to register easily
 - get an email after registration
-- login and logout with emailaddress
+- login and logout with email address
 - possibility to reset password
-- able to email the site owner in case of misuse or fraud or any other questions (note that the current emailaddress used for the footer item is a fake and only for educational purposes. All project related email functionalities are real)
+- able to email the site owner in case of misuse or fraud or any other questions (note that the current email address used for the footer item is a fake and only for educational purposes. All project related email functionalities are real)
 - able to update personal/delivery information in the profile page
 
-These items are also beneficial for the admin, eventhough the admin isn't mentioned as a separate group,  If these elements go smoothly the less work it is for the admin to support the app.
+These items are also beneficial for the admin, even though the admin isn't mentioned as a separate group,  If these elements go smoothly the less work it is for the admin to support the app.
 Three user stories were not finished:
 1) See how many people actually have donated. This wasn't done, because the site has the number of views to determine popularity of a project and percentage raised (and a progress bar) to see how far the host is from reaching the goal.
-2) Adding Favorites, so that the user can decide on a later date if they want to pledge and if so can easily find them. This issue will be added to the backlog.
-3) The host can see which reward and corresponding amount is most popular by the users like a dashboard for the host.This issue will be added to the backlog.
+2) Adding Favourites, so that the user can decide on a later date if they want to pledge and if so can easily find them. This issue will be added to the backlog.
+3) The host can see which reward and corresponding amount is most popular by the users like a dashboard for the host. This issue will be added to the backlog.
 
 Below the several (future) functionalities are mentioned, per user group.
 
 ##### The Site User
 At first instance the user will look to the most profitable projects (top-3) or the newest projects(top-5). 
 To show the popularity the user is given the number of views the projects has had. Furthermore, on the homepage the top-3 highest earners are displayed to see what is trending and maybe worthy to join in as so much is pledged already.
-The simplest form to get more funding is word of mouth. So, everytime the page is looked at one view is added to the total number of views of that specific project. 
+The simplest form to get more funding is word of mouth. So, every time the page is looked at one view is added to the total number of views of that specific project. 
 To increase the word of mouth, the user has the ability to share the link of a certain project on all kinds of social media.
 
 Secondly, the user has personal interests and wants to easily find projects that fit their personal interests.
 Therefore, the projects are categorised by set categories and these categories are displayed on every page throughout the site (by putting the categories in a contexts.py).
 When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, so that a mobile user can easily go through the different pages, but has an option to select 5, 10, 25 or 50 projects per page.
-If the user has a (part of the) name of an interesting project it can use the searchbar in the table to look for it in this particular genre.
+If the user has a (part of the) name of an interesting project it can use the search bar in the table to look for it in this particular genre.
 
 Other ways to search for a particular project is to use the search bar present that searches through **all** projects.
-Every searchbar searches for words within the title as well as the description.
+Every search bar searches for words within the title as well as the description.
 
 If a user is deciding rather of not to pledge it is important to tell them what's in it for them. In each project the project owner has to name 3 possible rewards.
 The more enticing the rewards the higher the change people will pledge. For now it is necessary to fill in all three project so people can pledge to reward no. 1, 2 or 3.
@@ -100,7 +100,8 @@ When there isn't an image added to the project a default image will be shown.
 In the backlog there are a few more items to further develop this section:
 1) crowdfunding host only obligated to fill in 1 reward, but can also make more than 3 rewards if they want to.
 2) host can enter a to and from amount, so that it can be used to check if the amount for the reward is consistent with the reward chosen by the site's user.
-3) host can add pictures and format them on the site so that layout consistency is maintained.
+3) the host can only add landscape pictures as the project image. Portrait images will look funny, currently the site doesn't adapt to that.
+4) host can add pictures to the description and format them on the site so that layout consistency is maintained.
 
 
 Any fields that have an asterisk are obligated and will raise an error:
@@ -141,7 +142,7 @@ The following pages were made for the users:
 - project_category.html: to display all projects per selected category
 - projectdetail.html: show the details for one specific project
 - projects.html: homepage, showing the top-3 top earners and the last 5 projects that were newly added
-- search_projects.html: page showing the results from the top searchbar. Not using the homepage as there are filters (top-3 and top-5) on the projects
+- search_projects.html: page showing the results from the top search bar. Not using the homepage as there are filters (top-3 and top-5) on the projects
 - startprojectform.html: form to create and publish your own project
 - checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
 - payment_success.html: shows the results of an succeeded payment
@@ -149,41 +150,37 @@ The following pages were made for the users:
 - terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing. Note that the content is fake and for educational purposes only 
 - search_projects.html: if the search bar in the header is used the results will be displayed on this page.
 
-<a name="mockups"></a>
-## Mockups
-In the static folder there is also a seperate folder for the mockups, where a PDF print out of all the mockups made is saved.
+<a name="mock-ups"></a>
+## Mock-ups
+In the static folder there is also a separate folder for the mock-ups, where a PDF print out of all the mock-ups made is saved.
 
-There are many differences between the mockups and the real site. This is partly due to mentor session after the first build that some layouts were changed, 
-but also because some mockups were a bit crowded when actually build and there are multipe different pictures on it.
+There are many differences between the mock-ups and the real site. This is partly due to mentor session after the first build that some layouts were changed, 
+but also because some mock-ups were a bit crowded when actually build and there are multipe different pictures on it.
 
 **Homepage:** The highest earners where displayed differently making it much less like a summation list by putting the information per project vertically instead of horizontally.
 Because, this section works vertically it has a nice contrast with the new project section.
-The bigger devices are displayed in the same layout as the mobile (highest earnerst above the new projects), because looks less crowded and more calm to the eye.
+The bigger devices are displayed in the same layout as the mobile (highest earners above the new projects), because looks less crowded and more calm to the eye.
 
 **Category:** To show the user which projects are more popular, not only the highest earner is displayed, but the most viewed was also added.
-These are 2 different ways to show popularity, as a high precentage of raised money doesn't necesarily mean that the project is the most popular with the public. 
+These are 2 different ways to show popularity, as a high percentage of raised money doesn't necessarily mean that the project is the most popular with the public. 
 Furthermore, the highest earner and the most viewed were moved below the table with all the projects, because seeing all the other projects and searching through them is more valuable to the user.
 Due to the addition of the category most viewed, the same layout (one project per category highest earner and most viewed) was maintained for the bigger devices, instead of a top 3 highest earned.
 
-**Start Project:** Option 1 till 3 were added instead of just 1 big textarea to write all rewards in.
+**Start Project:** Option 1 till 3 were added instead of just 1 big text area to write all rewards in.
 A checkbox was added to agree to the terms and conditions of this site, as well as a picture of the coins for a consistent styling.
-A new page was made to enable the user to read the Terms and Conditions (content is fake) by clicking on the information button. The latter wasn't in the mockups 
+A new page was made to enable the user to read the Terms and Conditions (content is fake) by clicking on the information button. The latter wasn't in the mock-ups 
 
 **Projects details:**: the layout was changed after having built it. The new format was inspired by kickstart and made it possible to add more information and give it a more clean look and less crowded.
-For the mobile version the information was stacked to make it more readible. On the bigger devices the product description is now next to the reward section, so the user doesn't have to scroll up and down again when the detail information about most of the rewards are often in the description.
+For the mobile version the information was stacked to make it more readable. On the bigger devices the product description is now next to the reward section, so the user doesn't have to scroll up and down again when the detail information about most of the rewards are often in the description.
 
 **Search projects:**: A new page was made to display the search results when using the search bar. The search was based on the homepage and the projects displayed there all have a filter on them.
 Therefore, when there were more than 5 projects fitting the search they were not all displayed. For that reason another page was made.
 
 **Pledge to project:**: delivery information was added, so that the host will know where to send the reward to, as well as the image of stacked coins.
 
-**Payment successfull:**: additional information was added about the order and the project.
+**Payment successful:**: additional information was added about the order and the project.
 
-**Profile page:**: This page was not in the mockups and was added to make the user story where a user could track their projects as well as their pledges made to other projects.
-
-
-
-
+**Profile page:**: This page was not in the mock-ups and was added to make the user story where a user could track their projects as well as their pledges made to other projects.
 
 
 <a name="tech"></a>
@@ -196,14 +193,14 @@ Therefore, when there were more than 5 projects fitting the search they were not
 - [Allauth](https://django-allauth.readthedocs.io/en/latest/): addressing authentication, registration and account management
 - [Stripe](https://stripe.com/en-nl): to enable the user to make payments and check credit cards
 - [CKeditor](https://django-ckeditor.readthedocs.io/en/latest/): to be able to format the text entered by the user.
-- [Crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): to easily make the forms and make them userfriendly.
+- [Crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): to easily make the forms and make them user-friendly.
 - [Bootstrap](https://getbootstrap.com/): to customise the html and make it responsive to different devices.
 - [JQuery](https://jquery.com): to simplify DOM manipulation.
 - [Gitpod](https://gitpod.io/): used as IDE
-- [Herokus](www.heroku.com): used as deployment platform
+- [Heroku](www.heroku.com): used as deployment platform
 - [Trello](https://trello.com/): to register the user stories and issues, so to pick up a set of issues in a certain week
 - [dbdiagram.io](dbdiagram.io): to make the data schema picture
-- [Cloudinary](https://cloudinary.com/): for the storage of uploaded media images, which is an alternative to AWS if you do not have an amazon account and/or a creditcard.
+- [Cloudinary](https://cloudinary.com/): for the storage of uploaded media images, which is an alternative to AWS if you do not have an amazon account and/or a credit card.
 
 
 
@@ -214,7 +211,7 @@ The template provided by Code Institute is used as basis (https://github.com/Cod
 ## How to create a django project
 To use Django it needs to be installed first, so *pip3 install django==1.11.29* was used to install Django. To create a Django project where the necessary files are immediately created enter *django-admin startproject <name_project> .*
 The '.' in the end is needed so the project is created in the root directory.
-This will automatically create the `manage.py` file, but isn't necesarily an executable yet. So enter *chmod +x `manage.py`* in the terminal to flag this file as an executable. 
+This will automatically create the `manage.py` file, but isn't necessarily an executable yet. So enter *chmod +x `manage.py`* in the terminal to flag this file as an executable. 
 
 To initialize the database enter */manage.py migrate* in the terminal.
 To see if the Django project is setup correctly run the project by using *python3 runserver manage.py* or *./manage.py runserver*. 
@@ -238,7 +235,7 @@ There are few standard files/folders that come along with the creation of an app
 - **__init__.py:** An empty file that tells Python that this directory should be considered a Python package.
 - **admin.py:** see next chapter *Django admin backend*
 - **migrations folder:** migrations are entirely derived from your models file, and are essentially just a history that Django can roll through to update your database schema to match your current models.
-- **models.py:** A model is the single, definitive source of truth about your data. It contains the essential fields and behaviors of the data you’re storing. 
+- **models.py:** A model is the single, definitive source of truth about your data. It contains the essential fields and behaviours of the data you’re storing. 
 - **tests.py:** for testing scripts
 - **views.py:** A view function, or view for short, is a Python function that takes a Web request and returns a Web response.
 - **apps.py:** to register the app in the settings.py file under ))INSTALLED_APPS =** . This settings.py is created when making the Django project. This way the apps are integrated in the project.
@@ -302,7 +299,6 @@ Some files you do not want nor need in the git repository like:
 - __pychache__/ = compiled Python code
 - latest_dump = backup file for Heroku database
 - env.py = to set environment variables for development (like secret keys for instance)
-- 
 
 <a name="deploy"></a>
 ## Deployment on Heroku
@@ -311,7 +307,7 @@ When logged on to Heroku (https://www.heroku.com/, registration needed) click th
 Give the app a name, but be aware that this should be an unique name and not previously used by you or another app on heroku.
 
 Choose region closest by you, because then Heroku will select the edge server that is in that region, making the delivery a bit quicker.
-In this case Europe was choosen.
+In this case Europe was chosen.
 
 To login to Heroku on the IDE enter 'heroku login' in the terminal and enter your credentials as requested.
 However, this will not always work on Gitpod. Enter 'heroku login -i' instead and enter your credentials as requested.
@@ -330,7 +326,7 @@ For this to work 2 packages need to be installed:
 
 Heroku needs an addon to make postgress work. So log in to the Heroku site and go to the app.
 In the app are multiple tabs, Overview, Resources, Deploy, Metrics, Activity, Access and Settings. Go to **Resources**.
-Enter postgress in the searchbar and select Heroku Postgress. Then select **Hobby-Dev - Free** as a plan name and click provision.
+Enter postgress in the search bar and select Heroku Postgress. Then select **Hobby-Dev - Free** as a plan name and click provision.
 
 When moving away from the Resources to the tab **Settings** and click a little bit lower on *Reveal Config Vars* The DATABASE_URL is added to the configurations.
 This URL is used to connect with Django, but for that to work another package is needed: dj-database-url (pip3 install dj_database_url, be aware of the underscores).
@@ -365,7 +361,7 @@ To associate the Heroku app as the master branch enter:
 $ heroku git:remote -a <heroku app-name>
 The Heroku app name will be in this case *growing-funds* 
 
-When you push to Heroku at this point it will fail, because two additional files are needed to succesfully deploy to Heroku:
+When you push to Heroku at this point it will fail, because two additional files are needed to successfully deploy to Heroku:
 1. requirements.txt : the requirements text file will contain a list of the application that are required for Heroku to run the application.
 To create this file enter 'pip3 freeze --local>requirements.txt' in the terminal. A file is then generated and in the end it contains the underlining content:
 
@@ -403,7 +399,7 @@ A file is created which contains the content:
 **Do not forget to add the two files to GitHub, using the previously mentioned git add and git commit.**
 
 Now that all files are in place and everything is committed to the Git repository,  the content can be pushed to Heroku. 
-Eventhough there aren't any static files (like css file or logo images), there will be an error in the logs if you deploy now.
+Even though there aren't any static files (like css file or logo images), there will be an error in the logs if you deploy now.
 Those static files will come sooner or later, so the collection of static files can be (temporarily) disabled with:
 ```$ heroku config:set DISABLE_COLLECTSTATIC=1```
 
@@ -413,11 +409,11 @@ There will be an error displayed but that will be a Django error, indicating tha
 This error indicates that this host (heroku) isn't indicated as an allowed host in Django within the settings.py like:
 
 ```ALLOWED_HOSTS = ['localhost', 'growing-funds.herokuapp.com']```
-where the localhostindicates the development host
+where the localhost indicates the development server.
 
 To automatically deploy the latest code to heroku every time the git (master) branch is pushed, you will need to login to the Heroku site and go to the app.
 Select the tab **Deployment**, where a button with the GitHub logo can be selected. Heroku will connect you to GitHub or ask you to login to Github.
-A searchbar appears where the name of the repository can be entered and click the search button. Click the connect button corresponding to the correct repository.
+A search bar appears where the name of the repository can be entered and click the search button. Click the connect button corresponding to the correct repository.
 
 Underneath this section a black **Enable Automatic Deploys** can be clicked. The default setting is the git master branch, but the section underneath allows another branch to be selected.
 
@@ -432,14 +428,14 @@ The only thing left to do is to specify some configuration variables in Heroku.
     - set the Key to 'DATABASE_URL'. Set the value of the postgress address provided by Heroku
     - set the Key to 'EMAIL_HOST_PASS'. Set the value provided by the email host, in this case gmail.
     - set the Key to 'EMAIL_HOST_USER'. Set the value provided by the email host, in this case an email address from gmail.
-    - set the Key to 'SECRET_KEY'. Set the value to provide cryptographic signing. This key kan be regenerated on https://miniwebtool.com/django-secret-key-generator/
+    - set the Key to 'SECRET_KEY'. Set the value to provide cryptographic signing. This key can be regenerated on https://miniwebtool.com/django-secret-key-generator/
     - set the Key to 'STRIPE_SECRET_KEY'. API key provided by Stripe Your account’s secret API key can perform any API request to Stripe without restriction.
     - set the Key to 'STRIPE_PUBLIC_KEY'. API key provided by Stripe are meant solely to identify your account with StripePublishable keys only have the power to create tokens.
     - set the Key to 'CLOUD_NAME'. Cloud name you generate when making an account.
     - set the Key to 'CLOUD_API_SECRET'. Secret key provided by Cloudinary.
     - set the Key to 'CLOUD_API_KEY'. API key provided by Cloudinary.
 
-It is important to note that secret en API keys should not be pushed to git, but should be set as an environment variable.
+It is important to note that secret and API keys should not be pushed to git, but should be set as an environment variable.
 
 Now that it is all setup click the button 'Open app' and the app is deployed.
 If a "404 Not Found" appears it is probably due to a missing url in a urls.py. After ('<app_name>/') come the routes needed to make this website work for the purposes specified in the views and named in the urls.py.
@@ -467,11 +463,11 @@ Step 3 to five aren't necessary anymore, unless you want a different IDE.
 
 <a name="cloud"></a>
 ## Cloudinary
-If you don't have a creditcard you cannot make an AWS account to store the uploaded images by the user. To solve that problem, Cloudinary can be used as storage.
-Heroku has an addon for this that can be connected to Heroku the same way as was done with Heroku postgress. Unfortunately, when doing this in Heroku you still need a creditcard.
+If you don't have a credit card you cannot make an AWS account to store the uploaded images by the user. To solve that problem, Cloudinary can be used as storage.
+Heroku has an addon for this that can be connected to Heroku the same way as was done with Heroku postgress. Unfortunately, when doing this in Heroku you still need a credit card.
 To avoid that an account is made on  https://cloudinary.com/ where the API keys are provided as mentioned in the deployment section of Heroku.
 
-To setup cloudinary follow the setup in https://github.com/klis87/django-cloudinary-storage
+To setup Cloudinary, follow the setup in https://github.com/klis87/django-cloudinary-storage. 
 Be aware that you do not use {{MEDIA_URL}}{{project.image}} in the template when you want to render the image, but {{project.image.url}}
 
 <a name="test"></a>
@@ -493,11 +489,9 @@ The following pages where checked and no errors were found
 
 Only the startprojectform.html gives an warning that the type attribute is unnecessary, but this JQuery is generate by the use of CKeditor.
 
-[CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input):no errors or warnings found
+[CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input): no errors or warnings found
 [JS validation](https://jshint.com/): no errors or warnings found
-[Python validation](https://extendsclass.com/python-tester.html):
-- f'strings aren't recognised in this validator
-
+[Python validation](https://extendsclass.com/python-tester.html): f'strings aren't recognised in this validator
 
 2. The console was checked for errors:
 Only Same-site-cookie warnings where displayed
@@ -505,18 +499,12 @@ Only Same-site-cookie warnings where displayed
 3. Check forms:
 
 validations were checked:
-a) login with a email address unknown to database
-b) login with wrong password
-c) register with an email address already in database
-d) register and not entering the same password twice
-e) add a book with amazon link en picture not using the right format
-f) check the required fields if they are really required.
+a) based on the previous list of standard and customized errors
+b) a few required fields were tested for the startprojectform with Travis for educational purposes. Tests are in the tests_forms.py
+c) 3 independent users made projects and made pledges.
 
 4. Check pagination:
-There are 5 books per page. The above mentioned number of books per genre were used to test the pagination. Some genres have exactly ten books (exactly 2 pages), 
-other genres have one or two books less/more, so that standard number of 5 books per pages do no longer apply, to see if pagination still works.
-
-
+all datatables were checked to see if the pagination worked, even with different number of projects.
 
 6. Tested on multiple devices:
 Used the standard dev tools from Chrome to test the different devices. Also tested it live on:
@@ -544,7 +532,8 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - https://sharethis.com/: to get the share button to social media implemented
 - the tutors from Code Institute for helping and sparring
 - people on Slack when having questions
-- my mentor, Maranatha Ilesanmi,for supporting and helping me when needed.
+- my mentor, Maranatha Ilesanmi, for supporting and helping me when needed.
 - friends and family willing to test the site for me
 - https://github.com/klis87/django-cloudinary-storage: for the implementation of Cloudinary storage
+- the code institute video's
 
