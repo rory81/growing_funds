@@ -12,7 +12,7 @@ class StartProjectForm(forms.ModelForm):
         fields = ('title', 'image', 'category', 'description', 'backers_story_option1', 'backers_story_option2', 'backers_story_option3', 'goal', 'end_date', 'conditions')
         labels = {
             "title": "Project Title",
-            "image": "Project Image",
+            "image": "Project Image (landscape)",
             "category": "Category",
             "description": "Project Description",
             "backers_story_option1": "What's in it for the backers? - Option 1",

@@ -477,24 +477,26 @@ Be aware that you do not use {{MEDIA_URL}}{{project.image}} in the template when
 Therefor the pages where run with Chrome and **CTRL+U** was used to "view page source". This source code was entered into the validator.
 
 The following pages where checked
-- project_category.html
+- project_category.html: no errors or warnings
 - projectdetail.html: the following errors occurred:
-    - an error using the html validator occurs, due to the use of the CKeditor. The CKeditor uses empty paragraph tags to indicate a linebreak. The HTML validator sees this as an error:
+    - due to the use of the CKeditor. The CKeditor uses empty paragraph tags to indicate a linebreak. The HTML validator sees this as an error:
     <img src=".\static\img\bug_CKeditor.PNG" alt="bug CKeditor" height="100%" width="100%">
     
-    The solution is to force an enter, but the CKeditor site does not recommend this and was therefore not solved.
+    A possible solution is to force an enter, but the CKeditor site does not recommend this and was therefore not solved.
     <img src=".\static\img\bug_CKeditor_not_recommended.PNG" alt="bug CKeditor" height="100%" width="100%">
     
     - The mailto takes as subject the {{project.title}}. This project title contains spaces. This was solved by adding %20 instead of the spaces in the title.
 - projects.html : no errors or warnings
-- search_projects.html
-- startprojectform.html
-- terms_and_conditions.html
-- checkout.html
-- payment_success.html
-- profile.html
+- search_projects.html : no errors or warnings 
+- startprojectform.html: the following warning occurred:
+    - that the type="text/javascript" attribute is unnecessary, but this JQuery is generate by the use of CKeditor.
+- terms_and_conditions.html: no errors or warnings
+- checkout.html: no errors or warnings
+- payment_success.html: no errors or warnings
+- profile.html: no errors or warnings
+- the allauth templates: no errors or warnings
 
-Only the startprojectform.html gives an warning that the type attribute is unnecessary, but this JQuery is generate by the use of CKeditor.
+
 
 [CSS validation](https://jigsaw.w3.org/css-validator/#validate_by_input): no errors or warnings found
 
@@ -528,11 +530,12 @@ Used the standard dev tools from Chrome to test the different devices. Also test
 - put the project in the peer-code-review slack group for a week put didn't get any comments.
 
 7. Tested the share button:
-Tested:
 - whatsapp
 - email
 - gmail
 - yahoomail
+- facebook
+- pinterest
 - if it prints out in the printer and how it comes out (projectdetail page)
 
 
