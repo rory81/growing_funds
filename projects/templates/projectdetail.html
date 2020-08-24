@@ -19,9 +19,12 @@
          </div>
          <div class="progress progress-section">
             <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
-               {{ project.percentage }} %
+               {{ project.percentage }}%
             </div>
          </div>
+         {% if project.percentage < 12 %}
+         <h4 class="progress-label">{{project.percentage}} % raised</h4>
+         {% endif %}
          <p class="subtext_black mt-3">raised: ${{ project.raised }} <i class="fas fa-coins"></i></p>
          <div class="title_cat">
             <p class="subtext_black">end goal: ${{project.goal}}</p>

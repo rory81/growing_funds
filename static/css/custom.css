@@ -406,6 +406,12 @@ a.project_title:hover{
     top: 50%;
 }
 
+.progress-label {
+    color: #669900;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
 .img-fluid{
     width: 333.66px;
     height: 187.68px!important;

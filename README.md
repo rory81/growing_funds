@@ -507,6 +507,7 @@ The following pages where checked
 
 2. The console was checked for errors:
 Only Same-site-cookie warnings where displayed. The internet was not very clear on a solution that did not have a possible negative consequence and also talked about an update the browsers needed to so in order to prevent this.
+The ShareThis button gives *a Failed to load resource: net::ERR_CONNECTION_REFUSED* error, but this was due to a running VPN. When the VPN is disabled it works again.
 
 3. Check forms:
 

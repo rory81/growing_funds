@@ -39,7 +39,11 @@
                      {{ project.percentage }} %
                   </div>
                </div>
-               <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}</p>
+                {% if project.percentage < 12 %}
+                    <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}&nbsp;&nbsp;({{ project.percentage }}%)</p>
+                {% else %}
+                    <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }} </p>
+                {% endif %}
             </div>
          </div>
          {% endif %}

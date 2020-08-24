@@ -74,6 +74,9 @@
                {{ project.percentage }} %
             </div>
          </div>
+        {% if project.percentage < 12 %}
+         <h4 class="progress-label">{{project.percentage}} % raised</h4>
+        {% endif %}
          <p class="progressbar-text">{{ project.num_days }} days left</p>
       </div>
       {% endif %}
@@ -104,6 +107,9 @@
                {{ project.percentage }} %
             </div>
          </div>
+        {% if project.percentage < 12 %}
+         <h4 class="progress-label">{{project.percentage}} % raised</h4>
+        {% endif %}
          <p class="progressbar-text">{{ project.views }} views</p>
       </div>
       {% endif %}
