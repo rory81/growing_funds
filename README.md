@@ -25,7 +25,7 @@
 <a name="goal"></a>
 ## Goal of GrowingFunds
 Nowadays it isn't easy to get money from a bank or get investors for a new product/project when there aren't some guarantees it will be successful.
-Furthermore, peoples dreams aren't considered much profitable. That's where crowdfunding fills the gap in the market.
+Furthermore, peoples' dreams aren't considered much profitable. That's where crowdfunding fills the gap in the market.
 Suddenly, cold hard facts aren't the only reasons to get funding anymore and likeability, sympathy and pure curiosity become very important.
 
 This project gives people a chance to get funding for their own hobby project, their lifelong dream project or solving heartaches projects. 
@@ -50,10 +50,10 @@ Some aspects are relevant to both group of users, like:
 - able to email the site owner in case of misuse or fraud or any other questions (note that the current email address used for the footer item is a fake and only for educational purposes. All project related email functionalities are real)
 - able to update personal/delivery information in the profile page
 
-These items are also beneficial for the admin, even though the admin isn't mentioned as a separate group,  If these elements go smoothly the less work it is for the admin to support the app.
+These items are also beneficial for the admin, even though the admin isn't mentioned as a separate group. If these elements go smoothly, the less work it is for the admin to support the app.
 Three user stories were not finished:
 1) See how many people actually have donated. This wasn't done, because the site has the number of views to determine popularity of a project and percentage raised (and a progress bar) to see how far the host is from reaching the goal.
-2) Adding Favourites, so that the user can decide on a later date if they want to pledge and if so can easily find them. This issue will be added to the backlog.
+2) Adding Favourites. This way the user can easily find the project if they decide on a later date that they want to pledge. This issue will be added to the backlog.
 3) The host can see which reward and corresponding amount is most popular by the users like a dashboard for the host. This issue will be added to the backlog.
 
 Below the several (future) functionalities are mentioned, per user group.
@@ -75,7 +75,7 @@ Every search bar searches for words within the title as well as the description.
 If a user is deciding rather of not to pledge it is important to tell them what's in it for them. In each project the project owner has to name 3 possible rewards.
 The more enticing the rewards the higher the change people will pledge. For now it is necessary to fill in all three project so people can pledge to reward no. 1, 2 or 3.
 The user can only pledge to a project when logged on and can enter an amount of their own choosing to pledge, though Stripe needs it to be higher or equal to $0.50.
-For that reason the default value is 1 and when a user accidentally enters a value lower than 1 it will return an error.
+For that reason, the default value is 1 and when a user accidentally enters a value lower than 1 it will return an error.
 
 In the backlog there are a few more items to further develop this section:
 1) user can select only the number of rewards that that specific project has when making a pledge.
@@ -90,11 +90,11 @@ On this same profile page can the user change their delivery information (addres
 ##### The Crowdfunding host
 A project can only be started when logged on and the user has to agree to the conditions of the site to be able to publish the project. 
 The content of the terms and conditions are now all made up, but are accessible by the information button next to the "Your Project" title.
-Also when the host doesn't agree to the terms and conditions the arising error will give a link to the Terms and Conditions page.
+Also, when the host doesn't agree to the terms and conditions the arising error will give a link to the Terms and Conditions page.
 
 The crowdfunding host wants to be able to tell their story, in order to entice people to pledge to their project.
 The CKeditor is added to enable the host to put some styling in to the story and therefore make it more attractive.
-A dropdown with predefined categories are given so that their isn't a proliferation of categories, making it harder for users to find a specific project.
+A dropdown with predefined categories is given so that there isn't a proliferation of categories, making it harder for users to find a specific project.
 When there isn't an image added to the project a default image will be shown.
 
 In the backlog there are a few more items to further develop this section:
@@ -107,7 +107,7 @@ In the backlog there are a few more items to further develop this section:
 Any fields that have an asterisk are obligated and will raise an error:
 
 <em>Standard Errors</em>
-- Fill in these fields or this field is required , if obligated fields are empty
+- Fill in these fields or this field is required, if obligated fields are empty
 - Select an item in the list, if no category has been selected
 
 Some fields needed extra help to validate and were customised:
@@ -117,6 +117,8 @@ Some fields needed extra help to validate and were customised:
 - Value should be higher or equal to 1 if the amount to be pledged is lower than one.
 
 When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised as of yet.
+Also the progress bar visualises the % raised. Because lower percentages (<12%>) aren't visible in the progress bar a text wuth the percentage will be shown underneath the progress bar.
+For percentages higher or equal to 12% the text will disappear and the percentage is shown in the progress bar itself.
 In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.
 If a project is deleted, but a pledge has been made, the order history table will still show the pledge with the order number and the pledged amount.
 However, the project title corresponding to this pledge will display <em>This project has been deleted</em>.
@@ -127,7 +129,7 @@ If a user makes a pledge to the project of the host, the host will receive an em
 - the amount, 
 - the project name (just in case the host has multiple project)
 - the reward chosen and
-- the delivery information. The delivery information will **not** be send if the selected option for reward is "*Nothing*".
+- the delivery information. The delivery information will **not** be sent if the selected option for reward is "*Nothing*".
 
 One issue will be placed on the backlog to further improve this latter section:
 1) instead of the basic email with the order details the crowdfunding host will only get an email that a new order has been placed and can see the order details in a dashboard where all placed orders can be seen and sorted through.
@@ -145,7 +147,7 @@ The following pages were made for the users:
 - search_projects.html: page showing the results from the top search bar. Not using the homepage as there are filters (top-3 and top-5) on the projects
 - startprojectform.html: form to create and publish your own project
 - checkout.html: the form where the user can pledge an amount of their choosing to a project the user is interested in.
-- payment_success.html: shows the results of an succeeded payment
+- payment_success.html: shows the results of a succeeded payment
 - profile.html: shows the order history and the created projects of a user with the delivery info of the user.
 - terms_and_conditions.html: the user has to agree to the terms and conditions before publishing the project. It is only fair that they can read the terms before agreeing. Note that the content is fake and for educational purposes only 
 - search_projects.html: if the search bar in the header is used the results will be displayed on this page.
@@ -155,11 +157,11 @@ The following pages were made for the users:
 In the static folder there is also a separate folder for the mock-ups, where a PDF print out of all the mock-ups made is saved.
 
 There are many differences between the mock-ups and the real site. This is partly due to mentor session after the first build that some layouts were changed, 
-but also because some mock-ups were a bit crowded when actually build and there are multipe different pictures on it.
+but also because some mock-ups were a bit crowded when actually build and there are multiple different pictures on it.
 
 **Homepage:** The highest earners where displayed differently making it much less like a summation list by putting the information per project vertically instead of horizontally.
 Because, this section works vertically it has a nice contrast with the new project section.
-The bigger devices are displayed in the same layout as the mobile (highest earners above the new projects), because looks less crowded and more calm to the eye.
+The bigger devices are displayed in the same layout as the mobile (highest earners above the new projects), because looks less crowded and calmer to the eye.
 
 **Category:** To show the user which projects are more popular, not only the highest earner is displayed, but the most viewed was also added.
 These are 2 different ways to show popularity, as a high percentage of raised money doesn't necessarily mean that the project is the most popular with the public. 
@@ -170,17 +172,17 @@ Due to the addition of the category most viewed, the same layout (one project pe
 A checkbox was added to agree to the terms and conditions of this site, as well as a picture of the coins for a consistent styling.
 A new page was made to enable the user to read the Terms and Conditions (content is fake) by clicking on the information button. The latter wasn't in the mock-ups 
 
-**Projects details:**: the layout was changed after having built it. The new format was inspired by kickstart and made it possible to add more information and give it a more clean look and less crowded.
+**Projects details:** the layout was changed after having built it. The new format was inspired by kickstart and made it possible to add more information and give it a cleaner look and less crowded.
 For the mobile version the information was stacked to make it more readable. On the bigger devices the product description is now next to the reward section, so the user doesn't have to scroll up and down again when the detail information about most of the rewards are often in the description.
 
-**Search projects:**: A new page was made to display the search results when using the search bar. The search was based on the homepage and the projects displayed there all have a filter on them.
-Therefore, when there were more than 5 projects fitting the search they were not all displayed. For that reason another page was made.
+**Search projects:** A new page was made to display the search results when using the search bar. The search was based on the homepage and the projects displayed there all have a filter on them.
+Therefore, when there were more than 5 projects fitting the search, they were not all displayed. For that reason, another page was made.
 
-**Pledge to project:**: delivery information was added, so that the host will know where to send the reward to, as well as the image of stacked coins.
+**Pledge to project:** delivery information was added, so that the host will know where to send the reward to, as well as the image of stacked coins.
 
-**Payment successful:**: additional information was added about the order and the project.
+**Payment successful:** additional information was added about the order and the project.
 
-**Profile page:**: This page was not in the mock-ups and was added to make the user story where a user could track their projects as well as their pledges made to other projects.
+**Profile page:** This page was not in the mock-ups and was added to make the user story where a user could track their projects as well as their pledges made to other projects.
 
 
 <a name="tech"></a>
@@ -238,7 +240,7 @@ There are few standard files/folders that come along with the creation of an app
 - **models.py:** A model is the single, definitive source of truth about your data. It contains the essential fields and behaviours of the data you’re storing. 
 - **tests.py:** for testing scripts
 - **views.py:** A view function, or view for short, is a Python function that takes a Web request and returns a Web response.
-- **apps.py:** to register the app in the settings.py file under ))INSTALLED_APPS =** . This settings.py is created when making the Django project. This way the apps are integrated in the project.
+- **apps.py:** to register the app in the settings.py file under **INSTALLED_APPS =** . This settings.py is created when making the Django project. This way the apps are integrated in the project.
 
 Some files/folders are created when needed:
 - **templates folder for the html files.** Besides the created apps, the main directory has also a templates folder. In the latter the base.html and the allauth html files (for authorisation) are located
@@ -286,17 +288,21 @@ Git is used to track the changes made and with that to have version control. The
 
 
 Branches where created to experiment with new features by using:
-**Step 1: $ git branch [branch name]** To create the branch
+
+**Step 1: $ git branch [branch name]** To create the branch.
+
 **Step 2: $ git checkout [branch name]** To go to that branch to work on and the previous steps to add, commit and push applies.
 
 After the work on the branch is deemed good enough to be deployed it will be merged tot the master branch:
-**Step 1: $ git checkout master** To go to the master branch
-**Step 2: $ git merge [branch name]** To merge the branch into the master branch
+
+**Step 1: $ git checkout master** To go to the master branch.
+
+**Step 2: $ git merge [branch name]** To merge the branch into the master branch.
 
 Before making any commits to the repository it is important to make a *.gitignore* file in the main directory of your Django project (don't forget the dot).
 Some files you do not want nor need in the git repository like:
 - *.sqlite3 = database files
-- __pychache__/ = compiled Python code
+- __pycache__/ = compiled Python code
 - latest_dump = backup file for Heroku database
 - env.py = to set environment variables for development (like secret keys for instance)
 
@@ -328,7 +334,7 @@ Heroku needs an addon to make postgress work. So log in to the Heroku site and g
 In the app are multiple tabs, Overview, Resources, Deploy, Metrics, Activity, Access and Settings. Go to **Resources**.
 Enter postgress in the search bar and select Heroku Postgress. Then select **Hobby-Dev - Free** as a plan name and click provision.
 
-When moving away from the Resources to the tab **Settings** and click a little bit lower on *Reveal Config Vars* The DATABASE_URL is added to the configurations.
+Move away from the 'Resources tab' to the tab **Settings** and click a little bit lower on *Reveal Config Vars*, the DATABASE_URL is added to the configurations.
 This URL is used to connect with Django, but for that to work another package is needed: dj-database-url (pip3 install dj_database_url, be aware of the underscores).
 The URL value provided by Heroku needs to be entered in the settings.py file of the project in
 ```
@@ -390,7 +396,7 @@ To create this file enter 'pip3 freeze --local>requirements.txt' in the terminal
 - whitenoise==5.1.0
 
 
-2. Procfile (note that there isn't an extension) : the Procfile is an instruction to Heroku as to which file is used as our entry point at the application.
+2. Procfile (note that there isn't an extension): the Procfile is an instruction to Heroku as to which file is used as our entry point at the application.
 In other words, which file is used to call the application and run it. To create a Procfile enter 'echo web: python app.py > Procfile'.
 A file is created which contains the content: 
 
@@ -420,7 +426,6 @@ Underneath this section a black **Enable Automatic Deploys** can be clicked. The
 
 
 #### configuration variables Heroku and Django
-**Heroku**
 The only thing left to do is to specify some configuration variables in Heroku.
 1. Login to Heroku and go to the app
 2. select the Settings button from the navigation
@@ -479,7 +484,7 @@ Therefor the pages where run with Chrome and **CTRL+U** was used to "view page s
 The following pages where checked
 - project_category.html: no errors or warnings
 - projectdetail.html: the following errors occurred:
-    - due to the use of the CKeditor. The CKeditor uses empty paragraph tags to indicate a linebreak. The HTML validator sees this as an error:
+    - due to the use of the CKeditor. The CKeditor uses empty paragraph tags to indicate a line break. The HTML validator sees this as an error:
     <img src=".\static\img\bug_CKeditor.PNG" alt="bug CKeditor" height="100%" width="100%">
     
     A possible solution is to force an enter, but the CKeditor site does not recommend this and was therefore not solved.
@@ -527,8 +532,9 @@ all datatables were checked to see if the pagination worked, even with different
 Used the standard dev tools from Chrome to test the different devices. Also tested it live on:
 - on a 1920 x 1080 screen and one size bigger screen
 - tested it on an iPad (old version)
-- tested it on an iPhone
-- tested it on a android (Samsung Galaxy S20)
+- tested it on the bigger iPad (iPad Pro 3rd generation)
+- tested it on an iPhone8 and an iPhoneXR
+- tested it on an android (Samsung Galaxy S20)
 - put the project in the peer-code-review slack group for a week put didn't get any comments.
 
 7. Tested the share button:
