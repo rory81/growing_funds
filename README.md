@@ -406,7 +406,7 @@ A file is created which contains the content:
 **Do not forget to add the two files to GitHub, using the previously mentioned git add and git commit.**
 
 Now that all files are in place and everything is committed to the Git repository,  the content can be pushed to Heroku. 
-Even though there aren't any static files (like css file or logo images), there will be an error in the logs if you deploy now.
+Even though there aren't any static files (like CSS file or logo images), there will be an error in the logs if you deploy now.
 Those static files will come sooner or later, so the collection of static files can be (temporarily) disabled with:
 ```$ heroku config:set DISABLE_COLLECTSTATIC=1```
 
@@ -432,8 +432,8 @@ The only thing left to do is to specify some configuration variables in Heroku.
 2. select the Settings button from the navigation
 3. Go to the section 'Config Vars' and click the Add-button
     - set the Key to 'DATABASE_URL'. Set the value of the postgress address provided by Heroku
-    - set the Key to 'EMAIL_HOST_PASS'. Set the value provided by the email host, in this case gmail.
-    - set the Key to 'EMAIL_HOST_USER'. Set the value provided by the email host, in this case an email address from gmail.
+    - set the Key to 'EMAIL_HOST_PASS'. Set the value provided by the email host, in this case Gmail.
+    - set the Key to 'EMAIL_HOST_USER'. Set the value provided by the email host, in this case an email address from Gmail.
     - set the Key to 'SECRET_KEY'. Set the value to provide cryptographic signing. This key can be regenerated on https://miniwebtool.com/django-secret-key-generator/
     - set the Key to 'STRIPE_SECRET_KEY'. API key provided by Stripe Your account’s secret API key can perform any API request to Stripe without restriction.
     - set the Key to 'STRIPE_PUBLIC_KEY'. API key provided by Stripe are meant solely to identify your account with StripePublishable keys only have the power to create tokens.
@@ -539,12 +539,12 @@ Used the standard dev tools from Chrome to test the different devices. Also test
 - put the project in the peer-code-review slack group for a week put didn't get any comments.
 
 7. Tested the share button:
-- whatsapp
+- WhatsApp
 - email
-- gmail
-- yahoomail
-- facebook
-- pinterest
+- Gmail
+- Yahoomail
+- Facebook
+- Pinterest
 - if it prints out in the printer and how it comes out (projectdetail page)
 
 
