@@ -66,7 +66,7 @@ To increase the word of mouth, the user has the ability to share the link of a c
 
 Secondly, the user has personal interests and wants to easily find projects that fit their personal interests.
 Therefore, the projects are categorised by set categories and these categories are displayed on every page throughout the site (by putting the categories in a contexts.py).
-When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 2 projects by default, so that a mobile user can easily go through the different pages, but has an option to select 5, 10, 25 or 50 projects per page.
+When a user selects a certain category a table with all the projects is displayed. The table has pagination showing 5 projects by default. But 2 project per page is available, so that a mobile user can easily go through the different pages, but has an option to select 5, 10, 25 or 50 projects per page.
 If the user has a (part of the) name of an interesting project it can use the search bar in the table to look for it in this particular genre.
 
 Other ways to search for a particular project is to use the search bar present that searches through **all** projects.
