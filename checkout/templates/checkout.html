@@ -2,71 +2,71 @@
 {% load static %}
 {% block content %}
 <div class="container-fluid">
-   <div class="row no-gutters">
-      <div class="col-12 title text-center">
-         <!--Heading Form-->
-         <h1>Pledge to: {{ project.title }} </h1>
+  <div class="row no-gutters">
+    <div class="col-12 title text-center">
+      <!--Heading Form-->
+      <h1>Pledge to: {{ project.title }} </h1>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-12 mx-auto main_div">
+      <!-- GrowingFunds Logo -->
+      <div class="col-2 main_coin_image">
+        <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
       </div>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12 mx-auto main_div">
-         <!-- GrowingFunds Logo -->
-         <div class="col-2 main_coin_image">
-            <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
-         </div>
-         <div class="col-9 mx-auto  div_form">
-            <p class="text-muted text-center mb-5">Please fill out the form below to complete the transaction.</p>
-            <!-- Start Form -->
-            <form action="{% url 'charge' project.id %}" method="POST" id="payment-form">
-               {% csrf_token %}
-               <fieldset class="rounded px-3 mb-5">
-                  <legend class="fieldset-label medium w-auto">Details</legend>
-                  {{ order_form.full_name | as_crispy_field }}
-                  {{ order_form.email | as_crispy_field }}
-               </fieldset>
-               <fieldset class="rounded px-3 mb-5">
-                  <legend class="fieldset-label medium w-auto">Delivery</legend>
-                  {{ order_form.phone_number | as_crispy_field }}
-                  {{ order_form.street_address1 | as_crispy_field }}
-                  {{ order_form.street_address2 | as_crispy_field }}   
-                  {{ order_form.town_or_city | as_crispy_field }}
-                  {{ order_form.county | as_crispy_field }}
-                  {{ order_form.postcode | as_crispy_field }}
-                  {{ order_form.country | as_crispy_field }}
-                  <fieldset class="rounded px-3 mb-5">
-                     <legend class="fieldset-label medium w-auto">Pledge details for project: {{project.title}}</legend>
-                     {{ order_form.reward | as_crispy_field }}
-                     {{ order_form.amount_pledged | as_crispy_field }}
-                  </fieldset>
-                  <div class="form-check form-check-inline float-right mr-0">
-                     {% if user.is_authenticated %}
-                     <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                     <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                     {% else %}
-                     <label class="form-check-label" for="id-save-info">
-                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                     <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                     </label>
-                     {% endif %}
-                  </div>
-               </fieldset>
-               <fieldset class="px-3">
-                  <legend class="fieldset-label medium px-2 w-auto">Payment</legend>
-                  <!-- A Stripe card element will go here -->
-                  <div class="mb-3" id="card-element"></div>
-                  <!-- Used to display form errors -->
-                  <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-               </fieldset>
-               <div class="submit-button text-right mt-5 mb-2">                    
-                  <button id="submit-button" class="btn btn-black rounded-0">
-                  Pledge Now
-                  </button>
-               </div>
-            </form>
-            <!-- End Form -->
-         </div>
+      <div class="col-9 mx-auto  div_form">
+        <p class="text-muted text-center mb-5">Please fill out the form below to complete the transaction.</p>
+        <!-- Start Form -->
+        <form action="{% url 'charge' project.id %}" method="POST" id="payment-form">
+          {% csrf_token %}
+          <fieldset class="rounded px-3 mb-5">
+            <legend class="fieldset-label medium w-auto">Details</legend>
+            {{ order_form.full_name | as_crispy_field }}
+            {{ order_form.email | as_crispy_field }}
+          </fieldset>
+          <fieldset class="rounded px-3 mb-5">
+            <legend class="fieldset-label medium w-auto">Delivery</legend>
+            {{ order_form.phone_number | as_crispy_field }}
+            {{ order_form.street_address1 | as_crispy_field }}
+            {{ order_form.street_address2 | as_crispy_field }}   
+            {{ order_form.town_or_city | as_crispy_field }}
+            {{ order_form.county | as_crispy_field }}
+            {{ order_form.postcode | as_crispy_field }}
+            {{ order_form.country | as_crispy_field }}
+            <fieldset class="rounded px-3 mb-5">
+              <legend class="fieldset-label medium w-auto">Pledge details for project: {{project.title}}</legend>
+              {{ order_form.reward | as_crispy_field }}
+              {{ order_form.amount_pledged | as_crispy_field }}
+            </fieldset>
+            <div class="form-check form-check-inline float-right mr-0">
+              {% if user.is_authenticated %}
+              <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+              <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+              {% else %}
+              <label class="form-check-label" for="id-save-info">
+              <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+              <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+              </label>
+              {% endif %}
+            </div>
+          </fieldset>
+          <fieldset class="px-3">
+            <legend class="fieldset-label medium px-2 w-auto">Payment</legend>
+            <!-- A Stripe card element will go here -->
+            <div class="mb-3" id="card-element"></div>
+            <!-- Used to display form errors -->
+            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+          </fieldset>
+          <div class="submit-button text-right mt-5 mb-2">                    
+            <button id="submit-button" class="btn btn-black rounded-0">
+            Pledge Now
+            </button>
+          </div>
+        </form>
+        <!-- End Form -->
       </div>
-   </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 <!-- Stripe keys needed for the payments and link to javascript code -->

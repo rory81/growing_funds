@@ -2,27 +2,27 @@
 {% load static %}
 {% block content %}
 <div class="container-fluid">
-   <div class="row no-gutters">
-      <div class="col-12 title text-center">
-         <!--Heading-->
-         <h1>Payment Successful !</h1>
-         <p>Your order number is {{ order.order_number }}</p>
-         <p class="text-muted">A confirmation email will be sent to {{ order.email }}</p>
+  <div class="row no-gutters">
+    <div class="col-12 title text-center">
+      <!--Heading-->
+      <h1>Payment Successful !</h1>
+      <p>Your order number is {{ order.order_number }}</p>
+      <p class="text-muted">A confirmation email will be sent to {{ order.email }}</p>
+    </div>
+  </div>
+  <!--Start thank you block-->
+  <div class="row no-gutters">
+    <div class="col mx-auto">
+      <div class="col-7 col-xl-6 green_block mx-auto text-center">
+        Thank You So Much<br>For Funding Project<br><span class="project_success">{{ project.title}}</span> <br>for $ {{ amount }} !
       </div>
-   </div>
-   <!--Start thank you block-->
-   <div class="row no-gutters">
-      <div class="col mx-auto">
-         <div class="col-7 col-xl-6 green_block mx-auto text-center">
-            Thank You So Much<br>For Funding Project<br><span class="project_success">{{ project.title}}</span> <br>for $ {{ amount }} !
-         </div>
-         <!--End thank you block-->
-         <!--Redirecting to homepage link-->
-         <p class="text-muted text-center mt-5 mb-5">Like to support more top projects? <br>Click <a href="{% url 'get_projects' %}">here</a>!</p>
-         <div class="col-3 col-xl-2 mx-auto mt-5">
-            <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
-         </div>
+      <!--End thank you block-->
+      <!--Redirecting to homepage link-->
+      <p class="text-muted text-center mt-5 mb-5">Like to support more top projects? <br>Click <a href="{% url 'get_projects' %}">here</a>!</p>
+      <div class="col-3 col-xl-2 mx-auto mt-5">
+        <img class="coin_image" src="{% static 'img/growing_coins.png' %}" alt="GrowingFunds logo">
       </div>
-   </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

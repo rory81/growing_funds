@@ -2,99 +2,98 @@
 {% load static %}
 {% block content %}
 <div class="col">
-   <div class="row no-gutters justify-content-center align-items-center ">
-      <div class="col-3 text-center new_projects_title mt-3 mb-2">
-         <h2>Highest Earners</h2>
-      </div>
-   </div>
+  <div class="row no-gutters justify-content-center align-items-center ">
+    <div class="col-3 text-center new_projects_title mt-3 mb-2">
+      <h2>Highest Earners</h2>
+    </div>
+  </div>
 </div>
 <div class="row no-gutters mt-5">
-   <div class="offset-2 col-10 offset-xl-4 col-xl-8 mx-auto">
-      <!--Top 3 highest earners-->
-      <div class="grid">
-         {% for project in projects|dictsortreversed:"percentage"|slice:"0:3" %}
-         {% if project.num_days > 0 %}
-         <div class="grid-item justify-content-between mr-4">
-            {% if project.image %}
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid mx-auto" src="{{ project.image.url }}" alt="project image">
-            </a>
-            {% else %}
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-            </a>
-            {% endif %}
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-               <h3 class="project_title variable_title mt-3">{{ project.title}}</h3>
-            </a>
-            <a href="{% url 'per_category' project.category %}" target="_blank">
-               <p class="subtext">{{ project.category }}</p>
-            </a>
-            <p class="description variable_description">{{ project.description|safe|striptags|truncatewords:25 }}</p>
-            <br>
-            <p class="subtext">{{ project.num_days }} days left</p>
-            <div>
-               <div class="progress progress-section">
-                  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
-                     {{ project.percentage }} %
-                  </div>
-               </div>
-                {% if project.percentage < 12 %}
-                    <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}&nbsp;&nbsp;({{ project.percentage }}%)</p>
-                {% else %}
-                    <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }} </p>
-                {% endif %}
-            </div>
-         </div>
-         {% endif %}
-         {% endfor %}
-      </div>
-   </div>
-</div>
-
-<!--Top 5 Newest projects-->
-{% comment %} row to make content for the new projects {% endcomment %}
-<div class="row no-gutters mt-5 mb-0">
-   {% comment %} one column to make content for the new projects {% endcomment %}
-   <div class="col">
-      {% comment %} one row to make the section title for the new projects {% endcomment %}
-      <div class="row no-gutters justify-content-center align-items-center new_projects">
-         <div class="col-3 text-center new_projects_title mt-3 mb-5">
-            <h2>New Projects</h2>
-         </div>
-      </div>
-      {% comment %} one row to make the content for the new projects {% endcomment %}
-      {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
+  <div class="offset-2 col-10 offset-xl-4 col-xl-8 mx-auto">
+    <!--Top 3 highest earners-->
+    <div class="grid">
+      {% for project in projects|dictsortreversed:"percentage"|slice:"0:3" %}
       {% if project.num_days > 0 %}
-      <div class="row no-gutters new_projects">
-         {% comment %} one col to show the details for the new projects {% endcomment %}
-         <div class="offset-1 col-6">
-            <div class="title_cat">
-               <a href="{% url 'project_detail' project.id %}" target="_blank">
-                  <h3 class="project_title">{{ project.title}}</h3>
-               </a>
-               <a href="{% url 'per_category' project.category %}" target="_blank">
-                  <p class="subtext mr-2">{{ project.category }}</p>
-               </a>
+      <div class="grid-item justify-content-between mr-4">
+        {% if project.image %}
+        <a href="{% url 'project_detail' project.id %}" target="_blank">
+        <img class="img-fluid mx-auto" src="{{ project.image.url }}" alt="project image">
+        </a>
+        {% else %}
+        <a href="{% url 'project_detail' project.id %}" target="_blank">
+        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+        </a>
+        {% endif %}
+        <a href="{% url 'project_detail' project.id %}" target="_blank">
+          <h3 class="project_title variable_title mt-3">{{ project.title}}</h3>
+        </a>
+        <a href="{% url 'per_category' project.category %}" target="_blank">
+          <p class="subtext">{{ project.category }}</p>
+        </a>
+        <p class="description variable_description">{{ project.description|safe|striptags|truncatewords:25 }}</p>
+        <br>
+        <p class="subtext">{{ project.num_days }} days left</p>
+        <div>
+          <div class="progress progress-section">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{project.percentage}}%">
+              {{ project.percentage }} %
             </div>
-            <p class="description" >{{ project.description|safe|striptags|truncatewords:40}}</p>
-            <p class="results">goal: ${{project.goal}}&nbsp;&nbsp;&nbsp;&nbsp; raised: ${{ project.raised }}&nbsp;&nbsp;&nbsp;&nbsp; ends in: {{ project.num_days }} days</p>
-         </div>
-         {% comment %} one col to show the pictures for the new projects {% endcomment %}
-         <div class="col-4 ml-5 mb-5">
-            {% if project.image %}
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid" src="{{ project.image.url }}" alt="project image">
-            </a>
-            {% else %}
-            <a href="{% url 'project_detail' project.id %}" target="_blank">
-            <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
-            </a>
-            {% endif %}
-         </div>
+          </div>
+          {% if project.percentage < 12 %}
+          <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }}&nbsp;&nbsp;({{ project.percentage }}%)</p>
+          {% else %}
+          <p class="progressbar-text">raised ${{ project.raised }} from goal ${{ project.goal }} </p>
+          {% endif %}
+        </div>
       </div>
       {% endif %}
       {% endfor %}
-   </div>
+    </div>
+  </div>
+</div>
+<!--Top 5 Newest projects-->
+{% comment %} row to make content for the new projects {% endcomment %}
+<div class="row no-gutters mt-5 mb-0">
+  {% comment %} one column to make content for the new projects {% endcomment %}
+  <div class="col">
+    {% comment %} one row to make the section title for the new projects {% endcomment %}
+    <div class="row no-gutters justify-content-center align-items-center new_projects">
+      <div class="col-3 text-center new_projects_title mt-3 mb-5">
+        <h2>New Projects</h2>
+      </div>
+    </div>
+    {% comment %} one row to make the content for the new projects {% endcomment %}
+    {% for project in projects|dictsortreversed:"created_date"|slice:"0:5" %}
+    {% if project.num_days > 0 %}
+    <div class="row no-gutters new_projects">
+      {% comment %} one col to show the details for the new projects {% endcomment %}
+      <div class="offset-1 col-6">
+        <div class="title_cat">
+          <a href="{% url 'project_detail' project.id %}" target="_blank">
+            <h3 class="project_title">{{ project.title}}</h3>
+          </a>
+          <a href="{% url 'per_category' project.category %}" target="_blank">
+            <p class="subtext mr-2">{{ project.category }}</p>
+          </a>
+        </div>
+        <p class="description" >{{ project.description|safe|striptags|truncatewords:40}}</p>
+        <p class="results">goal: ${{project.goal}}&nbsp;&nbsp;&nbsp;&nbsp; raised: ${{ project.raised }}&nbsp;&nbsp;&nbsp;&nbsp; ends in: {{ project.num_days }} days</p>
+      </div>
+      {% comment %} one col to show the pictures for the new projects {% endcomment %}
+      <div class="col-4 ml-5 mb-5">
+        {% if project.image %}
+        <a href="{% url 'project_detail' project.id %}" target="_blank">
+        <img class="img-fluid" src="{{ project.image.url }}" alt="project image">
+        </a>
+        {% else %}
+        <a href="{% url 'project_detail' project.id %}" target="_blank">
+        <img class="img-fluid" src="{% static 'img/No-image-available.png' %}" alt="no image available">
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

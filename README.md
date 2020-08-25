@@ -203,6 +203,7 @@ Therefore, when there were more than 5 projects fitting the search, they were no
 - [Trello](https://trello.com/): to register the user stories and issues, so to pick up a set of issues in a certain week
 - [dbdiagram.io](dbdiagram.io): to make the data schema picture
 - [Cloudinary](https://cloudinary.com/): for the storage of uploaded media images, which is an alternative to AWS if you do not have an amazon account and/or a credit card.
+- [html-formatter](https://www.freeformatter.com/html-formatter.html): to get the indentation correct for all html pages, using 2 spaces per indent level.
 
 
 
