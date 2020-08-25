@@ -73,7 +73,7 @@ Other ways to search for a particular project is to use the search bar present t
 Every search bar searches for words within the title as well as the description.
 
 If a user is deciding rather of not to pledge it is important to tell them what's in it for them. In each project the project owner has to name 3 possible rewards.
-The more enticing the rewards the higher the change people will pledge. For now it is necessary to fill in all three project so people can pledge to reward no. 1, 2 or 3.
+The more enticing the rewards the higher the change people will pledge. For now it is necessary to fill in all three rewards so people can pledge to reward no. 1, 2 or 3.
 The user can only pledge to a project when logged on and can enter an amount of their own choosing to pledge, though Stripe needs it to be higher or equal to $0.50.
 For that reason, the default value is 1 and when a user accidentally enters a value lower than 1 it will return an error.
 
@@ -117,7 +117,7 @@ Some fields needed extra help to validate and were customised:
 - Value should be higher or equal to 1 if the amount to be pledged is lower than one.
 
 When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised as of yet.
-Also the progress bar visualises the % raised. Because lower percentages (<12%>) aren't visible in the progress bar a text wuth the percentage will be shown underneath the progress bar.
+Also the progress bar visualises the % raised. Because lower percentages (<12%>) aren't visible in the progress bar a text with the percentage will be shown underneath the progress bar.
 For percentages higher or equal to 12% the text will disappear and the percentage is shown in the progress bar itself.
 In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.
 If a project is deleted, but a pledge has been made, the order history table will still show the pledge with the order number and the pledged amount.
@@ -550,7 +550,7 @@ Used the standard dev tools from Chrome to test the different devices. Also test
 
 <a name="thanks"></a>
 ## Acknowledgements
-- For the basic setup of the environment of the app and its documentation the video's from Code Institute were used
+- For the basic setup of the environment of the app and its documentation the videos from Code Institute were used
 and the Heroku site for a more detailed explanation of some terminology used by Heroku.
 
 - logo picture: https://www.freepik.com/free-vector/piggy-bank-happy-piggy-bank-background_1137678.htm
@@ -568,5 +568,3 @@ and the Heroku site for a more detailed explanation of some terminology used by 
 - my mentor, Maranatha Ilesanmi, for supporting and helping me when needed.
 - friends and family willing to test the site for me
 - https://github.com/klis87/django-cloudinary-storage: for the implementation of Cloudinary storage
-- the code institute video's
-
