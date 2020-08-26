@@ -59,8 +59,6 @@ def charge(request, pk=None):
     this view creates a charge to be processed by stripe
     by obtaining the amount from the form filled in the view checkout
     """
-    project = get_object_or_404(Project, pk=pk) if pk else None
-
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
         # CREATE PAYMENT INTENT and STRIPE DASHBOARD VARIABLES

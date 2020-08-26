@@ -1,7 +1,6 @@
 from .models import Category
 
 
-
 def categories(request):
     """
     show the categories on all templates dynamically
@@ -13,6 +12,3 @@ def categories(request):
     }
 
     return context
-
-
-

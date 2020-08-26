@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.utils import timezone, six
+from django.utils import timezone
 from datetime import datetime
 from django.contrib import messages
 from django.db.models import Q
@@ -58,7 +58,6 @@ def search_projects(request):
 
             queries = Q(title__icontains=query) | Q(description__icontains=query)
             projects = projects.filter(queries)
-            results = projects.filter(queries)
 
     calculations(projects)
 

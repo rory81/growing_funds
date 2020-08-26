@@ -1,12 +1,11 @@
 from django import forms
 from .models import Project
 from datetime import datetime
-from django.utils.safestring import mark_safe
-from django.shortcuts import reverse
 
 
 class StartProjectForm(forms.ModelForm):
     conditions = forms.BooleanField(required=True, label="Agree to Terms & Conditions?")
+
     class Meta:
         model = Project
         fields = ('title', 'image', 'category', 'description', 'backers_story_option1', 'backers_story_option2', 'backers_story_option3', 'goal', 'end_date', 'conditions')

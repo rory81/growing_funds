@@ -21,7 +21,6 @@ class OrderForm(forms.ModelForm):
             'amount_pledged'
         )
 
-
         labels = {
             'full_name': 'Full Name',
             'email': 'Email Address',
@@ -35,4 +34,3 @@ class OrderForm(forms.ModelForm):
             'reward': 'Choose the reward matching the amount you want to pledge',
             'amount_pledged': 'Amount ($)'
         }
-
