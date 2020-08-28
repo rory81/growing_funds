@@ -488,20 +488,21 @@ td.space-divider{
 
 /*MEDIA QUERIES*/
 @media(min-width:1024px) {
-     .delivery_seperator {
-    display:none;
-  }
+    .delivery_seperator {
+        display:none;
+    }
 
     td {
-    font-size: 20px!important;
+        font-size: 20px!important;
     }
+
     input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
-    font-size: 18px!important;
-  }
+        font-size: 18px!important;
+    }
 
     .mobile-detail-image{
-    width: 333.66px;
-    height: 187.68px!important;
+        width: 333.66px;
+        height: 187.68px!important;
     }
 
     .image-margin{
@@ -519,6 +520,10 @@ td.space-divider{
 
     html body p, li.list-item{
         font-size: 16px!important;
+    }
+
+    .variable_description{
+        height: 130px;
     }
 }
 
