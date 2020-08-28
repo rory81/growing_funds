@@ -118,7 +118,7 @@ Some fields needed extra help to validate and were customised:
 - Value should be higher or equal to 1 if the amount to be pledged is lower than one.
 
 When a project is created the project will appear in the profile page. On the profile page the host can easily see how many days are left and how much it has raised as of yet.
-Also the progress bar visualises the % raised. Because lower percentages (<12%>) aren't visible in the progress bar a text with the percentage will be shown underneath the progress bar.
+Also the progress bar visualises the % raised. Because lower percentages (<12%) aren't visible in the progress bar a text with the percentage will be shown underneath the progress bar.
 For percentages higher or equal to 12% the text will disappear and the percentage is shown in the progress bar itself.
 In the same table there are buttons for the host to edit or delete the project. This way only the user that created the project can edit or delete it.
 If a project is deleted, but a pledge has been made, the order history table will still show the pledge with the order number and the pledged amount.
@@ -522,6 +522,10 @@ validations were checked:
 a) based on the previous list of standard and customized errors
 b) a few required fields were tested for the startprojectform with Travis for educational purposes. Tests are in the tests_forms.py
 c) 3 independent users made projects and made pledges.
+
+The zoom in functionality from mobile for the forms as well as the search bars is sometimes annoying, but most of the time it is actually handy.
+The users that tested it for me didn't have any trouble with it. However, the zoom function for the search bar in the datatable doesn't zoom out when the search is found.
+The users didn't see this as a bug because they seem to be used to pinching in and out, but should be investigated if there is another possibility.
 
 4. Check pagination:
 all datatables were checked to see if the pagination worked, even with different number of projects.
