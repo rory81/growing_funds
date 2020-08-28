@@ -533,6 +533,7 @@ all datatables were checked to see if the pagination worked, even with different
 5. check email functionality:
 - checked if the user gets an email when pledging to a project
 - checked if the host gets an email when a user pledges to their project
+- checked allauth mail functionality
 
 6. Tested on multiple devices:
 Used the standard dev tools from Chrome to test the different devices. Also tested it live on:
