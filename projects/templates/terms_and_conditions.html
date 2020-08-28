@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!--Code when the searchbar doesn't find anything-->
-{%if projects.count == 0 %}
-<h1 class="text-center logo_title">No projects found with that search criteria</h1>
-<!--End Code when the searchbar doesn't find anything-->
-{% else %}
 <div class="col">
   <div class="row no-gutters justify-content-center align-items-center ">
     <div class="col-3 text-center new_projects_title mt-3 mb-2">
@@ -15,7 +10,7 @@
     </div>
   </div>
 </div>
-<div class="row mt-5">
+<div class="row no-gutters mt-5">
   <div class="col-12 text-center mt-5">
     <h4>Welcome to GrowingFunds!</h4>
   </div>
@@ -47,5 +42,4 @@
     </ul>
   </div>
 </div>
-{% endif %}
 {% endblock %}

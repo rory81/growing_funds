@@ -85,6 +85,7 @@ If the user has any questions for the host, the envelope in the project's page c
 Once the user has pledged the user will get an email confirmation with the order number, the amount pledged and the name of the project.
 Furthermore, the pledge will be shown in the projects table on the user's profile page. This way the user can see back to which projects it has pledged to and can easily return to those project pages.
 On this same profile page can the user change their delivery information (address etc), although this information can also be updated when a user makes a pledge.
+If the project has ended the user can no longer pledge to that project.
 
 
 ##### The Crowdfunding host

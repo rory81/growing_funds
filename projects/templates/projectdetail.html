@@ -10,6 +10,7 @@
       <img class="mobile-detail-image" src="{% static 'img/No-image-available.png' %}" alt="no image available">
       {% endif %}
     </div>
+    <!-- project details -->
     <div class="offset-3 col-6 offset-lg-0 col-lg-4">
       <div class="title_cat">
         <h2 class="project_title">{{ project.title }}</h2>
@@ -35,14 +36,16 @@
       {% if project.num_days > 0 %}
       <p class="subtext_black">
         {{ project.num_days }} days left &nbsp;&nbsp;&nbsp;&nbsp; {{ project.views }} views &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- ability to ask the host a question -->
         <a href="mailto:{{ project_user.email }}?subject=GrowingFunds%20project:%20{{project.title.split|join:'%20'}}" title="Email the project owner for questions">
         <i class="fas fa-envelope fa-lg float-right mt-2"></i>
         </a>
-        <!-- ShareThis BEGIN -->
+        <!-- ShareThis button BEGIN -->
       <div class="sharethis-inline-share-buttons"></div>
       <!-- ShareThis END -->
       </p>
       {% else %}
+      <!-- if the end date of the project has been reached -->
       <p class="expired">This project has expired &nbsp;&nbsp;&nbsp;&nbsp; {{ project.views }} views</p>
       {% endif%}
     </div>
@@ -50,6 +53,7 @@
 </div>
 <div class="row no-gutters justify-content-center mb-5">
   <div class="offset-6 col-3 col-xl-2  mx-auto">
+    <!-- the pledge button only visible when the project is not expired -->
     {% if project.num_days > 0 %}
     {% if request.user.is_authenticated %}
     <a href="{% url 'checkout' project.id %}" class="btn mt-5">
@@ -66,6 +70,7 @@
 <hr class="mt-5">
 <div class="row no-gutters">
   <div class="col-9 offset-2 detail_info">
+    <!-- project story -->
     <div>
       <h2 class="project_title">Project Description</h2>
       <p class="description">{{ project.description|safe|linebreaks }}</p>

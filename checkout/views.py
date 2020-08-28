@@ -180,7 +180,6 @@ def success(request, total, pk, order_number):
             [project_user.email],
             fail_silently=False,
         )
-    print("email", order.email)
 
     context = {
         'project': project,
