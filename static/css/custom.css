@@ -201,7 +201,7 @@ input, select, textarea, input.ElementsApp input.InputElement, p.text-muted {
     width: 100%!important;
 }
 
-html body p{
+html body p, li.list-item{
 	font-size: 20px!important;
 }
 
@@ -517,7 +517,7 @@ td.space-divider{
         display: none;
     }
 
-    html body p{
+    html body p, li.list-item{
         font-size: 16px!important;
     }
 }
