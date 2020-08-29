@@ -527,6 +527,10 @@ The zoom in functionality from mobile for the forms as well as the search bars i
 The users that tested it for me didn't have any trouble with it. However, the zoom function for the search bar in the datatable doesn't zoom out when the search is found.
 The users didn't see this as a bug because they seem to be used to pinching in and out, but should be investigated if there is another possibility.
 
+One bug was found when uploading the project image. If the form returns the customized errors the image isn't held.
+The user has to add the picture again or can edit the project in their profile page.
+
+
 4. Check pagination:
 all datatables were checked to see if the pagination worked, even with different number of projects.
 
