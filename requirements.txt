@@ -2,7 +2,7 @@ asgiref==3.2.10
 click==7.1.2
 cloudinary==1.22.0
 dj-database-url==0.5.0
-Django==3.0.8
+Django==3.1.9
 django-allauth==0.42.0
 django-bootstrap-pagination==1.7.1
 django-ckeditor==5.9.0
